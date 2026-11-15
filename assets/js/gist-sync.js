@@ -1,6 +1,6 @@
 /**
  * OracleDBA - GitHub Gist Automatic Sync Service
- * Seamless two-way cloud synchronization for PC, Tablet and Mobile
+ * Seamless two-way cloud synchronization for PC, Tablet, and Mobile.
  * Uses GitHub REST API v3 to read and write a secret Gist containing study stats.
  */
 
@@ -42,28 +42,28 @@
     return Boolean(cfg.token && cfg.gistId);
   }
 
-  // Update visual status pill across any page
+  // Update visual status pill across all pages
   function updateStatusUI(status, message) {
     const pills = document.querySelectorAll('.gist-sync-status');
     pills.forEach(pill => {
       pill.className = `gist-sync-status status-${status}`;
       if (status === 'synced') {
-        pill.innerHTML = `☁️ <span class="sync-text">Gist: Sincronizado</span>`;
-        pill.title = message || 'Progreso sincronizado en GitHub Gist';
+        pill.innerHTML = `☁️ <span class="sync-text">Gist: Synced</span>`;
+        pill.title = message || 'Progress synchronized with GitHub Gist';
       } else if (status === 'syncing') {
-        pill.innerHTML = `⏳ <span class="sync-text">Sincronizando...</span>`;
-        pill.title = 'Guardando cambios en GitHub Gist...';
+        pill.innerHTML = `⏳ <span class="sync-text">Syncing...</span>`;
+        pill.title = 'Saving changes to GitHub Gist...';
       } else if (status === 'error') {
-        pill.innerHTML = `⚠️ <span class="sync-text">Error Gist</span>`;
-        pill.title = message || 'Error al conectar con GitHub Gist. Clic para configurar.';
+        pill.innerHTML = `⚠️ <span class="sync-text">Gist Error</span>`;
+        pill.title = message || 'Error connecting to GitHub Gist. Click to configure.';
       } else {
-        pill.innerHTML = `☁️ <span class="sync-text">Conectar Gist</span>`;
-        pill.title = 'Configura tu GitHub Token para sincronización automática';
+        pill.innerHTML = `☁️ <span class="sync-text">Connect Gist</span>`;
+        pill.title = 'Configure your GitHub Token for automatic sync';
       }
     });
   }
 
-  // Gather all local exam stats into a bundle
+  // Gather all local exam stats into a single payload
   function getLocalPayload() {
     const stats78 = JSON.parse(localStorage.getItem('oracle_dba_stats_1z0-078') || localStorage.getItem('1z0_078_stats_v2') || '{}');
     const th78 = parseInt(localStorage.getItem('oracle_dba_threshold_1z0-078') || localStorage.getItem('1z0_078_threshold_v2') || '3', 10);
@@ -159,7 +159,7 @@
 
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      throw new Error(err.message || `Error HTTP ${res.status}`);
+      throw new Error(err.message || `HTTP Error ${res.status}`);
     }
 
     const gist = await res.json();
@@ -198,7 +198,7 @@
 
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      throw new Error(err.message || `Error HTTP ${res.status}`);
+      throw new Error(err.message || `HTTP Error ${res.status}`);
     }
 
     return await res.json();
@@ -229,14 +229,14 @@
 
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      throw new Error(err.message || `Error HTTP ${res.status}`);
+      throw new Error(err.message || `HTTP Error ${res.status}`);
     }
 
     const data = await res.json();
     return data.id;
   }
 
-  // Full two-way synchronize: Pull, Merge, and Push back
+  // Full two-way synchronization: Pull, Merge, and Push back
   async function syncNow(notify = false) {
     if (!isConfigured()) {
       updateStatusUI('unconfigured');
@@ -253,11 +253,10 @@
       // 1. Pull remote data
       const remoteData = await fetchGist(cfg.token, cfg.gistId);
 
-      // 2. Apply & merge with local
+      // 2. Apply & merge with local data
       if (remoteData) {
         const changed = applyRemoteData(remoteData);
         if (changed) {
-          // Trigger page UI refresh if OracleApp exists
           if (global.OracleApp && typeof global.OracleApp.onSearch === 'function') {
             global.OracleApp.onSearch();
           }
@@ -273,16 +272,16 @@
 
       const now = new Date().toISOString();
       localStorage.setItem(STORAGE_KEYS.lastSync, now);
-      updateStatusUI('synced', `Última sincronización: ${new Date().toLocaleTimeString()}`);
+      updateStatusUI('synced', `Last sync: ${new Date().toLocaleTimeString()}`);
 
       if (notify) {
-        alert('✅ ¡Sincronización completada con éxito!');
+        alert('✅ Synchronization completed successfully!');
       }
     } catch (err) {
       console.error('Gist sync failed:', err);
       updateStatusUI('error', err.message);
       if (notify) {
-        alert('❌ Error durante la sincronización: ' + err.message);
+        alert('❌ Error during synchronization: ' + err.message);
       }
     } finally {
       isSyncing = false;
@@ -313,7 +312,7 @@
 
     const lastSyncEl = document.getElementById('gist-last-sync-text');
     if (lastSyncEl) {
-      lastSyncEl.innerText = cfg.lastSync ? new Date(cfg.lastSync).toLocaleString() : 'Nunca';
+      lastSyncEl.innerText = cfg.lastSync ? new Date(cfg.lastSync).toLocaleString() : 'Never';
     }
 
     modal.classList.add('active');
@@ -329,14 +328,14 @@
     let gistId = (document.getElementById('gist-id-input').value || '').trim();
 
     if (!token) {
-      alert('Por favor introduce tu GitHub Personal Access Token.');
+      alert('Please enter your GitHub Personal Access Token.');
       return;
     }
 
     const saveBtn = document.getElementById('btn-save-gist');
     if (saveBtn) {
       saveBtn.disabled = true;
-      saveBtn.innerText = 'Conectando con GitHub...';
+      saveBtn.innerText = 'Connecting to GitHub...';
     }
 
     try {
@@ -353,27 +352,27 @@
       localStorage.setItem(STORAGE_KEYS.token, token);
       localStorage.setItem(STORAGE_KEYS.gistId, gistId);
 
-      alert(`✅ ¡Conexión con GitHub Gist exitosa!\n\nID del Gist: ${gistId}\n\nUsa este mismo ID y Token en tu Tablet para sincronizar.`);
+      alert(`✅ Connection to GitHub Gist successful!\n\nGist ID: ${gistId}\n\nUse this same ID and Token on your Tablet to sync.`);
       closeConfigModal();
       syncNow(true);
     } catch (err) {
-      alert('❌ Error al conectar con GitHub Gist: ' + err.message);
+      alert('❌ Error connecting to GitHub Gist: ' + err.message);
     } finally {
       if (saveBtn) {
         saveBtn.disabled = false;
-        saveBtn.innerText = 'Guardar y Sincronizar';
+        saveBtn.innerText = 'Save & Sync';
       }
     }
   }
 
   function disconnect() {
-    if (confirm('¿Deseas desconectar la sincronización de GitHub Gist en este dispositivo? (Tu progreso local no se borrará)')) {
+    if (confirm('Do you want to disconnect GitHub Gist sync on this device? (Your local progress will not be deleted)')) {
       localStorage.removeItem(STORAGE_KEYS.token);
       localStorage.removeItem(STORAGE_KEYS.gistId);
       localStorage.removeItem(STORAGE_KEYS.lastSync);
       updateStatusUI('unconfigured');
       closeConfigModal();
-      alert('GitHub Gist desconectado.');
+      alert('GitHub Gist disconnected.');
     }
   }
 
@@ -383,16 +382,16 @@
     div.className = 'modal';
     div.innerHTML = `
       <div class="modal-content" style="max-width:540px;">
-        <h3>☁️ Sincronización Automática con GitHub Gist</h3>
+        <h3>☁️ Automatic GitHub Gist Sync</h3>
         <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">
-          Sincroniza tus estadísticas, preguntas falladas y rachas automáticamente entre tu PC y tu Tablet utilizando un <strong>Gist secreto</strong> personal en tu cuenta de GitHub.
+          Automatically synchronize your statistics, failed questions, and streaks between your PC and Tablet using a personal <strong>secret Gist</strong> on your GitHub account.
         </p>
 
         <div style="background:#0b1120; border:1px solid var(--border); border-radius:8px; padding:14px; margin-bottom:16px; font-size:0.82rem; line-height:1.6; color:#94a3b8;">
-          <strong style="color:var(--accent);">¿Cómo obtener tu Token de GitHub?</strong><br>
-          1. Ve a GitHub &rarr; <strong>Settings</strong> &rarr; <strong>Developer settings</strong> &rarr; <strong>Personal access tokens (classic)</strong>.<br>
-          2. Genera un nuevo token con solo el permiso <code>gist</code> marcado.<br>
-          3. Pega el token generado a continuación. Si es la primera vez, el Gist se creará automáticamente.
+          <strong style="color:var(--accent);">How to get your GitHub Token?</strong><br>
+          1. Go to GitHub &rarr; <strong>Settings</strong> &rarr; <strong>Developer settings</strong> &rarr; <strong>Personal access tokens (classic)</strong>.<br>
+          2. Generate a new token with only the <code>gist</code> scope checked.<br>
+          3. Paste the generated token below. On first setup, the Gist is created automatically.
         </div>
 
         <div style="display:flex; flex-direction:column; gap:12px;">
@@ -402,21 +401,21 @@
           </div>
 
           <div>
-            <label style="font-size:0.85rem; font-weight:600; display:block; margin-bottom:4px;">Gist ID (Opcional en la primera configuración):</label>
-            <input type="text" id="gist-id-input" placeholder="Déjalo vacío para crear uno nuevo automáticamente" style="width:100%; background:#0b1120; border:1px solid var(--border); color:#fff; padding:10px 12px; border-radius:6px; font-family:var(--font-mono); font-size:0.85rem;">
-            <small style="font-size:0.75rem; color:var(--text-muted);">Para enlazar tu Tablet, copia y pega aquí el Gist ID creado en tu PC.</small>
+            <label style="font-size:0.85rem; font-weight:600; display:block; margin-bottom:4px;">Gist ID (Optional on first setup):</label>
+            <input type="text" id="gist-id-input" placeholder="Leave empty to auto-create a new Gist" style="width:100%; background:#0b1120; border:1px solid var(--border); color:#fff; padding:10px 12px; border-radius:6px; font-family:var(--font-mono); font-size:0.85rem;">
+            <small style="font-size:0.75rem; color:var(--text-muted);">To link your Tablet, copy and paste the Gist ID created on your PC here.</small>
           </div>
 
           <div style="font-size:0.8rem; color:var(--text-muted); margin-top:4px;">
-            Última sincronización: <strong id="gist-last-sync-text" style="color:var(--text-main);">-</strong>
+            Last sync: <strong id="gist-last-sync-text" style="color:var(--text-main);">-</strong>
           </div>
         </div>
 
         <div class="modal-actions" style="margin-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-          <button style="border-color:var(--error); color:var(--error); background:none;" onclick="GistSync.disconnect()">Desconectar</button>
+          <button style="border-color:var(--error); color:var(--error); background:none;" onclick="GistSync.disconnect()">Disconnect</button>
           <div style="display:flex; gap:8px;">
-            <button onclick="GistSync.closeModal()">Cerrar</button>
-            <button class="primary" id="btn-save-gist" onclick="GistSync.saveConfiguration()">Guardar y Sincronizar</button>
+            <button onclick="GistSync.closeModal()">Close</button>
+            <button class="primary" id="btn-save-gist" onclick="GistSync.saveConfiguration()">Save &amp; Sync</button>
           </div>
         </div>
       </div>

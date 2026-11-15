@@ -31,16 +31,16 @@ class CustomHTTPHandler(http.server.SimpleHTTPRequestHandler):
 print("=" * 60)
 print("  ORACLE 19c DBA EXAM SIMULATOR - LOCAL SERVER")
 print("=" * 60)
-print(f" Directorio raíz : {web_dir}")
-print(f" Acceso desde PC : http://localhost:{PORT}")
-print(f" Acceso TABLET   : http://{local_ip}:{PORT}")
+print(f" Root Directory   : {web_dir}")
+print(f" Access from PC   : http://localhost:{PORT}")
+print(f" Access from TABLET: http://{local_ip}:{PORT}")
 print("=" * 60)
-print(" Para salir del servidor presiona Ctrl+C en esta consola.\n")
+print(" Press Ctrl+C in this terminal to stop the server.\n")
 
 socketserver.TCPServer.allow_reuse_address = True
 with socketserver.TCPServer(("0.0.0.0", PORT), CustomHTTPHandler) as httpd:
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        print("\nServidor detenido.")
+        print("\nServer stopped.")
         sys.exit(0)

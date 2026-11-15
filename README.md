@@ -1,168 +1,166 @@
 # 🎓 Oracle 19c DBA Exam Simulators
 
-Suite de simuladores web de preparación para las certificaciones oficiales de **Oracle Database 19c**, optimizada para su uso en **PC, Tablet (iPad / Android) y Móvil**, con soporte **100% Offline (PWA)** y sincronización de progreso entre dispositivos.
+Web-based exam preparation suite for official **Oracle Database 19c** certifications, optimized for **PC, Tablet (iPad / Android), and Mobile**, featuring **100% Offline support (PWA)** and cross-device progress synchronization via **GitHub Gist**.
 
 ---
 
-## 📌 Certificaciones Incluidas
+## 📌 Included Certifications
 
 1. **Oracle 1Z0-078 — RAC and Grid Infrastructure Administration**
-   - **78 preguntas** auditadas y verificadas.
-   - Dominios: Real Application Clusters (RAC), Clusterware, Automatic Storage Management (ASM) y ACFS.
-   - Acceso: [`/1z0-078/`](1z0-078/index.html).
+   - **78 questions** audited and verified.
+   - Domains: Real Application Clusters (RAC), Clusterware, Automatic Storage Management (ASM), and ACFS.
+   - URL: [`/1z0-078/`](1z0-078/index.html).
 
 2. **Oracle 1Z0-083 — Database Administration II (OCP 19c)**
-   - **181 preguntas** auditadas y verificadas.
-   - Dominios: Multitenant Architecture, Backup & RMAN, Database Upgrade, Performance & Tuning, y Flashback Technologies.
-   - Acceso: [`/1z0-083/`](1z0-083/index.html).
+   - **181 questions** audited and verified.
+   - Domains: Multitenant Architecture, Backup & RMAN, Database Upgrade, Performance & Tuning, and Flashback Technologies.
+   - URL: [`/1z0-083/`](1z0-083/index.html).
 
 ---
 
-## 🚀 Características Principales
+## 🚀 Key Features
 
-- **4 Modos de Estudio**:
-  - 📖 **Practice / Study Mode**: Evaluación pregunta a pregunta con verificación inmediata, explicaciones técnicas completas y enlaces a la documentación oficial de Oracle 19c.
-  - ⏱️ **Real Exam Simulator**: Simulación cronometrada (120 minutos, 60 preguntas en 078 / 68 en 083) con algoritmo de barajado imparcial (*Fisher-Yates*), cálculo de percentil y desglose por dominio.
-  - ⚠️ **Weak Questions**: Repaso enfocado exclusivamente en las preguntas falladas o sin racha.
-  - 🧠 **Memory Mode**: Memorización activa rápida con respuestas correctas pre-resaltadas.
-- **Sistema de Maestría (*Spaced Repetition*)**: Contador de rachas por pregunta con umbral configurable de 1 a 5 aciertos consecutivos.
-- **📱 Optimización Tablet & Táctil**:
-  - **Gestos de deslizamiento (*Swipe*)**: Pasa a la siguiente o anterior pregunta arrastrando el dedo a izquierda o derecha.
-  - **Zonas táctiles ampliadas**: Botones y opciones de respuesta con altura mínima de 48px para pulsación cómoda.
-  - **Teclado numérico nativo**: Selector rápido de pregunta con teclado numérico en iPad/Android.
-- **💾 Sincronización PC ↔ Tablet**: Exportación e importación de progreso mediante ficheros `.json` unificados.
-- **⚡ 100% Offline (PWA)**: *Service Worker* integrado que almacena en caché todas las preguntas y assets para estudiar sin conexión a internet.
+- **4 Study Modes**:
+  - 📖 **Practice / Study Mode**: Question-by-question evaluation with instant feedback, comprehensive technical explanations, and direct links to official Oracle 19c documentation.
+  - ⏱️ **Real Exam Simulator**: Timed simulation (120 minutes, 60 questions for 078 / 68 questions for 083) using the unbiased **Fisher-Yates shuffle algorithm**, score breakdown, and domain percentile analytics.
+  - ⚠️ **Weak Questions**: Targeted review mode focused exclusively on failed questions or questions with no streak.
+  - 🧠 **Memory Mode**: Fast active-recall mode with correct options pre-highlighted and incorrect choices dimmed.
+- **Spaced Repetition & Mastery**: Question-level streak tracking with a configurable mastery threshold (1 to 5 consecutive correct answers).
+- **📱 Tablet & Touch Optimization**:
+  - **Swipe Gestures**: Swipe left or right anywhere on screen to smoothly navigate between questions.
+  - **Enlarged Touch Targets**: Answer options and action buttons feature a minimum touch height of 48px to prevent accidental taps.
+  - **Native Numeric Keypad**: "Jump to #" inputs invoke the native numeric keypad on iOS and Android.
+- **☁️ Automatic GitHub Gist Sync**: Seamless two-way cloud synchronization between PC and Tablet with smart merging.
+- **⚡ 100% Offline (PWA)**: Integrated Service Worker that caches all static assets and question banks for offline study anywhere.
 
 ---
 
-## 📱 Cómo utilizarlo desde tu Tablet
+## 📱 How to Use on Your Tablet
 
-### Opción A: Despliegue en GitHub Pages (Recomendada - Acceso universal)
+### Option A: GitHub Pages (Recommended — Universal Cloud Access)
 
-Para acceder desde cualquier lugar sin depender de tu PC encendido:
+Access your exam simulators from anywhere without keeping your PC powered on:
 
-1. **Crea un repositorio en GitHub**:
-   - Entra en [github.com](https://github.com) y crea un nuevo repositorio (puede ser público o privado).
-2. **Sube el proyecto desde tu terminal**:
+1. **Push the project to GitHub**:
    ```bash
    git add .
-   git commit -m "OracleDBA Suite 2.0 con soporte Tablet y PWA"
-   git remote add origin https://github.com/TU-USUARIO/OracleDBA.git
-   git branch -M main
-   git push -u origin main
+   git commit -m "Update OracleDBA exam suite"
+   git push origin main
    ```
-3. **Activa GitHub Pages**:
-   - En tu repositorio de GitHub, ve a **Settings** &rarr; **Pages**.
-   - En **Build and deployment** / **Branch**, selecciona `main` y la carpeta `/(root)`. Haz clic en **Save**.
-   - En 1 minuto tendrás tu URL activa: `https://TU-USUARIO.github.io/OracleDBA/`.
-4. **Instálalo en tu Tablet como App**:
-   - **En iPad (Safari)**: Entra a tu URL, pulsa el botón **Compartir** (icono de cuadrado con flecha hacia arriba) y selecciona **"Añadir a pantalla de inicio"**.
-   - **En Android (Chrome)**: Entra a tu URL, pulsa en el menú (tres puntos) y elige **"Instalar aplicación"** o **"Añadir a pantalla de inicio"**.
-   - *¡Listo! Se abrirá a pantalla completa y funcionará incluso sin cobertura o en modo avión.*
+2. **Enable GitHub Pages**:
+   - Go to your repository on GitHub: **Settings** &rarr; **Pages**.
+   - Under **Build and deployment** / **Branch**, select `main` and the root folder `/(root)`. Click **Save**.
+   - Within 1–2 minutes, your site will be live at: `https://<YOUR_GITHUB_USERNAME>.github.io/OracleDBA/`.
+3. **Install as a PWA App on your Tablet**:
+   - **On iPad (Safari)**: Open your GitHub Pages URL, tap the **Share** button (box with upward arrow), and select **"Add to Home Screen"**.
+   - **On Android (Chrome)**: Open your URL, tap the menu (three dots), and select **"Install app"** or **"Add to Home screen"**.
+   - *The simulator will launch as a full-screen, standalone app that functions completely offline.*
 
 ---
 
-### Opción B: Uso en Red Local Wi-Fi (Sin subir nada a internet)
+### Option B: Local Wi-Fi Network (Without Cloud Hosting)
 
-Si prefieres mantener todo en local en tu red doméstica:
+To study locally across your home network:
 
-1. En tu PC, haz doble clic en `start_server.bat` (o ejecuta `python scripts/server.py`).
-2. En la consola verás una línea con la IP de tu PC, por ejemplo:
+1. On your PC, double-click `start_server.bat` (or run `python scripts/server.py`).
+2. The terminal displays your local network address, for example:
    ```text
-   Acceso TABLET : http://192.168.1.45:8080
+   Access from TABLET: http://192.168.1.45:8080
    ```
-3. Abre el navegador de tu tablet (conectada a la misma Wi-Fi) y escribe esa dirección.
+3. Open your tablet's browser (connected to the same Wi-Fi) and navigate to that address.
 
 ---
 
-## 🔄 Sincronización Automática con GitHub Gist
+## 🔄 Automatic Cloud Sync with GitHub Gist
 
-La suite incluye un backend serverless utilizando **GitHub Gist**. Puedes responder preguntas en tu PC y continuar en tu Tablet sin necesidad de enviar archivos manualmente ni crear bases de datos externas:
+The suite includes a serverless cloud backend powered by **GitHub Gist**. You can answer questions on your PC and continue seamlessly on your Tablet without manual file transfers:
 
-### Paso 1: Obtener tu Token de GitHub (PAT)
-1. Inicia sesión en [GitHub](https://github.com/) y dirígete a:  
+### Step 1: Create your GitHub Personal Access Token (PAT)
+1. Sign in to [GitHub](https://github.com/) and navigate to:  
    👉 **Settings** &rarr; **Developer Settings** &rarr; **Personal Access Tokens** &rarr; **Tokens (classic)**  
-   *(o accede a [github.com/settings/tokens](https://github.com/settings/tokens))*.
-2. Haz clic en **Generate new token (classic)**.
-3. Dale una descripción (ej. `OracleDBA Sync`) y marca únicamente la casilla:
+   *(or directly visit [github.com/settings/tokens](https://github.com/settings/tokens))*.
+2. Click **Generate new token (classic)**.
+3. Set a Note (e.g. `OracleDBA Sync`) and check only the following scope:
    - [x] **`gist`** *(Create gists)*.
-4. Genera el token y copia el valor resultante (`ghp_...`).
+4. Generate and copy your token (`ghp_...`).
 
-### Paso 2: Conectar en tu PC
-1. Abre el simulador en tu PC y haz clic en el botón **"☁️ Conectar Gist"** en la cabecera.
-2. Pega tu Token en el campo correspondiente (deja el campo *Gist ID* vacío).
-3. Haz clic en **"Guardar y Sincronizar"**.
-4. La aplicación creará automáticamente un Gist secreto y te mostrará el **Gist ID generado** (ej. `a1b2c3d4e5f6...`).
+### Step 2: Connect on your PC
+1. Open the simulator on your PC and click the **"☁️ Connect Gist"** button in the header.
+2. Paste your Token into the field (leave the *Gist ID* field empty).
+3. Click **"Save & Sync"**.
+4. The application automatically creates a secret Gist and displays your new **Gist ID** (e.g. `4f8a12bc90...`).
 
-### Paso 3: Conectar en tu Tablet
-1. Abre la aplicación en tu Tablet y pulsa en **"☁️ Conectar Gist"**.
-2. Pega tu **mismo Token** y el **Gist ID** obtenido en el paso anterior.
-3. Pulsa **"Guardar y Sincronizar"**.
-4. ¡Listo! A partir de ese momento:
-   - Cada vez que respondas una pregunta, el progreso se guardará automáticamente en el Gist tras unos segundos de inactividad.
-   - Cada vez que abras la app en cualquier dispositivo, se descargará y fusionará (*merge inteligente*) el progreso más reciente sin sobrescribir preguntas contestadas en el otro equipo.
-
----
-
-### Método Alternativo: Copia de Seguridad Manual (JSON)
-
-Si no deseas utilizar GitHub Gist o no tienes conexión:
-1. Pulsa **"💾 Exportar"** para descargar el fichero `OracleDBA_GlobalBackup_YYYY-MM-DD.json`.
-2. Envíalo a tu tablet y pulsa **"📥 Importar"** para restaurarlo.
+### Step 3: Connect on your Tablet
+1. Open the application on your Tablet and tap **"☁️ Connect Gist"**.
+2. Paste the **same Token** and the **Gist ID** generated in Step 2.
+3. Tap **"Save & Sync"**.
+4. *Done! From now on:*
+   - Answering questions triggers an automatic, debounced background sync to the Gist.
+   - Opening the application on any device automatically downloads and merges the latest progress without overwriting unreviewed questions.
 
 ---
 
-## 🗂️ Estructura del Proyecto
+### Alternative Method: Manual Backup & Restore (JSON)
+
+If you prefer offline file backups:
+1. Click **"💾 Export"** to download `OracleDBA_GlobalBackup_YYYY-MM-DD.json`.
+2. Transfer the file to your tablet and click **"📥 Import"** to restore all progress.
+
+---
+
+## 🗂️ Project Structure
 
 ```
 OracleDBA/
-├── index.html                   # Portal principal con Dashboard y sincronización
-├── manifest.webmanifest         # Manifiesto PWA para instalación en tablets/móviles
-├── sw.js                        # Service Worker para funcionamiento 100% offline
-├── start_server.bat             # Lanzador rápido de servidor local para red Wi-Fi
-├── README.md                    # Documentación del proyecto
-├── .gitignore                   # Exclusiones de Git
+├── index.html                   # Central certification dashboard & sync controls
+├── manifest.webmanifest         # PWA Web App Manifest for mobile/tablet install
+├── sw.js                        # Service Worker for 100% offline caching
+├── start_server.bat             # Quick launcher for local Wi-Fi server
+├── README.md                    # Project documentation
+├── .gitignore                   # Git exclusion rules
 │
-├── 1z0-078/                     # Módulo para Oracle RAC & Grid
-│   ├── index.html               # Simulador modular 1Z0-078
-│   └── 1z0-078.html             # Redirección de compatibilidad
+├── 1z0-078/                     # Oracle RAC & Grid Module
+│   ├── index.html               # Modular 1Z0-078 simulator
+│   └── 1z0-078.html             # Legacy redirector
 │
-├── 1z0-083/                     # Módulo para Oracle Database Admin II
-│   ├── index.html               # Simulador modular 1Z0-083
-│   └── 1z0-083.html             # Redirección de compatibilidad
+├── 1z0-083/                     # Oracle Database Admin II Module
+│   ├── index.html               # Modular 1Z0-083 simulator
+│   └── 1z0-083.html             # Legacy redirector
 │
 ├── assets/
 │   ├── css/
-│   │   └── simulator.css        # Hoja de estilos unificada y responsive
+│   │   └── simulator.css        # Unified responsive stylesheet (dark theme)
 │   ├── js/
-│   │   └── simulator-core.js    # Motor lógico, barajado Fisher-Yates y eventos táctiles
+│   │   ├── simulator-core.js    # Core exam engine, Fisher-Yates shuffle & touch swipe
+│   │   └── gist-sync.js         # GitHub Gist two-way cloud sync service
 │   └── icons/
-│       ├── icon.svg             # Icono vectorial escalable
-│       ├── icon-192.png         # Icono PWA para pantalla de inicio
-│       └── icon-512.png         # Icono PWA alta resolución
+│       ├── icon.svg             # Scalable vector icon
+│       ├── icon-192.png         # PWA home screen icon
+│       └── icon-512.png         # High-resolution splash icon
 │
 ├── data/
-│   ├── 1z0-078.json             # Banco de 78 preguntas desacoplado
-│   └── 1z0-083.json             # Banco de 181 preguntas desacoplado
+│   ├── 1z0-078.json             # 78 verified questions dataset
+│   └── 1z0-083.json             # 181 verified questions dataset
 │
 ├── scripts/
-│   ├── server.py                # Servidor HTTP local con detección de IP para tablet
-│   ├── validate_questions.py    # Validador de esquemas e integridad del banco
-│   ├── generate_icons.py        # Generador de iconos PWA PNG
-│   └── extract_questions.py     # Utilidad de extracción de datos
+│   ├── server.py                # Local HTTP server with automatic IP detection
+│   ├── validate_questions.py    # Automated dataset schema and integrity auditor
+│   ├── generate_icons.py        # PWA bitmap icon generator
+│   └── extract_questions.py     # Question extraction utility
 │
-└── archive/                     # Respaldo seguro de los ficheros monolíticos originales
+└── archive/                     # Safe backup of original monolithic legacy files
     ├── 1z0-078-legacy.html
     └── 1z0-083-legacy.html
 ```
 
 ---
 
-## 🧪 Validación y Mantenimiento
+## 🧪 Dataset Validation & Maintenance
 
-Para comprobar la consistencia de los datos en cualquier momento (preguntas, opciones, claves correctas y dominios), ejecuta:
+To verify dataset integrity (questions, choices, correct keys, domains, and explanations) at any time, run:
 
 ```bash
 python scripts/validate_questions.py
 ```
-Este script audita automáticamente que no existan IDs duplicados, que todas las respuestas tengan coincidencia en sus opciones y que los tipos de selección sean coherentes.
+
+The script audits both question banks and guarantees zero duplicate IDs, complete choice coverage, and schema conformity.

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0b1120">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Oracle 19c DBA | Suite de Certificaciones</title>
+  <title>Oracle 19c DBA | Certification Suite</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
   <link rel="stylesheet" href="assets/css/simulator.css">
@@ -17,15 +17,15 @@
   <div class="brand">
     <span class="brand-badge">Oracle 19c</span>
     <div>
-      <h1>Oracle DBA &mdash; Centro de Certificación</h1>
-      <small class="brand-sub">Simuladores Web &bull; Compatible con PC, iPad y Android</small>
+      <h1>Oracle DBA &mdash; Certification Hub</h1>
+      <small class="brand-sub">Web Simulators &bull; Compatible with PC, iPad &amp; Android</small>
     </div>
   </div>
   <div class="header-actions">
-    <button class="gist-sync-status" onclick="GistSync.openModal()" title="Sincronización con GitHub Gist">☁️ Conectar Gist</button>
-    <button class="primary" onclick="exportAllProgress()" title="Descarga copia de seguridad completa">💾 Exportar</button>
+    <button class="gist-sync-status" onclick="GistSync.openModal()" title="GitHub Gist Synchronization">☁️ Connect Gist</button>
+    <button class="primary" onclick="exportAllProgress()" title="Download full backup">💾 Export</button>
     <label class="button" style="display:inline-flex; align-items:center; justify-content:center; cursor:pointer;">
-      <button onclick="document.getElementById('global-import-input').click()" title="Restaura progreso desde fichero JSON">📥 Importar</button>
+      <button onclick="document.getElementById('global-import-input').click()" title="Restore progress from JSON file">📥 Import</button>
       <input type="file" id="global-import-input" accept=".json" style="display:none;" onchange="importAllProgress(this)">
     </label>
   </div>
@@ -33,8 +33,8 @@
 
 <main>
   <div class="portal-hero">
-    <h1>Simuladores de Examen Oracle 19c</h1>
-    <p>Entrenamiento interactivo con preguntas reales auditadas, explicaciones técnicas detalladas, referencias oficiales y soporte 100% offline para PC y Tablet.</p>
+    <h1>Oracle 19c Exam Simulators</h1>
+    <p>Interactive exam practice with audited questions, detailed technical explanations, official references, and 100% offline support for PC &amp; Tablet.</p>
   </div>
 
   <div class="exam-grid">
@@ -50,26 +50,26 @@
       </div>
 
       <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
-        <strong>Dominios:</strong> Real Application Clusters (RAC), Clusterware, ASM y ACFS.
+        <strong>Domains:</strong> Real Application Clusters (RAC), Clusterware, ASM, and ACFS.
       </div>
 
       <div class="exam-card-stats">
         <div>
           <div class="exam-card-stat-val" id="stats-78-total">78</div>
-          <div class="exam-card-stat-label">Preguntas</div>
+          <div class="exam-card-stat-label">Questions</div>
         </div>
         <div>
           <div class="exam-card-stat-val" id="stats-78-mastered" style="color:var(--success);">0</div>
-          <div class="exam-card-stat-label">Dominadas</div>
+          <div class="exam-card-stat-label">Mastered</div>
         </div>
         <div>
           <div class="exam-card-stat-val" id="stats-78-acc">0%</div>
-          <div class="exam-card-stat-label">Precisión</div>
+          <div class="exam-card-stat-label">Accuracy</div>
         </div>
       </div>
 
       <a href="1z0-078/" class="button primary exam-card-btn">
-        Abrir Simulador 1Z0-078 &rarr;
+        Launch 1Z0-078 Simulator &rarr;
       </a>
     </div>
 
@@ -85,53 +85,54 @@
       </div>
 
       <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
-        <strong>Dominios:</strong> Multitenant, Backup &amp; RMAN, Upgrade, Performance y Flashback.
+        <strong>Domains:</strong> Multitenant, Backup &amp; RMAN, Upgrade, Performance, and Flashback.
       </div>
 
       <div class="exam-card-stats">
         <div>
           <div class="exam-card-stat-val" id="stats-83-total">181</div>
-          <div class="exam-card-stat-label">Preguntas</div>
+          <div class="exam-card-stat-label">Questions</div>
         </div>
         <div>
           <div class="exam-card-stat-val" id="stats-83-mastered" style="color:var(--success);">0</div>
-          <div class="exam-card-stat-label">Dominadas</div>
+          <div class="exam-card-stat-label">Mastered</div>
         </div>
         <div>
           <div class="exam-card-stat-val" id="stats-83-acc">0%</div>
-          <div class="exam-card-stat-label">Precisión</div>
+          <div class="exam-card-stat-label">Accuracy</div>
         </div>
       </div>
 
       <a href="1z0-083/" class="button primary exam-card-btn">
-        Abrir Simulador 1Z0-083 &rarr;
+        Launch 1Z0-083 Simulator &rarr;
       </a>
     </div>
   </div>
 
+  <!-- Automatic GitHub Gist Sync Info -->
   <div class="sync-card">
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
-      <h3 style="margin:0;">☁️ Sincronización Automática con GitHub Gist</h3>
-      <button class="gist-sync-status" onclick="GistSync.openModal()">☁️ Conectar Gist</button>
+      <h3 style="margin:0;">☁️ Automatic Sync with GitHub Gist</h3>
+      <button class="gist-sync-status" onclick="GistSync.openModal()">☁️ Connect Gist</button>
     </div>
-    <p>Guarda y sincroniza automáticamente tus preguntas acertadas, falladas y rachas entre tu PC y Tablet sin servidores externos. Configúralo una sola vez con un token personal de GitHub y tu progreso estará siempre al día en todos tus dispositivos.</p>
+    <p>Automatically save and sync your answered questions, mistakes, and streaks between your PC and Tablet without external databases. Configure it once with your personal GitHub token and your progress stays synchronized on all your devices.</p>
   </div>
 
-  <!-- Sincronización y Consejos Tablet -->
+  <!-- Tablet Study Guide -->
   <div class="sync-card">
-    <h3>📱 ¿Cómo estudiar desde tu Tablet (iPad o Android)?</h3>
-    <p>Esta aplicación está optimizada como <strong>PWA (Progressive Web App)</strong> y funciona sin conexión a internet:</p>
+    <h3>📱 How to study from your Tablet (iPad or Android)?</h3>
+    <p>This application is optimized as a <strong>PWA (Progressive Web App)</strong> and works seamlessly offline:</p>
     <ul style="padding-left:20px; font-size:0.9rem; line-height:1.7; color:#cbd5e1;">
-      <li><strong>En iPad (Safari):</strong> Pulsa el botón <em>Compartir</em> (icono del recuadro con flecha) y selecciona <strong>"Añadir a pantalla de inicio"</strong>. Se abrirá como una App a pantalla completa.</li>
-      <li><strong>En Android (Chrome):</strong> Pulsa en el menú (tres puntos) y elige <strong>"Instalar aplicación"</strong> o <strong>"Añadir a pantalla de inicio"</strong>.</li>
-      <li><strong>Gestos táctiles:</strong> Puedes deslizar el dedo (<em>swipe</em> izquierda/derecha) para avanzar o retroceder entre preguntas con total comodidad.</li>
-      <li><strong>Sincronización PC &harr; Tablet:</strong> Usa el botón <em>"Exportar Progreso Global"</em> en tu PC, envíate el fichero JSON a la tablet y pulsa <em>"Importar Progreso"</em> para transferir todas tus rachas.</li>
+      <li><strong>On iPad (Safari):</strong> Tap the <em>Share</em> button (square with arrow pointing up) and select <strong>"Add to Home Screen"</strong>. It opens as a full-screen standalone app.</li>
+      <li><strong>On Android (Chrome):</strong> Tap the menu (three dots) and select <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong>.</li>
+      <li><strong>Touch Gestures:</strong> Swipe your finger left or right across the screen to quickly move to the next or previous question.</li>
+      <li><strong>PC &harr; Tablet Sync:</strong> Use GitHub Gist automatic sync or use <em>"Export"</em> and <em>"Import"</em> to transfer your progress manually.</li>
     </ul>
   </div>
 </main>
 
 <script>
-  // Cargar estadísticas consolidadas en el Dashboard
+  // Load consolidated stats in the Dashboard
   function loadDashboardStats() {
     // 1Z0-078
     const stats78 = JSON.parse(localStorage.getItem('oracle_dba_stats_1z0-078') || localStorage.getItem('1z0_078_stats_v2') || '{}');
@@ -165,7 +166,7 @@
     }
   }
 
-  // Backup global unificado
+  // Unified global backup export
   function exportAllProgress() {
     const backup = {
       app: 'OracleDBA-Suite',
@@ -210,18 +211,18 @@
             localStorage.setItem('oracle_dba_threshold_1z0-083', data.exams['1z0-083'].threshold || '3');
           }
           loadDashboardStats();
-          alert('¡Progreso global importado con éxito!');
+          alert('Global progress successfully imported!');
         } else if (data.examId && data.stats) {
-          // Backup individual
+          // Individual backup
           localStorage.setItem(`oracle_dba_stats_${data.examId}`, JSON.stringify(data.stats));
           if (data.threshold) localStorage.setItem(`oracle_dba_threshold_${data.examId}`, data.threshold);
           loadDashboardStats();
-          alert(`¡Progreso para ${data.examId} importado con éxito!`);
+          alert(`Progress for ${data.examId} successfully imported!`);
         } else {
-          alert('Formato de fichero de respaldo no reconocido.');
+          alert('Unrecognized backup file format.');
         }
       } catch (err) {
-        alert('Error al leer el archivo: ' + err.message);
+        alert('Error reading backup file: ' + err.message);
       }
     };
     reader.readAsText(file);
@@ -230,7 +231,7 @@
 
   window.addEventListener('DOMContentLoaded', loadDashboardStats);
 
-  // Registro del Service Worker para funcionamiento Offline
+  // Register Service Worker for offline PWA
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW registration error:', err));
   }
