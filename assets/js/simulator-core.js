@@ -323,6 +323,7 @@
     const s = userStats[q.id] || { streak: 0, correct: 0, wrong: 0, mastered: false };
     const counterText = `${currentIndex + 1} of ${filtered.length}`;
 
+    const isSingle = (q.type === 'single' || (q.select_count || 1) === 1);
     let reqBadge = `<span class="badge badge-req single">Single Choice</span>`;
     if (q.type === 'multiple' || q.select_count > 1) {
       reqBadge = `<span class="badge badge-req">Choose ${q.select_count}</span>`;
@@ -349,7 +350,7 @@
 
       optionsMarkup += `
         <div class="${classes}" id="opt-${key}" onclick="OracleApp.toggleOption('${key}')">
-          <div class="option-box"></div>
+          <div class="option-box ${isSingle ? 'radio-box' : ''}"></div>
           <span class="option-prefix">${key}.</span>
           <span class="option-text">${escapeHtml(opt.text)}</span>
         </div>
@@ -381,7 +382,7 @@
         </div>
 
         <div class="q-text">${renderQuestionBody(q.text)}</div>
-        <div class="options-container">${optionsMarkup}</div>
+        <div class="options-container ${isSingle ? 'single-choice' : 'multi-choice'}">${optionsMarkup}</div>
 
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
           ${actionBtn}

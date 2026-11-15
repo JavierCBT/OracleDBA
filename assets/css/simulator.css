@@ -550,6 +550,12 @@ pre.code-block {
   transition: all 0.15s ease;
 }
 
+/* Single choice: circle indicator instead of square */
+.options-container.single-choice .option-box,
+.option-box.radio-box {
+  border-radius: 50% !important;
+}
+
 .option-label.selected .option-box {
   border-color: var(--accent);
   background: var(--accent);
