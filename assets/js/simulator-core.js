@@ -829,6 +829,7 @@
   // Public API
   global.OracleApp = {
     init: initExamSimulator,
+    updateHeaderStats: updateHeaderStats,
     setMode: setMode,
     toggleOption: toggleOption,
     verifyAnswer: verifyAnswer,

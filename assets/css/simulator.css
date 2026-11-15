@@ -527,9 +527,13 @@ pre.code-block {
   background: #131f37;
 }
 
-.option-label.selected {
-  border-color: var(--accent);
-  background: var(--accent-bg);
+.option-label.selected,
+.option-label.selected:hover,
+.option-label.selected:focus,
+.option-label.selected:active {
+  border-color: var(--accent) !important;
+  background: var(--accent-bg) !important;
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
 .option-box {
@@ -1064,9 +1068,16 @@ pre.code-block {
     min-height: var(--touch-min-height);
   }
   
-  .option-label:hover {
+  .option-label:not(.selected):hover {
     background: #0b1120;
     border-color: var(--border);
+  }
+
+  .option-label.selected,
+  .option-label.selected:hover {
+    border-color: var(--accent) !important;
+    background: var(--accent-bg) !important;
+    box-shadow: 0 0 0 1px var(--accent);
   }
   
   .option-label:active {

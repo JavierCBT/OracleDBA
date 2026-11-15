@@ -236,6 +236,28 @@
     return data.id;
   }
 
+  // Background auto-save push (only sends local updates; never pulls or resets the active question)
+  async function autoSavePush() {
+    if (!isConfigured() || isSyncing) return;
+    isSyncing = true;
+    updateStatusUI('syncing');
+
+    const cfg = getConfig();
+    try {
+      const payload = getLocalPayload();
+      await updateGist(cfg.token, cfg.gistId, payload);
+
+      const now = new Date().toISOString();
+      localStorage.setItem(STORAGE_KEYS.lastSync, now);
+      updateStatusUI('synced', `Last sync: ${new Date().toLocaleTimeString()}`);
+    } catch (err) {
+      console.error('Gist auto-save failed:', err);
+      updateStatusUI('error', err.message);
+    } finally {
+      isSyncing = false;
+    }
+  }
+
   // Full two-way synchronization: Pull, Merge, and Push back
   async function syncNow(notify = false) {
     if (!isConfigured()) {
@@ -253,12 +275,13 @@
       // 1. Pull remote data
       const remoteData = await fetchGist(cfg.token, cfg.gistId);
 
-      // 2. Apply & merge with local data
-      if (remoteData) {
+      // 2. Apply & merge only if remote was updated by a different device
+      if (remoteData && remoteData.updatedBy !== cfg.deviceId) {
         const changed = applyRemoteData(remoteData);
         if (changed) {
-          if (global.OracleApp && typeof global.OracleApp.onSearch === 'function') {
-            global.OracleApp.onSearch();
+          // Refresh headers only, never change or reset active question index
+          if (global.OracleApp && typeof global.OracleApp.updateHeaderStats === 'function') {
+            global.OracleApp.updateHeaderStats();
           }
           if (typeof global.loadDashboardStats === 'function') {
             global.loadDashboardStats();
@@ -294,8 +317,8 @@
     updateStatusUI('syncing');
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
-      syncNow(false);
-    }, 2500); // 2.5s debounce to batch consecutive questions
+      autoSavePush();
+    }, 2000); // 2s debounce to batch consecutive answers without disturbing active UI
   }
 
   // Configuration modal helpers
