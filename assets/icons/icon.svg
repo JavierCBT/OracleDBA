@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Rect -->
+  <rect width="512" height="512" rx="110" fill="url(#bgGrad)" />
+  
+  <!-- Outer Ring / Shield Glow -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#38bdf8" stroke-width="6" opacity="0.4" stroke-dasharray="16 12"/>
+
+  <!-- Database Stack (Cylinders) -->
+  <!-- Bottom Cylinder -->
+  <path d="M140 290 C140 330 372 330 372 290 L372 340 C372 380 140 380 140 340 Z" fill="url(#dbGrad)" opacity="0.9"/>
+  <!-- Middle Cylinder -->
+  <path d="M140 220 C140 260 372 260 372 220 L372 270 C372 310 140 310 140 270 Z" fill="url(#dbGrad)" opacity="0.95"/>
+  <!-- Top Cylinder Top & Body -->
+  <path d="M140 150 C140 190 372 190 372 150 L372 200 C372 240 140 240 140 200 Z" fill="url(#dbGrad)"/>
+  <ellipse cx="256" cy="150" rx="116" ry="38" fill="#7dd3fc"/>
+
+  <!-- Oracle 19c Text Badge -->
+  <rect x="156" y="380" width="200" height="48" rx="24" fill="#0b1120" stroke="#38bdf8" stroke-width="3"/>
+  <text x="256" y="412" font-family="-apple-system, sans-serif" font-weight="900" font-size="24" fill="#f8fafc" text-anchor="middle" letter-spacing="1.5">ORACLE 19c</text>
+
+  <!-- Certified Checkmark Badge in Corner -->
+  <circle cx="366" cy="150" r="46" fill="#10b981" stroke="#0f172a" stroke-width="6"/>
+  <path d="M346 150 L360 164 L388 136" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

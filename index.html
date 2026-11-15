@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Oracle 19c DBA | Suite de Certificaciones</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
+  <link rel="stylesheet" href="assets/css/simulator.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-badge">Oracle 19c</span>
+    <div>
+      <h1>Oracle DBA &mdash; Centro de Certificación</h1>
+      <small class="brand-sub">Simuladores Web &bull; Compatible con PC, iPad y Android</small>
+    </div>
+  </div>
+  <div class="header-actions">
+    <button class="primary" onclick="exportAllProgress()" title="Descarga copia de seguridad completa">💾 Exportar Progreso Global</button>
+    <label class="button" style="display:inline-flex; align-items:center; justify-content:center; cursor:pointer;">
+      <button onclick="document.getElementById('global-import-input').click()" title="Restaura progreso desde fichero JSON">📥 Importar Progreso</button>
+      <input type="file" id="global-import-input" accept=".json" style="display:none;" onchange="importAllProgress(this)">
+    </label>
+  </div>
+</header>
+
+<main>
+  <div class="portal-hero">
+    <h1>Simuladores de Examen Oracle 19c</h1>
+    <p>Entrenamiento interactivo con preguntas reales auditadas, explicaciones técnicas detalladas, referencias oficiales y soporte 100% offline para PC y Tablet.</p>
+  </div>
+
+  <div class="exam-grid">
+    <!-- Card 1Z0-078 -->
+    <div class="exam-card">
+      <div class="exam-card-header">
+        <div>
+          <span class="badge badge-id" style="margin-bottom:8px; display:inline-block;">1Z0-078</span>
+          <h2 class="exam-card-title">RAC &amp; Grid Infrastructure</h2>
+          <div class="exam-card-subtitle">Oracle Database 19c: RAC and Grid Infrastructure Administration.</div>
+        </div>
+        <span class="brand-badge">RAC 19c</span>
+      </div>
+
+      <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
+        <strong>Dominios:</strong> Real Application Clusters (RAC), Clusterware, ASM y ACFS.
+      </div>
+
+      <div class="exam-card-stats">
+        <div>
+          <div class="exam-card-stat-val" id="stats-78-total">78</div>
+          <div class="exam-card-stat-label">Preguntas</div>
+        </div>
+        <div>
+          <div class="exam-card-stat-val" id="stats-78-mastered" style="color:var(--success);">0</div>
+          <div class="exam-card-stat-label">Dominadas</div>
+        </div>
+        <div>
+          <div class="exam-card-stat-val" id="stats-78-acc">0%</div>
+          <div class="exam-card-stat-label">Precisión</div>
+        </div>
+      </div>
+
+      <a href="1z0-078/" class="button primary exam-card-btn">
+        Abrir Simulador 1Z0-078 &rarr;
+      </a>
+    </div>
+
+    <!-- Card 1Z0-083 -->
+    <div class="exam-card">
+      <div class="exam-card-header">
+        <div>
+          <span class="badge badge-id" style="margin-bottom:8px; display:inline-block;">1Z0-083</span>
+          <h2 class="exam-card-title">Database Administration II</h2>
+          <div class="exam-card-subtitle">Oracle Database 19c: Administration II (OCP Certification).</div>
+        </div>
+        <span class="brand-badge">19c OCP</span>
+      </div>
+
+      <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
+        <strong>Dominios:</strong> Multitenant, Backup &amp; RMAN, Upgrade, Performance y Flashback.
+      </div>
+
+      <div class="exam-card-stats">
+        <div>
+          <div class="exam-card-stat-val" id="stats-83-total">181</div>
+          <div class="exam-card-stat-label">Preguntas</div>
+        </div>
+        <div>
+          <div class="exam-card-stat-val" id="stats-83-mastered" style="color:var(--success);">0</div>
+          <div class="exam-card-stat-label">Dominadas</div>
+        </div>
+        <div>
+          <div class="exam-card-stat-val" id="stats-83-acc">0%</div>
+          <div class="exam-card-stat-label">Precisión</div>
+        </div>
+      </div>
+
+      <a href="1z0-083/" class="button primary exam-card-btn">
+        Abrir Simulador 1Z0-083 &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- Sincronización y Consejos Tablet -->
+  <div class="sync-card">
+    <h3>📱 ¿Cómo estudiar desde tu Tablet (iPad o Android)?</h3>
+    <p>Esta aplicación está optimizada como <strong>PWA (Progressive Web App)</strong> y funciona sin conexión a internet:</p>
+    <ul style="padding-left:20px; font-size:0.9rem; line-height:1.7; color:#cbd5e1;">
+      <li><strong>En iPad (Safari):</strong> Pulsa el botón <em>Compartir</em> (icono del recuadro con flecha) y selecciona <strong>"Añadir a pantalla de inicio"</strong>. Se abrirá como una App a pantalla completa.</li>
+      <li><strong>En Android (Chrome):</strong> Pulsa en el menú (tres puntos) y elige <strong>"Instalar aplicación"</strong> o <strong>"Añadir a pantalla de inicio"</strong>.</li>
+      <li><strong>Gestos táctiles:</strong> Puedes deslizar el dedo (<em>swipe</em> izquierda/derecha) para avanzar o retroceder entre preguntas con total comodidad.</li>
+      <li><strong>Sincronización PC &harr; Tablet:</strong> Usa el botón <em>"Exportar Progreso Global"</em> en tu PC, envíate el fichero JSON a la tablet y pulsa <em>"Importar Progreso"</em> para transferir todas tus rachas.</li>
+    </ul>
+  </div>
+</main>
+
+<script>
+  // Cargar estadísticas consolidadas en el Dashboard
+  function loadDashboardStats() {
+    // 1Z0-078
+    const stats78 = JSON.parse(localStorage.getItem('oracle_dba_stats_1z0-078') || localStorage.getItem('1z0_078_stats_v2') || '{}');
+    updateExamStats('78', stats78);
+
+    // 1Z0-083
+    const stats83 = JSON.parse(localStorage.getItem('oracle_dba_stats_1z0-083') || localStorage.getItem('1z0_stats_en') || '{}');
+    updateExamStats('83', stats83);
+  }
+
+  function updateExamStats(prefix, stats) {
+    let mastered = 0;
+    let correct = 0;
+    let attempts = 0;
+
+    Object.values(stats).forEach(s => {
+      if (s) {
+        if (s.mastered) mastered++;
+        correct += (s.correct || 0);
+        attempts += ((s.correct || 0) + (s.wrong || 0));
+      }
+    });
+
+    const masteredEl = document.getElementById(`stats-${prefix}-mastered`);
+    if (masteredEl) masteredEl.innerText = mastered;
+
+    const accEl = document.getElementById(`stats-${prefix}-acc`);
+    if (accEl) {
+      const acc = attempts > 0 ? Math.round((correct / attempts) * 100) : 0;
+      accEl.innerText = `${acc}%`;
+    }
+  }
+
+  // Backup global unificado
+  function exportAllProgress() {
+    const backup = {
+      app: 'OracleDBA-Suite',
+      version: '2.0',
+      exportedAt: new Date().toISOString(),
+      exams: {
+        '1z0-078': {
+          stats: JSON.parse(localStorage.getItem('oracle_dba_stats_1z0-078') || localStorage.getItem('1z0_078_stats_v2') || '{}'),
+          threshold: localStorage.getItem('oracle_dba_threshold_1z0-078') || localStorage.getItem('1z0_078_threshold_v2') || '3'
+        },
+        '1z0-083': {
+          stats: JSON.parse(localStorage.getItem('oracle_dba_stats_1z0-083') || localStorage.getItem('1z0_stats_en') || '{}'),
+          threshold: localStorage.getItem('oracle_dba_threshold_1z0-083') || localStorage.getItem('1z0_threshold_en') || '3'
+        }
+      }
+    };
+
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `OracleDBA_GlobalBackup_${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function importAllProgress(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = e => {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (data.exams) {
+          if (data.exams['1z0-078']) {
+            localStorage.setItem('oracle_dba_stats_1z0-078', JSON.stringify(data.exams['1z0-078'].stats || {}));
+            localStorage.setItem('oracle_dba_threshold_1z0-078', data.exams['1z0-078'].threshold || '3');
+          }
+          if (data.exams['1z0-083']) {
+            localStorage.setItem('oracle_dba_stats_1z0-083', JSON.stringify(data.exams['1z0-083'].stats || {}));
+            localStorage.setItem('oracle_dba_threshold_1z0-083', data.exams['1z0-083'].threshold || '3');
+          }
+          loadDashboardStats();
+          alert('¡Progreso global importado con éxito!');
+        } else if (data.examId && data.stats) {
+          // Backup individual
+          localStorage.setItem(`oracle_dba_stats_${data.examId}`, JSON.stringify(data.stats));
+          if (data.threshold) localStorage.setItem(`oracle_dba_threshold_${data.examId}`, data.threshold);
+          loadDashboardStats();
+          alert(`¡Progreso para ${data.examId} importado con éxito!`);
+        } else {
+          alert('Formato de fichero de respaldo no reconocido.');
+        }
+      } catch (err) {
+        alert('Error al leer el archivo: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+    input.value = '';
+  }
+
+  window.addEventListener('DOMContentLoaded', loadDashboardStats);
+
+  // Registro del Service Worker para funcionamiento Offline
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW registration error:', err));
+  }
+</script>
+</body>
+</html>
