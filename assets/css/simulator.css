@@ -301,6 +301,56 @@ main {
   border: 1px solid #1e3a8a;
 }
 
+/* Sync Pill Button */
+.gist-sync-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.gist-sync-status:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+}
+
+.gist-sync-status.status-synced {
+  border-color: #059669;
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+}
+
+.gist-sync-status.status-syncing {
+  border-color: #d97706;
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  animation: pulse 1.5s infinite;
+}
+
+.gist-sync-status.status-error {
+  border-color: var(--error);
+  background: var(--error-bg);
+  color: #fda4af;
+}
+
+.gist-sync-status.status-unconfigured {
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
 /* Question Navigation Bar */
 .bottom-nav {
   display: flex;

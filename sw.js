@@ -1,4 +1,4 @@
-const CACHE_NAME = 'oracledba-cache-v1';
+const CACHE_NAME = 'oracledba-cache-v2';
 
 const STATIC_ASSETS = [
   './',
@@ -6,6 +6,7 @@ const STATIC_ASSETS = [
   './manifest.webmanifest',
   './assets/css/simulator.css',
   './assets/js/simulator-core.js',
+  './assets/js/gist-sync.js',
   './assets/icons/icon.svg',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',

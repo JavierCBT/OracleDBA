@@ -75,14 +75,40 @@ Si prefieres mantener todo en local en tu red doméstica:
 
 ---
 
-## 🔄 Cómo sincronizar tu progreso entre PC y Tablet
+## 🔄 Sincronización Automática con GitHub Gist
 
-El progreso de estudio (rachas, preguntas dominadas y precisión) se almacena en el navegador (`localStorage`). Para transferirlo:
+La suite incluye un backend serverless utilizando **GitHub Gist**. Puedes responder preguntas en tu PC y continuar en tu Tablet sin necesidad de enviar archivos manualmente ni crear bases de datos externas:
 
-1. **En tu PC**: En la página principal ([`index.html`](index.html)), pulsa el botón **"💾 Exportar Progreso Global"**. Se descargará un fichero llamado `OracleDBA_GlobalBackup_YYYY-MM-DD.json`.
-2. **Envía el archivo a tu Tablet** (por AirDrop, Telegram, WhatsApp, Google Drive o correo).
-3. **En tu Tablet**: Abre la aplicación, pulsa **"📥 Importar Progreso"** y selecciona el archivo `.json`.
-4. ¡Tus rachas y estadísticas se actualizarán automáticamente en la tablet!
+### Paso 1: Obtener tu Token de GitHub (PAT)
+1. Inicia sesión en [GitHub](https://github.com/) y dirígete a:  
+   👉 **Settings** &rarr; **Developer Settings** &rarr; **Personal Access Tokens** &rarr; **Tokens (classic)**  
+   *(o accede a [github.com/settings/tokens](https://github.com/settings/tokens))*.
+2. Haz clic en **Generate new token (classic)**.
+3. Dale una descripción (ej. `OracleDBA Sync`) y marca únicamente la casilla:
+   - [x] **`gist`** *(Create gists)*.
+4. Genera el token y copia el valor resultante (`ghp_...`).
+
+### Paso 2: Conectar en tu PC
+1. Abre el simulador en tu PC y haz clic en el botón **"☁️ Conectar Gist"** en la cabecera.
+2. Pega tu Token en el campo correspondiente (deja el campo *Gist ID* vacío).
+3. Haz clic en **"Guardar y Sincronizar"**.
+4. La aplicación creará automáticamente un Gist secreto y te mostrará el **Gist ID generado** (ej. `a1b2c3d4e5f6...`).
+
+### Paso 3: Conectar en tu Tablet
+1. Abre la aplicación en tu Tablet y pulsa en **"☁️ Conectar Gist"**.
+2. Pega tu **mismo Token** y el **Gist ID** obtenido en el paso anterior.
+3. Pulsa **"Guardar y Sincronizar"**.
+4. ¡Listo! A partir de ese momento:
+   - Cada vez que respondas una pregunta, el progreso se guardará automáticamente en el Gist tras unos segundos de inactividad.
+   - Cada vez que abras la app en cualquier dispositivo, se descargará y fusionará (*merge inteligente*) el progreso más reciente sin sobrescribir preguntas contestadas en el otro equipo.
+
+---
+
+### Método Alternativo: Copia de Seguridad Manual (JSON)
+
+Si no deseas utilizar GitHub Gist o no tienes conexión:
+1. Pulsa **"💾 Exportar"** para descargar el fichero `OracleDBA_GlobalBackup_YYYY-MM-DD.json`.
+2. Envíalo a tu tablet y pulsa **"📥 Importar"** para restaurarlo.
 
 ---
 

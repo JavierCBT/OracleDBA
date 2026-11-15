@@ -22,9 +22,10 @@
     </div>
   </div>
   <div class="header-actions">
-    <button class="primary" onclick="exportAllProgress()" title="Descarga copia de seguridad completa">💾 Exportar Progreso Global</button>
+    <button class="gist-sync-status" onclick="GistSync.openModal()" title="Sincronización con GitHub Gist">☁️ Conectar Gist</button>
+    <button class="primary" onclick="exportAllProgress()" title="Descarga copia de seguridad completa">💾 Exportar</button>
     <label class="button" style="display:inline-flex; align-items:center; justify-content:center; cursor:pointer;">
-      <button onclick="document.getElementById('global-import-input').click()" title="Restaura progreso desde fichero JSON">📥 Importar Progreso</button>
+      <button onclick="document.getElementById('global-import-input').click()" title="Restaura progreso desde fichero JSON">📥 Importar</button>
       <input type="file" id="global-import-input" accept=".json" style="display:none;" onchange="importAllProgress(this)">
     </label>
   </div>
@@ -106,6 +107,14 @@
         Abrir Simulador 1Z0-083 &rarr;
       </a>
     </div>
+  </div>
+
+  <div class="sync-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+      <h3 style="margin:0;">☁️ Sincronización Automática con GitHub Gist</h3>
+      <button class="gist-sync-status" onclick="GistSync.openModal()">☁️ Conectar Gist</button>
+    </div>
+    <p>Guarda y sincroniza automáticamente tus preguntas acertadas, falladas y rachas entre tu PC y Tablet sin servidores externos. Configúralo una sola vez con un token personal de GitHub y tu progreso estará siempre al día en todos tus dispositivos.</p>
   </div>
 
   <!-- Sincronización y Consejos Tablet -->
@@ -226,5 +235,6 @@
     navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW registration error:', err));
   }
 </script>
+<script src="assets/js/gist-sync.js"></script>
 </body>
 </html>

@@ -672,6 +672,9 @@
 
   function saveStats() {
     localStorage.setItem(config.storageKey, JSON.stringify(userStats));
+    if (window.GistSync && typeof window.GistSync.triggerDebouncedSync === 'function') {
+      window.GistSync.triggerDebouncedSync();
+    }
   }
 
   // Backup & Sync: Export / Import
