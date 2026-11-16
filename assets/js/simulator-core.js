@@ -404,8 +404,8 @@
         <button type="button" class="nav-prev" onclick="OracleApp.prevQuestion()" aria-label="Previous question">&lt; Previous</button>
         <div class="nav-middle">
           <form class="question-jump" onsubmit="OracleApp.jumpToQuestion(event)">
-            <label for="question-jump-input">Go to #</label>
-            <input type="number" id="question-jump-input" min="1" max="${ALL_QUESTIONS.length}" step="1" value="${curId}" inputmode="numeric" aria-label="Question number to display">
+            <label>Go to #</label>
+            <input type="number" class="question-jump-input" min="1" max="${ALL_QUESTIONS.length}" step="1" value="${curId}" inputmode="numeric" aria-label="Question number to display" onfocus="this.select()" oninput="OracleApp.syncJumpInputs(this.value)">
             <button type="submit">Go</button>
           </form>
           <span style="font-size:0.85rem; color:var(--text-muted);">${counterText}</span>
@@ -520,12 +520,59 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function syncJumpInputs(val) {
+    document.querySelectorAll('.question-jump-input').forEach(input => {
+      if (input !== document.activeElement) {
+        input.value = val;
+      }
+    });
+  }
+
+  function showJumpFeedback(msg) {
+    const feedbackEls = document.querySelectorAll('.q-jump-feedback');
+    feedbackEls.forEach(el => {
+      el.textContent = msg;
+    });
+    setTimeout(() => {
+      feedbackEls.forEach(el => {
+        if (el.textContent === msg) el.textContent = '';
+      });
+    }, 3500);
+  }
+
   function jumpToQuestion(e) {
     if (e) e.preventDefault();
-    const jumpInputs = document.querySelectorAll('#question-jump-input');
+
     let val = '';
-    jumpInputs.forEach(i => { if (i.value) val = i.value; });
+    // Prioritize the specific input inside the form that was submitted
+    if (e && e.target) {
+      const form = e.target.closest('form') || e.target;
+      const input = form.querySelector('input');
+      if (input && input.value) val = input.value;
+    }
+
+    // Fallback: active input
+    if (!val) {
+      const activeInput = document.querySelector('.question-jump-input:focus');
+      if (activeInput && activeInput.value) val = activeInput.value;
+    }
+
+    // Fallback: any input that has a value different from the current question ID
+    if (!val) {
+      const inputs = document.querySelectorAll('.question-jump-input');
+      for (const input of inputs) {
+        if (input.value && parseInt(input.value, 10) !== currentQuestionId) {
+          val = input.value;
+          break;
+        }
+      }
+      if (!val && inputs.length > 0) {
+        val = inputs[0].value;
+      }
+    }
+
     const targetId = parseInt(val, 10);
+    if (isNaN(targetId)) return;
 
     const filtered = getFilteredQuestions();
     const idx = filtered.findIndex(q => q.id === targetId);
@@ -533,15 +580,46 @@
     if (idx !== -1) {
       currentIndex = idx;
       renderCurrentQuestion();
-    } else {
-      const foundInBank = ALL_QUESTIONS.some(q => q.id === targetId);
-      const feedbackEls = document.querySelectorAll('.q-jump-feedback');
-      feedbackEls.forEach(el => {
-        el.textContent = foundInBank
-          ? `Question #${targetId} is hidden by current filter.`
-          : `Question #${targetId} does not exist (1-${ALL_QUESTIONS.length}).`;
-      });
-      setTimeout(() => feedbackEls.forEach(el => el.textContent = ''), 3500);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // If not found in current filtered set, check if it exists in the full question bank
+    const qTarget = ALL_QUESTIONS.find(q => q.id === targetId);
+    if (!qTarget) {
+      showJumpFeedback(`Question #${targetId} does not exist (1-${ALL_QUESTIONS.length}).`);
+      return;
+    }
+
+    // Question exists in bank but is hidden by filter (e.g. hide-mastered or search):
+    // Unhide it automatically so the user lands on the requested question!
+    let filterAdjusted = false;
+    const hideMasteredEl = document.getElementById('hide-mastered');
+    if (hideMasteredEl && hideMasteredEl.checked) {
+      hideMasteredEl.checked = false;
+      filterAdjusted = true;
+    }
+
+    const searchInput = document.getElementById('search-input');
+    if (searchInput && searchInput.value) {
+      searchInput.value = '';
+      filterAdjusted = true;
+    }
+
+    if (currentMode === 'weak') {
+      setMode('study');
+      filterAdjusted = true;
+    }
+
+    const updatedFiltered = getFilteredQuestions();
+    const newIdx = updatedFiltered.findIndex(q => q.id === targetId);
+    if (newIdx !== -1) {
+      currentIndex = newIdx;
+      renderCurrentQuestion();
+      if (filterAdjusted) {
+        showJumpFeedback(`Showing #${targetId} (filter unhidden)`);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -837,6 +915,7 @@
     prevQuestion: prevQuestion,
     nextQuestion: nextQuestion,
     jumpToQuestion: jumpToQuestion,
+    syncJumpInputs: syncJumpInputs,
     onSearch: onSearch,
     finishExam: finishExam,
     updateThreshold: updateThreshold,
