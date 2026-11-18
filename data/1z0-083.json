@@ -55,7 +55,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "DBA_ALERT_HISTORY",
+        "A space usage",
+        "Metrics are statistical"
+      ],
+      "anchor": "A metric is a measured quantity with a unit and an aggregation interval."
+    }
   },
   {
     "id": 2,
@@ -114,7 +122,16 @@
     ],
     "review_status": "ambiguous",
     "review_note": "C is literally true as written, while A is overbroad outside the conventional affected-home workflow. ABG is retained as the intended key, not a uniquely verified three-choice set.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Oracle Database home",
+        "It must",
+        "performs",
+        "invoked"
+      ],
+      "anchor": "A, B and G are the intended GI/Database-home orchestration answers, but the supplied wording does not produce a completely unambiguous three-answer question."
+    }
   },
   {
     "id": 3,
@@ -165,7 +182,13 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "1 5 6"
+      ],
+      "anchor": "Option C gives the minimum sequence: 1, 5, 6."
+    }
   },
   {
     "id": 4,
@@ -213,7 +236,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "user performing",
+        "Row Movement must"
+      ],
+      "anchor": "B and D are prerequisites for the undo-based `FLASHBACK TABLE ..."
+    }
   },
   {
     "id": 5,
@@ -265,7 +295,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "created serially",
+        "four sections can"
+      ],
+      "anchor": "B and D are correct because sections are independently schedulable pieces of work."
+    }
   },
   {
     "id": 6,
@@ -323,7 +360,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SQL statements",
+        "It can re",
+        "considers",
+        "optimize"
+      ],
+      "anchor": "B, C and D describe cost-based and adaptive optimization."
+    }
   },
   {
     "id": 7,
@@ -375,7 +421,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "registered target database",
+        "first registered"
+      ],
+      "anchor": "C and E are the relevant full-resynchronization cases."
+    }
   },
   {
     "id": 8,
@@ -428,7 +481,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "BE assumes the closed-PDB transport method. The broad stem also permits documented open/read-only or inconsistent-backup workflows, making D defensible without that qualification.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "MOUNT state",
+        "The source and"
+      ],
+      "anchor": "B and E are the intended pair for the closed-PDB transport workflow, but the stem needs that qualification."
+    }
   },
   {
     "id": 9,
@@ -487,7 +547,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "RMAN always uses",
+        "DDL",
+        "SYSTEM user"
+      ],
+      "anchor": "D, F and G are correct, with G subject to the tablespace and object restrictions."
+    }
   },
   {
     "id": 10,
@@ -534,7 +602,13 @@
     ],
     "review_status": "ambiguous",
     "review_note": "OSASM is the intended ASM-versus-RDBMS distinction. Several other listed groups are optional or can be consolidated, so \"not needed\" is not a unique literal test of mandatory installation groups.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "OSASM"
+      ],
+      "anchor": "The question's phrase \"not needed\" should not be read as claiming every other group must exist separately."
+    }
   },
   {
     "id": 11,
@@ -576,7 +650,13 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "1 3 4"
+      ],
+      "anchor": "Option A supplies the minimum supported sequence in the listed integrated RMAN/Data Pump workflow: 1, 3, 4, 6, 8."
+    }
   },
   {
     "id": 12,
@@ -632,7 +712,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "UPGRADE",
+        "state"
+      ],
+      "anchor": "F is the intended outcome: PDB2 has not been opened in UPGRADE mode before being selected by the parallel upgrade command."
+    }
   },
   {
     "id": 13,
@@ -685,7 +772,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "byte character sets",
+        "Unicode enables information"
+      ],
+      "anchor": "A and B are the intended statements."
+    }
   },
   {
     "id": 14,
@@ -743,7 +837,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "It can consist",
+        "be consistent",
+        "be inconsistent"
+      ],
+      "anchor": "Option A is true because RMAN can represent a whole backup as backup sets or image copies."
+    }
   },
   {
     "id": 15,
@@ -795,7 +897,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Space might",
+        "might",
+        "occurs",
+        "lowered"
+      ],
+      "anchor": "B and C correctly use the word \"might\" rather than promising immediate reclamation of every old flashback log."
+    }
   },
   {
     "id": 16,
@@ -863,7 +974,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "The original choose-three count has no third supported choice. A/C are conditional memory minima; E incorrectly calls a PDB SGA_TARGET a minimum and F wrongly excludes SGA_MIN_SIZE.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "DB_CACHE_SIZE",
+        "Shared Pool memory"
+      ],
+      "anchor": "Only A and C are supported by the supplied choices, so the selection count has been corrected to two."
+    }
   },
   {
     "id": 17,
@@ -923,7 +1041,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "BF/select2 replaces the defective three-answer key: E appears to misname DBCA where the documented service-registration tool is SRVCTL; DBCA database registration is a different operation.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "DISKGROUP",
+        "ASMCA"
+      ],
+      "anchor": "Option B and Option F are the documented answers."
+    }
   },
   {
     "id": 18,
@@ -990,7 +1115,16 @@
     ],
     "review_status": "ambiguous",
     "review_note": "ADE is the intended workflow key. D cannot literally mean no prerequisites or configuration whatsoever, and G depends on the particular snapshot-copy storage implementation.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "source PDB",
+        "DBCA",
+        "sparse",
+        "Database"
+      ],
+      "anchor": "A, D and E are the intended statements, but D's phrase \"no configuration required\" needs a narrow reading."
+    }
   },
   {
     "id": 19,
@@ -1038,7 +1172,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "It supports volume",
+        "CSS"
+      ],
+      "anchor": "Oracle Grid Infrastructure for a Standalone Server supplies ASM-related storage facilities and Oracle Restart on one host."
+    }
   },
   {
     "id": 20,
@@ -1086,7 +1227,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "RPM",
+        "Oracle Database installation"
+      ],
+      "anchor": "B and C describe the Oracle Database server RPM workflow."
+    }
   },
   {
     "id": 21,
@@ -1138,7 +1286,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "HR_ROOT",
+        "seed"
+      ],
+      "anchor": "C and D are the two complete methods."
+    }
   },
   {
     "id": 22,
@@ -1192,7 +1347,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "patch existing Oracle",
+        "deploy new homes",
+        "single instance Oracle"
+      ],
+      "anchor": "B, D and E are correct for Rapid Home Provisioning, now called Fleet Patching and Provisioning."
+    }
   },
   {
     "id": 23,
@@ -1240,7 +1403,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SQL",
+        "poorly trained users"
+      ],
+      "anchor": "inefficient SQL can consume excessive CPU, perform unnecessary I/O, scan too many blocks or hold locks longer than needed."
+    }
   },
   {
     "id": 24,
@@ -1307,7 +1477,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "V$SERVICE_EVENT",
+        "V$SESSION_WAIT",
+        "services",
+        "V$SESSION"
+      ],
+      "anchor": "Distinguish cumulative statistics for an existing session or service from the current/most-recent wait event and from historical repositories."
+    }
   },
   {
     "id": 25,
@@ -1370,7 +1549,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Oracle recovery files",
+        "Oracle",
+        "normally",
+        "written"
+      ],
+      "anchor": "B, C and D are the intended eligible-recovery-file answers."
+    }
   },
   {
     "id": 26,
@@ -1432,7 +1620,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SPFILE",
+        "manually re created",
+        "A lost index"
+      ],
+      "anchor": "A, D and F are correct under the usual assumptions for an index-only tablespace."
+    }
   },
   {
     "id": 27,
@@ -1483,7 +1679,13 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CDB1_TAB and APP_PDB1_TAB"
+      ],
+      "anchor": "The flashback statement names the application root, not the whole CDB and not every PDB that belongs to the application container."
+    }
   },
   {
     "id": 28,
@@ -1535,7 +1737,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "By default",
+        "create RMAN proxy"
+      ],
+      "anchor": "a proxy-copy backup requires the media-management interface and vendor support for that capability."
+    }
   },
   {
     "id": 29,
@@ -1594,7 +1803,15 @@
     ],
     "review_status": "ambiguous",
     "review_note": "C applies to channel-associated execution failures, not every syntax/client failure; F is specifically the documented legacy SBT1.1 Additional information format. ACF is the intended contextual key.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Some messages",
+        "RMAN command fails",
+        "Additional information"
+      ],
+      "anchor": "A, C and F are the intended diagnostic statements, with C understood for channel-associated execution failures."
+    }
   },
   {
     "id": 30,
@@ -1662,7 +1879,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "Only A/C are unequivocal; F says cannot repair logical corruption, while current 19c docs say may not repair ALL logical corruptions. The choose-three count was corrected to two.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "The data file",
+        "A block"
+      ],
+      "anchor": "A and C are the two unqualified supported statements in the supplied wording."
+    }
   },
   {
     "id": 31,
@@ -1710,7 +1934,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "multiple pluggable databases",
+        "source database"
+      ],
+      "anchor": "DBUA supports prioritizing PDB upgrades."
+    }
   },
   {
     "id": 32,
@@ -1762,7 +1993,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Hash Joins use",
+        "UGA"
+      ],
+      "anchor": "sorts and hash joins use SQL work areas managed as PGA memory."
+    }
   },
   {
     "id": 33,
@@ -1810,7 +2048,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "root container",
+        "CDB$ROOT"
+      ],
+      "anchor": "The control file belongs to the entire CDB, and an RMAN target connection to `CDB$ROOT` can back it up."
+    }
   },
   {
     "id": 34,
@@ -1864,7 +2109,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "TYPICAL",
+        "set to ALL",
+        "retained forever"
+      ],
+      "anchor": "Option A and Option B are correct for ordinary automatic snapshot collection: `STATISTICS_LEVEL=TYPICAL` or `ALL` enables the statistics needed by AWR."
+    }
   },
   {
     "id": 35,
@@ -1912,7 +2165,13 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "1 2 3"
+      ],
+      "anchor": "Option C gives the required minimum sequence: 1, 2, 3, 4, 5, 7, 8."
+    }
   },
   {
     "id": 36,
@@ -1970,7 +2229,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "PGA",
+        "CDB",
+        "PDB level resource"
+      ],
+      "anchor": "A PDB resource plan manages workload inside the PDB, including a per-session PGA limit through its consumer-group directives."
+    }
   },
   {
     "id": 37,
@@ -2017,7 +2284,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CDB$ROOT",
+        "mode"
+      ],
+      "anchor": "Option A is the documented conversion procedure."
+    }
   },
   {
     "id": 38,
@@ -2075,7 +2349,16 @@
     ],
     "review_status": "ambiguous",
     "review_note": "C is retained as intended base-catalog metadata registration, not a separate REGISTER PDB command; VPC is a metadata visibility layer, not a second physical registration.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Virtual Private Catalog",
+        "a base catalog",
+        "owner",
+        "enabled"
+      ],
+      "anchor": "Option A and Option B describe the delegation model."
+    }
   },
   {
     "id": 39,
@@ -2138,7 +2421,15 @@
     ],
     "review_status": "ambiguous",
     "review_note": "The stem mixes in-place conversion with cloning/plugging. D is also supportable as creating a seed by cloning an application PDB; BCE is retained only as the intended provisional key.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "application root",
+        "application seed to",
+        "regular PDB to"
+      ],
+      "anchor": "The intended key is Option B, Option C and Option E, but the word converting is insufficiently precise to establish a unique three-choice answer."
+    }
   },
   {
     "id": 40,
@@ -2192,7 +2483,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "data dictionary view",
+        "They can create",
+        "They can drop"
+      ],
+      "anchor": "Option A, Option D and Option E match Oracle's documented `SYSBACKUP` administrative privilege set."
+    }
   },
   {
     "id": 41,
@@ -2255,7 +2554,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SPFILE",
+        "consistent state",
+        "RMAN"
+      ],
+      "anchor": "KEEP` operation includes the SPFILE when the database is using one, together with the other files needed for the self-contained archival recovery goal."
+    }
   },
   {
     "id": 42,
@@ -2313,7 +2620,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "PDB1",
+        "mount state",
+        "CDB1"
+      ],
+      "anchor": "creation of a PDB also creates its default service with the PDB name."
+    }
   },
   {
     "id": 43,
@@ -2365,7 +2680,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "MOUNT",
+        "created but"
+      ],
+      "anchor": "the destination PDB is created in mounted state."
+    }
   },
   {
     "id": 44,
@@ -2416,7 +2738,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "allowed in CDB$ROOT",
+        "creation",
+        "local"
+      ],
+      "anchor": "The connection shown is to the CDB default service and therefore to `CDB$ROOT`."
+    }
   },
   {
     "id": 45,
@@ -2467,7 +2797,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "eliminate estimation error",
+        "eliminate",
+        "estimation"
+      ],
+      "anchor": "Better estimates can let the optimizer compare candidate plans more accurately without rewriting the application's SQL text."
+    }
   },
   {
     "id": 46,
@@ -2524,7 +2862,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Oracle Database owners",
+        "Infrastructure owner owns"
+      ],
+      "anchor": "in the documented Oracle installation ownership model."
+    }
   },
   {
     "id": 47,
@@ -2579,7 +2924,13 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "1 3 5"
+      ],
+      "anchor": "Option C is the valid sequence: abort the damaged instance, mount it, restore the database, recover using the available redo, and open with RESETLOGS."
+    }
   },
   {
     "id": 48,
@@ -2637,7 +2988,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "It can contain",
+        "application root PDB",
+        "contain",
+        "applications"
+      ],
+      "anchor": "Option A and Option B are both correct."
+    }
   },
   {
     "id": 49,
@@ -2701,7 +3061,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "The original choose-three item has only B/F supported. E confuses physical database rewind with undo-based table operations; count corrected to two.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "PLUS",
+        "ARCHIVELOG"
+      ],
+      "anchor": "SQL*Plus can execute the SQL `FLASHBACK DATABASE` statement."
+    }
   },
   {
     "id": 50,
@@ -2764,7 +3131,15 @@
     ],
     "review_status": "ambiguous",
     "review_note": "Historical full-install patch-set terminology is retained. Key corrected from ACF to BDF; current 19c RUs must not be confused with traditional patch sets.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "They can introduce",
+        "Installing a patchset",
+        "A base release"
+      ],
+      "anchor": "Option B, Option D and Option F describe historical database patch sets."
+    }
   },
   {
     "id": 51,
@@ -2816,7 +3191,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "BE retained for intended distinction: E applies to unused-block compression only, not a universal restriction on binary compression. Stem mixes the mechanisms.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CPU",
+        "Compression can"
+      ],
+      "anchor": "binary compression trades additional CPU work for reduced backup output."
+    }
   },
   {
     "id": 52,
@@ -2873,7 +3255,15 @@
     ],
     "review_status": "ambiguous",
     "review_note": "C incorrectly asserts all memory advisors use AWR input; changed AC/select2 to A/select1, with A qualified by normal statistics/PGA prerequisites.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SGA",
+        "enabled",
+        "PGA"
+      ],
+      "anchor": "Option A is the supported intended statement for an ordinarily configured ASMM instance with automatic PGA management and the required statistics collection."
+    }
   },
   {
     "id": 53,
@@ -2927,7 +3317,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "MOUNTED",
+        "opened READ ONLY",
+        "WRITE"
+      ],
+      "anchor": "PDB1 was open read/write when `SAVE STATE` recorded its desired startup mode."
+    }
   },
   {
     "id": 54,
@@ -2993,7 +3391,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "ADDM",
+        "AWR snapshots",
+        "AWR reports",
+        "PDB"
+      ],
+      "anchor": "for Oracle 19c: ADDM supports analysis in a PDB/nonroot container, subject to the appropriate diagnostic prerequisites and data collection."
+    }
   },
   {
     "id": 55,
@@ -3045,7 +3452,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "DBMS_STATS",
+        "By default"
+      ],
+      "anchor": "`DBMS_STATS` is the supported package for gathering, exporting, importing, locking and managing optimizer object statistics."
+    }
   },
   {
     "id": 56,
@@ -3103,7 +3517,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CDB$ROOT",
+        "PMON",
+        "LGWR"
+      ],
+      "anchor": "for the common Oracle-supplied dictionary metadata housed in `CDB$ROOT`."
+    }
   },
   {
     "id": 57,
@@ -3174,7 +3596,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Duplication can",
+        "auxiliary instance",
+        "A subset",
+        "Duplication"
+      ],
+      "anchor": "active duplication using backup sets is pull-based."
+    }
   },
   {
     "id": 58,
@@ -3236,7 +3667,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "User-approved BG/select2 retained. Generic SQL can use source PDB/root endpoints; E exclusion is supported by supplied DBT-19405 lab evidence rather than an independently reproduced test.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "database to CDB$ROOT",
+        "cloned PDB"
+      ],
+      "anchor": "Option B and Option G are retained for the DBCA remote-clone workflow described here."
+    }
   },
   {
     "id": 59,
@@ -3287,7 +3725,13 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "DATABASE"
+      ],
+      "anchor": "Option E is the appropriate flashback feature among the choices."
+    }
   },
   {
     "id": 60,
@@ -3341,7 +3785,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "DBUA",
+        "All pluggable databases",
+        "Pre",
+        "launched"
+      ],
+      "anchor": "as the pre-upgrade-checking capability."
+    }
   },
   {
     "id": 61,
@@ -3404,7 +3857,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/transporting-data.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Pump full database",
+        "Data Pump transportable",
+        "replication using GoldenGate"
+      ],
+      "anchor": "The defensible general pair is Data Pump logical export/import (B) and user transportable tablespaces (C)."
+    }
   },
   {
     "id": 62,
@@ -3462,7 +3923,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/CONFIGURE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "It can get",
+        "can be backed",
+        "control file re"
+      ],
+      "anchor": "A control-file backup preserves database structure and repository metadata needed to locate data files, online redo, and backups."
+    }
   },
   {
     "id": 63,
@@ -3519,7 +3988,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/plugging-in-a-pdb.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "files in compressed",
+        "CHECK_PLUG_COMPATIBILITY"
+      ],
+      "anchor": "A PDB archive is a portable package for moving a pluggable database."
+    }
   },
   {
     "id": 64,
@@ -3567,7 +4043,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/creating-operating-system-groups-and-users-for-oracle-software-owners.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Oracle Inventory group",
+        "operating system user"
+      ],
+      "anchor": "A Grid Infrastructure installation needs an operating-system owner and a central Oracle inventory group."
+    }
   },
   {
     "id": 65,
@@ -3618,7 +4101,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-DATABASE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SQL",
+        "statements"
+      ],
+      "anchor": "BACKUP CONTROLFILE TO TRACE writes a text trace containing SQL statements that can recreate the control file."
+    }
   },
   {
     "id": 66,
@@ -3681,7 +4171,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/administering-application-containers-with-sql-plus.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "An application root",
+        "An application name",
+        "container s PDBs"
+      ],
+      "anchor": "An application upgrade automatically clones the application root and identifies the application plus its old/new versions."
+    }
   },
   {
     "id": 67,
@@ -3729,7 +4227,16 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/managing-recovery-catalog.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "RMAN",
+        "uses",
+        "Oracle",
+        "grant"
+      ],
+      "anchor": "An RMAN Virtual Private Catalog (VPC) is a restricted view of the base recovery catalog."
+    }
   },
   {
     "id": 68,
@@ -3781,7 +4288,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/plugging-in-a-pdb.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "files for PDB1",
+        "PDB1 must"
+      ],
+      "anchor": "The unplug manifest records the source file paths at unplug time."
+    }
   },
   {
     "id": 69,
@@ -3846,7 +4360,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/BACKUP.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Keystore based encryption",
+        "Backup encryption"
+      ],
+      "anchor": "A and D are the correct RMAN-native encryption choices."
+    }
   },
   {
     "id": 70,
@@ -3901,7 +4422,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-TABLE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "APP_PDB1",
+        "EMP"
+      ],
+      "anchor": "Changing `DEFAULT_SHARING` to `DATA` changes the default for eligible objects created later; it does not convert this existing table or move its rows."
+    }
   },
   {
     "id": 71,
@@ -3949,7 +4477,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/managing-security-for-a-multitenant-environment.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "TSDP",
+        "Unified auditing"
+      ],
+      "anchor": "Application security features do not all have identical propagation rules."
+    }
   },
   {
     "id": 72,
@@ -4000,7 +4535,13 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/introduction-backup-recovery.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "flashback database"
+      ],
+      "anchor": "A restore and recover is a media-recovery path that requires restore/recovery steps and may require RESETLOGS; it is not the single-command flashback method."
+    }
   },
   {
     "id": 73,
@@ -4047,7 +4588,13 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-memory.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "AMM"
+      ],
+      "anchor": "B and C misstate the SGA/PGA management modes; AMM, rather than manually managed SGA or PGA, controls the overall allocation."
+    }
   },
   {
     "id": 74,
@@ -4099,7 +4646,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/cloning-a-pdb.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "opening the cloned",
+        "database to CDB$ROOT"
+      ],
+      "anchor": "The Oracle 19c DBCA example supplies the remote CDB connection string and the remote PDB name separately, consistent with this root-level connection."
+    }
   },
   {
     "id": 75,
@@ -4147,7 +4701,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/automatic-performance-diagnostics.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "ADDM",
+        "AWR"
+      ],
+      "anchor": "ADDM analyzes AWR snapshots automatically, normally comparing the latest two snapshot intervals."
+    }
   },
   {
     "id": 76,
@@ -4200,7 +4761,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-PLUGGABLE-DATABASE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "PDB",
+        "data between PDBs",
+        "CDB"
+      ],
+      "anchor": "Administrators provision the PDB first, then import into it."
+    }
   },
   {
     "id": 77,
@@ -4254,7 +4823,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-oracle-grid-infrastructure-for-a-standalone-server.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "OSASM",
+        "It creates one",
+        "Oracle Automatic Storage"
+      ],
+      "anchor": "Oracle Grid Infrastructure for a standalone server includes Oracle Restart and Oracle ASM (F)."
+    }
   },
   {
     "id": 78,
@@ -4306,7 +4883,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-LOCKDOWN-PROFILE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "application root",
+        "CDB$ROOT"
+      ],
+      "anchor": "B and D are correct: a lockdown profile can be created in an application root or in CDB$ROOT, then applied at an allowed scope."
+    }
   },
   {
     "id": 79,
@@ -4370,7 +4954,16 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-transporting-data-across-platforms.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Data files",
+        "Data",
+        "destination",
+        "source"
+      ],
+      "anchor": "B and C are the unambiguous cross-platform CONVERT DATABASE choices: the conversion work can run on the source or be generated for execution on the destination."
+    }
   },
   {
     "id": 80,
@@ -4418,7 +5011,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/about-read-only-oracle-homes.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "It contains",
+        "software only Oracle"
+      ],
+      "anchor": "E is the supported enablement path: install database software in software-only mode, then use roohctl -enable."
+    }
   },
   {
     "id": 81,
@@ -4475,7 +5075,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/CROSSCHECK.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CROSSCHECK",
+        "EXPIRED"
+      ],
+      "anchor": "CROSSCHECK compares RMAN repository records with actual backup pieces."
+    }
   },
   {
     "id": 82,
@@ -4537,7 +5144,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/configuring-oracle-net-services.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Oracle Application Express",
+        "RMAN",
+        "ORACLE_HOME"
+      ],
+      "anchor": "The stem mixes DBUA and manual-upgrade contexts, so that third choice needs a qualification."
+    }
   },
   {
     "id": 83,
@@ -4603,7 +5218,16 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/CONFIGURE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SPFILE",
+        "RMAN",
+        "new tablespace",
+        "automatically"
+      ],
+      "anchor": "With CONTROLFILE AUTOBACKUP enabled, A, B, E and F are true under the stated feature's normal prerequisites."
+    }
   },
   {
     "id": 84,
@@ -4698,7 +5322,15 @@
         "key": "F",
         "text": "A user with SYSDBA or SYSBKUP must be logged in with RMAN to CDB$ROOT when cloning a PDB."
       }
-    ]
+    ],
+    "mnemonic": {
+      "keywords": [
+        "The target",
+        "PDB",
+        "CDB$ROOT"
+      ],
+      "anchor": "B,E,F is the supported Oracle 19c existing-CDB duplication answer."
+    }
   },
   {
     "id": 85,
@@ -4754,7 +5386,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/cloning-a-pdb.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "source PDB",
+        "sparse"
+      ],
+      "anchor": "A PDB snapshot may be sparse when storage supports it or full otherwise, making B and E the keyed choices."
+    }
   },
   {
     "id": 86,
@@ -4800,7 +5439,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/sql-tuning-advisor.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SQL Tuning Advisor",
+        "Tuning",
+        "statements"
+      ],
+      "anchor": "SQL Tuning Advisor is the targeted tool for individual regressed statements SPA identifies (B)."
+    }
   },
   {
     "id": 87,
@@ -4857,7 +5504,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/backing-up-database.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Binary compression",
+        "to disk"
+      ],
+      "anchor": "BACKUP AS COPY creates an image copy, not an RMAN backup set."
+    }
   },
   {
     "id": 88,
@@ -4915,7 +5569,14 @@
       }
     ],
     "review_date": "2026-11-10",
-    "original_text": "Examine this configuration:\n1. CDB1 is a container database.\n2. APP1_ROOT is an application container contained in CDB1.\n3. APP1_ROOT$SEED is the application seed contained in APP1_ROOT and synchronized with APP1_ROOT.\n4. APP1_PDB1 and APP1_PDB2 are application PDBs contained in APP1_ROOT.\n5. APP1_USER_APP is an application installed in APP1_ROOT at version 1.0.\n6. USER1 is a common user in APP1_ROOT and all its application PDBs, created when version 1.0 of APP1_USER_APP was installed.\n\nYou execute these commands:\n\n```text\n$ sqlplus sys/oracle@localhost:1521/cdb1 as sysdba\n\nSQL> ALTER SESSION SET CONTAINER=app1_root;\nSession altered.\n\nSQL> ALTER PLUGGABLE DATABASE APPLICATION app1_user1_app BEGIN UPGRADE '1.0' TO '2.0';\nPluggable database altered.\n\nSQL> GRANT CREATE SESSION TO USER1;\nGrant succeeded.\n\nSQL> ALTER PLUGGABLE DATABASE APPLICATION app1_user1_app END UPGRADE TO '2.0';\nPluggable database altered.\n\nSQL> ALTER SESSION SET CONTAINER=app1_pdb1;\nSession altered.\n\nSQL> ALTER PLUGGABLE DATABASE APPLICATION app1_user1_app SYNC;\nPluggable database altered.\n```\n\nWhich two are true? (Choose two.)"
+    "original_text": "Examine this configuration:\n1. CDB1 is a container database.\n2. APP1_ROOT is an application container contained in CDB1.\n3. APP1_ROOT$SEED is the application seed contained in APP1_ROOT and synchronized with APP1_ROOT.\n4. APP1_PDB1 and APP1_PDB2 are application PDBs contained in APP1_ROOT.\n5. APP1_USER_APP is an application installed in APP1_ROOT at version 1.0.\n6. USER1 is a common user in APP1_ROOT and all its application PDBs, created when version 1.0 of APP1_USER_APP was installed.\n\nYou execute these commands:\n\n```text\n$ sqlplus sys/oracle@localhost:1521/cdb1 as sysdba\n\nSQL> ALTER SESSION SET CONTAINER=app1_root;\nSession altered.\n\nSQL> ALTER PLUGGABLE DATABASE APPLICATION app1_user1_app BEGIN UPGRADE '1.0' TO '2.0';\nPluggable database altered.\n\nSQL> GRANT CREATE SESSION TO USER1;\nGrant succeeded.\n\nSQL> ALTER PLUGGABLE DATABASE APPLICATION app1_user1_app END UPGRADE TO '2.0';\nPluggable database altered.\n\nSQL> ALTER SESSION SET CONTAINER=app1_pdb1;\nSession altered.\n\nSQL> ALTER PLUGGABLE DATABASE APPLICATION app1_user1_app SYNC;\nPluggable database altered.\n```\n\nWhich two are true? (Choose two.)",
+    "mnemonic": {
+      "keywords": [
+        "APP1_ROOT",
+        "APP1_PDB2"
+      ],
+      "anchor": "USER1 is an application common user in APP1_ROOT and its application PDBs."
+    }
   },
   {
     "id": 89,
@@ -4973,7 +5634,16 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "archivelog mode",
+        "local UNDO mode",
+        "archivelog",
+        "local"
+      ],
+      "anchor": "Online PDB relocation uses redo to synchronize the destination while the source remains available."
+    }
   },
   {
     "id": 90,
@@ -5025,7 +5695,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/fppad/patching-oracle-database-without-downtime.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "previous Oracle home",
+        "patched Oracle Database"
+      ],
+      "anchor": "RHP move database switches a database to another prepared Oracle home."
+    }
   },
   {
     "id": 91,
@@ -5084,7 +5761,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-recovering-tables-partitions.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SYSTEM user",
+        "DDL",
+        "RMAN always uses"
+      ],
+      "anchor": "RMAN table recovery uses an auxiliary instance to restore to a point in time and import the recovered table (G)."
+    }
   },
   {
     "id": 92,
@@ -5131,7 +5816,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/upgrading-parallel-upgrade-utility-catctl-pl.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CDB$ROOT",
+        "PDB$SEED",
+        "PDB2"
+      ],
+      "anchor": "In a Multitenant container database upgrade using dbupgrade (catctl.pl), execution strictly follows these rules: 1."
+    }
   },
   {
     "id": 93,
@@ -5191,7 +5884,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/administering-a-cdb-with-sql-plus.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "ROOT",
+        "CDB$ROOT",
+        "PDB"
+      ],
+      "anchor": "A,B,F are true in the intended shared-undo interpretation, so the count is corrected to three."
+    }
   },
   {
     "id": 94,
@@ -5239,7 +5940,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/tuning-rman-performance.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Enable asynchronous disk",
+        "RMAN"
+      ],
+      "anchor": "The bottleneck is disk reading during compressed level 0 streaming to tape."
+    }
   },
   {
     "id": 95,
@@ -5291,7 +5999,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/ratug/comparing-sql-trials.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SQL workload response",
+        "SQL statement"
+      ],
+      "anchor": "SPA predicts SQL workload impact from system changes (B) and compares before/after statistics for statements in its task (C)."
+    }
   },
   {
     "id": 96,
@@ -5342,7 +6057,13 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-SESSION_WAIT_CLASS.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "V$SESSION_EVENT"
+      ],
+      "anchor": "V$SESSION_EVENT accumulates wait statistics by session and event, including events waited on earlier (A)."
+    }
   },
   {
     "id": 97,
@@ -5394,7 +6115,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/gathering-optimizer-statistics.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "GATHER_DATABASE_STATS",
+        "DBMS_STATS",
+        "PDB"
+      ],
+      "anchor": "DBMS_STATS.GATHER_DATABASE_STATS follows current-container scope."
+    }
   },
   {
     "id": 98,
@@ -5447,7 +6176,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/managing-cdb-resources.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "execute statements",
+        "PDB3 can use"
+      ],
+      "anchor": "PDB3 has no explicit PARALLEL_SERVER_LIMIT and can use all available parallel processes at times (B)."
+    }
   },
   {
     "id": 99,
@@ -5500,7 +6236,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-root-scripts-automatically-during-oracle-database-installation.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Database installer by",
+        "The root password"
+      ],
+      "anchor": "Installer automation can run orainstRoot.sh using root or sudo credentials (A)."
+    }
   },
   {
     "id": 100,
@@ -5551,7 +6294,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-SHARED_POOL_ADVICE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "shared pool",
+        "shared",
+        "pool"
+      ],
+      "anchor": "Hard parses can indicate shared-pool pressure because Oracle repeatedly locates or creates cursor structures."
+    }
   },
   {
     "id": 101,
@@ -5599,7 +6350,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/maintaining-rman-backups.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "purged when DB_FLASHBACK_RETENTION_TARGET",
+        "DB_FLASHBACK_RETENTION_TARGET before"
+      ],
+      "anchor": "A is true: when the target is lowered, logs older than the new target become eligible for removal."
+    }
   },
   {
     "id": 102,
@@ -5655,7 +6413,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/administering-a-cdb-with-sql-plus.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "PDB2 is opened",
+        "CDB$ROOT"
+      ],
+      "anchor": "This is recovery of a PDB SYSTEM data file, not loss of CDB$ROOT's SYSTEM tablespace."
+    }
   },
   {
     "id": 103,
@@ -5716,7 +6481,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/CONFIGURE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "A non duplexed",
+        "non"
+      ],
+      "anchor": "A duplexed backup set has multiple identical copies of each backup piece, normally created during the backup operation; it is not a general tape-copy feature."
+    }
   },
   {
     "id": 104,
@@ -5783,7 +6555,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/maintaining-rman-backups.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "target's control file",
+        "FRA",
+        "V$RMAN_CONFIGURATION"
+      ],
+      "anchor": "C: when the FRA needs space, Oracle may automatically remove eligible obsolete files, subject to retention and file dependencies."
+    }
   },
   {
     "id": 105,
@@ -5841,7 +6621,14 @@
       }
     ],
     "review_date": "2026-11-10",
-    "original_text": "For which two requirements can you use the USER_TABLESPACE clause with the CREATE PLUGGABLE DATABASE command? (Choose two.)"
+    "original_text": "For which two requirements can you use the USER_TABLESPACE clause with the CREATE PLUGGABLE DATABASE command? (Choose two.)",
+    "mnemonic": {
+      "keywords": [
+        "SYSTEM",
+        "non CDB"
+      ],
+      "anchor": "B describes excluding user tablespaces so that only core tablespaces remain."
+    }
   },
   {
     "id": 106,
@@ -5903,7 +6690,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/concepts-for-database-administrators.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "It can recommend",
+        "It runs automatically",
+        "DBMS_STATS"
+      ],
+      "anchor": "Optimizer Statistics Advisor is implemented through DBMS_STATS, and its task evaluates statistics collection practices against Oracle recommendations."
+    }
   },
   {
     "id": 107,
@@ -5951,7 +6746,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/BACKUP.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "recovery files not",
+        "backed up already"
+      ],
+      "anchor": "It is not a command to back up every file indiscriminately: already-backed-up files are excluded according to RMAN selection rules, so D is too broad."
+    }
   },
   {
     "id": 108,
@@ -6008,7 +6810,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-SYS_TIME_MODEL.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Oracle Database time",
+        "agreed service levels"
+      ],
+      "anchor": "A is therefore the evidence-based starting point."
+    }
   },
   {
     "id": 109,
@@ -6067,7 +6876,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/tuning-rman-performance.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "using synchronous I",
+        "write I O",
+        "read I O"
+      ],
+      "anchor": "If validate is much faster than backup, destination writing is a likely bottleneck (C)."
+    }
   },
   {
     "id": 110,
@@ -6125,7 +6942,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/administering-a-cdb-with-sql-plus.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "USER1",
+        "USER2"
+      ],
+      "anchor": "ALTER SESSION SET CONTAINER changes the current container for the session; it does not commit or roll back the existing transaction."
+    }
   },
   {
     "id": 111,
@@ -6172,7 +6996,13 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/using-preupgrade-information-tool-for-oracle-database.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "PDB1"
+      ],
+      "anchor": "fixup scripts are produced for CDB1 (the root), PDB$SEED, and PDB1, which are open in the stated configuration."
+    }
   },
   {
     "id": 112,
@@ -6228,7 +7058,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-tables.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "DROP",
+        "DATABASE"
+      ],
+      "anchor": "FLASHBACK DROP uses the recycle bin to restore a dropped table and can restore its dependent indexes along with it, so D is true."
+    }
   },
   {
     "id": 113,
@@ -6291,7 +7128,16 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-the-multitenant-architecture.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "new application PDB",
+        "not required",
+        "new",
+        "created"
+      ],
+      "anchor": "An application seed is optional, so G is true; an application container can exist without one."
+    }
   },
   {
     "id": 114,
@@ -6343,7 +7189,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-PLUGGABLE-DATABASE.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "transactions in PDB1",
+        "PDB1 is closed"
+      ],
+      "anchor": "SHUTDOWN IMMEDIATE issued while the session's current container is PDB1 shuts down that PDB, not the entire CDB."
+    }
   },
   {
     "id": 115,
@@ -6401,7 +7254,16 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/gathering-database-statistics.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "ADDM can recommend",
+        "default AWR snapshots",
+        "recommend",
+        "extending"
+      ],
+      "anchor": "MMON creates AWR snapshots at a one-hour default interval, so C's 30-minute value is incorrect."
+    }
   },
   {
     "id": 116,
@@ -6465,7 +7327,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-tables.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "set to ON",
+        "points in time"
+      ],
+      "anchor": "The defensible intended pair is B and F, with an important timing qualification for B."
+    }
   },
   {
     "id": 117,
@@ -6524,7 +7393,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/PDB_FILE_NAME_CONVERT.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CREATE_FILE_DEST",
+        "Set only",
+        "OMF"
+      ],
+      "anchor": "B, C and E are the intended independent file-placement mechanisms."
+    }
   },
   {
     "id": 118,
@@ -6581,7 +7458,14 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/RMAN.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "errors are generated",
+        "log file only"
+      ],
+      "anchor": "Thus C reverses the useful diagnostic order."
+    }
   },
   {
     "id": 119,
@@ -6639,7 +7523,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-MEMORY_DYNAMIC_COMPONENTS.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Shared Memory Management",
+        "With Automatic Memory",
+        "Line Transaction Processing"
+      ],
+      "anchor": "Automatic Memory Management manages both SGA and PGA through MEMORY_TARGET, allowing memory to shift between them, so B is true."
+    }
   },
   {
     "id": 120,
@@ -6698,7 +7590,15 @@
         "url": "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/user-managed-recovery-advanced.html"
       }
     ],
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "control file",
+        "log from before",
+        "SYSTEM"
+      ],
+      "anchor": "B, D and E describe scenarios in which complete recovery is possible, subject to the normal backup, metadata and redo requirements."
+    }
   },
   {
     "id": 121,
@@ -6752,7 +7652,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "MOUNT",
+        "ARCHIVELOG",
+        "RESETLOGS"
+      ],
+      "anchor": "Core idea: Database point-in-time recovery (DBPITR) restores a database backup and applies redo only up to a chosen target."
+    }
   },
   {
     "id": 122,
@@ -6811,7 +7719,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "It checks",
+        "to SQL statements",
+        "checks",
+        "query"
+      ],
+      "anchor": "The correct choices are A, B and D."
+    }
   },
   {
     "id": 123,
@@ -6859,7 +7776,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "A/E apply to duplicating selected PDBs into a new CDB. Existing-CDB duplication has different cardinality and root/seed behavior; the stem omits the destination workflow.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "RMAN DUPLICATE command",
+        "CDB$ROOT"
+      ],
+      "anchor": "Core idea: RMAN PDB duplication creates PDB copies inside a valid destination CDB."
+    }
   },
   {
     "id": 124,
@@ -6913,7 +7837,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "deploy Oracle Database",
+        "deploy Grid Infrastructure",
+        "Oracle Grid Infrastructure"
+      ],
+      "anchor": "Core idea: Rapid Home Provisioning (RHP) centrally provisions and manages Oracle software images."
+    }
   },
   {
     "id": 125,
@@ -6977,7 +7909,15 @@
     ],
     "review_status": "verified",
     "review_note": "The question now asks for three answers because D satisfies the explicitly configured C## prefix.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "PDB1",
+        "APP1_ROOT",
+        "_APP_USER1"
+      ],
+      "anchor": "A, C and D are true with the supplied names and COMMON_USER_PREFIX=C##."
+    }
   },
   {
     "id": 126,
@@ -7025,7 +7965,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "physical data model",
+        "storage arrays"
+      ],
+      "anchor": "Core idea: Performance planning includes logical design and the physical path by which the database stores and reads data."
+    }
   },
   {
     "id": 127,
@@ -7079,7 +8026,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "oracle OS user",
+        "OSDBA",
+        "oraInventory oinstall group"
+      ],
+      "anchor": "Core idea: The Oracle Linux preinstallation RPM prepares common operating-system prerequisites for Oracle software."
+    }
   },
   {
     "id": 128,
@@ -7137,7 +8092,15 @@
     ],
     "review_status": "ambiguous",
     "review_note": "A overstates recompilation as all stored PL/SQL. DBUA can run recompilation; B/C/F remain the intended actions, with post-upgrade options distinguished.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "RECYCLE",
+        "Oracle database",
+        "It increases tablespace"
+      ],
+      "anchor": "Core idea: DBUA automates a guided database upgrade, including prerequisite checks and some cleanup or space preparation."
+    }
   },
   {
     "id": 129,
@@ -7189,7 +8152,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "RMAN compression",
+        "PARALLELISM"
+      ],
+      "anchor": "Core idea: RMAN binary compression and tape-device compression are separate mechanisms."
+    }
   },
   {
     "id": 130,
@@ -7237,7 +8207,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Oracle Inventory",
+        "Oracle software installations"
+      ],
+      "anchor": "Core idea: Oracle software ownership is an OS installation choice."
+    }
   },
   {
     "id": 131,
@@ -7288,7 +8265,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "fast_recover_area",
+        "u02",
+        "app"
+      ],
+      "anchor": "Core idea: Multiplexed control files are copies of the same control-file contents at locations listed by CONTROL_FILES."
+    }
   },
   {
     "id": 132,
@@ -7342,7 +8327,13 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "2 4 5"
+      ],
+      "anchor": "D, actions 2, 4 and 5, is the minimum combination offered."
+    }
   },
   {
     "id": 133,
@@ -7404,7 +8395,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "C is intended as a storage-support restriction, but SNAPSHOT COPY has multiple implementations including CLONEDB. Native storage snapshots are not the only mechanism.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "specific file systems",
+        "alone clone PDB"
+      ],
+      "anchor": "Core idea: A PDB snapshot and a snapshot-copy PDB are related but distinct."
+    }
   },
   {
     "id": 134,
@@ -7452,7 +8450,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Transaction Processing templates",
+        "create new databases"
+      ],
+      "anchor": "Core idea: DBCA templates capture choices for creating databases."
+    }
   },
   {
     "id": 135,
@@ -7518,7 +8523,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "F is correct for default unqualified queries, not a claim that explicit CONTAINERS queries cannot prune.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "MAPTABLE tables defines",
+        "REVENUE table partitions"
+      ],
+      "anchor": "C and F are the defensible choices for ordinary queries issued in the application root."
+    }
   },
   {
     "id": 136,
@@ -7570,7 +8582,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "B/E describe destination privilege and initial clone state; target application-root compatibility is omitted. The destination type and relationship must be validated separately.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "PLUGGABLE",
+        "HR_PDB1 clone created"
+      ],
+      "anchor": "Core idea: Remote PDB cloning uses a database link to copy a PDB from a source CDB into a destination CDB."
+    }
   },
   {
     "id": 137,
@@ -7633,7 +8652,15 @@
     ],
     "review_status": "ambiguous",
     "review_note": "E describes conventional cold OS backup, but cleanly closed files can also be copied after STARTUP MOUNT. Closed/consistent is the essential requirement, not necessarily a nonexistent instance.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "copied using O",
+        "COPIES",
+        "mode using O"
+      ],
+      "anchor": "Core idea: A user-managed backup copies database files with operating-system tools."
+    }
   },
   {
     "id": 138,
@@ -7694,7 +8721,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "They can exist",
+        "CDB$ROOT"
+      ],
+      "anchor": "C and D are correct under Oracle's distinction between Oracle-supplied common objects and application common objects."
+    }
   },
   {
     "id": 139,
@@ -7750,7 +8784,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "MOUNT",
+        "CDB$ROOT"
+      ],
+      "anchor": "Oracle starts the instance and mounts the CDB, opening its control files but not opening the database data files and online redo logs for normal operation."
+    }
   },
   {
     "id": 140,
@@ -7810,7 +8851,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "separate Oracle Grid",
+        "existing Oracle base"
+      ],
+      "anchor": "B and C are the two generally correct statements offered."
+    }
   },
   {
     "id": 141,
@@ -7867,7 +8915,13 @@
     ],
     "review_status": "ambiguous",
     "review_note": "Original choose-two key CD was defective: no trace control-file backup does not rule out a binary backup or manual CREATE CONTROLFILE and complete recovery. C assumes unrecoverable required current redo and no surviving alternate copy.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CURRENT"
+      ],
+      "anchor": "C is the intended redo-loss scenario, provided the lost current redo contains changes needed for recovery and no alternate copy is available."
+    }
   },
   {
     "id": 142,
@@ -7924,7 +8978,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Os needed",
+        "MOUNT"
+      ],
+      "anchor": "Core idea: Instance recovery restores database consistency after an instance failure."
+    }
   },
   {
     "id": 143,
@@ -7983,7 +9044,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "The number",
+        "Index balanced B",
+        "Statistics Advisor can"
+      ],
+      "anchor": "A, B and C are correct; the original choose-two count omitted a normal input to index costing."
+    }
   },
   {
     "id": 144,
@@ -8045,7 +9114,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CDB$ROOT",
+        "PDB2"
+      ],
+      "anchor": "Core idea: In a CDB, data-file numbers are unique across the CDB, so RMAN can identify a PDB data file while connected to CDB$ROOT."
+    }
   },
   {
     "id": 145,
@@ -8109,7 +9185,16 @@
     ],
     "review_status": "ambiguous",
     "review_note": "A is also true for an ordinary privileged full import when tablespace DDL and usable file locations are present. Original count two is not exhaustive under that normal interpretation; transportable and restricted import variants have different prerequisites.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CDB",
+        "Tablespaces",
+        "needed",
+        "Oracle"
+      ],
+      "anchor": "A, B and D describe an ordinary privileged full or schema movement under the relevant import prerequisites."
+    }
   },
   {
     "id": 146,
@@ -8167,7 +9252,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SQL",
+        "using Oracle Data",
+        "CREATE"
+      ],
+      "anchor": "Core idea: Heap-table data migration moves rows into a new or reorganized table structure."
+    }
   },
   {
     "id": 147,
@@ -8220,7 +9313,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CKPT",
+        "database SMON"
+      ],
+      "anchor": "Core idea: Instance recovery starts from a checkpoint and applies redo records needed to bring data files forward after an instance failure."
+    }
   },
   {
     "id": 148,
@@ -8267,7 +9367,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "LISTENER",
+        "DATA",
+        "FRA"
+      ],
+      "anchor": "Core idea: Oracle Restart tracks resources and their dependencies."
+    }
   },
   {
     "id": 149,
@@ -8319,7 +9427,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "AWR",
+        "DBA"
+      ],
+      "anchor": "Core idea: ADDM analyzes database performance using AWR snapshots and reports findings with likely causes and recommended actions."
+    }
   },
   {
     "id": 150,
@@ -8388,7 +9503,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "NOARCHIVELOG",
+        "ARCHIVELOG",
+        "SBT",
+        "RMAN disk based"
+      ],
+      "anchor": "Core idea: Backup-based RMAN duplication without a TARGET connection uses existing backup pieces accessible to the auxiliary instance."
+    }
   },
   {
     "id": 151,
@@ -8455,7 +9579,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "TSDP",
+        "BEGIN",
+        "Unified auditing"
+      ],
+      "anchor": "B, D and G follow the feature-specific application-container restrictions."
+    }
   },
   {
     "id": 152,
@@ -8504,7 +9636,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "default AWR snapshots",
+        "STATISTICS_LEVEL",
+        "taking of AWR"
+      ],
+      "anchor": "Core idea: AWR captures workload and performance statistics for later diagnosis."
+    }
   },
   {
     "id": 153,
@@ -8560,7 +9700,15 @@
     ],
     "review_status": "ambiguous",
     "review_note": "BE follows the core 19c Backup/Recovery and Data Guard guides real-time-query requirement. More recent 19c high-availability guidance describes additional mounted-standby repair cases, so check actual Release Update rather than treating B as timeless.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Real Time Query",
+        "Real",
+        "Time"
+      ],
+      "anchor": "Core idea: Automatic block repair can replace a corrupted block by retrieving a good copy from a Data Guard partner."
+    }
   },
   {
     "id": 154,
@@ -8618,7 +9766,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "application root PDB",
+        "application root APP1",
+        "PDB$SEED"
+      ],
+      "anchor": "Core idea: Creating a PDB with AS APPLICATION CONTAINER creates an application root."
+    }
   },
   {
     "id": 155,
@@ -8670,7 +9826,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "A is the intended transparent-encryption statement, but is not universal for password-only encryption. AD is retained with the encryption-mode qualification made explicit.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "RMAN encryption keys",
+        "SET"
+      ],
+      "anchor": "Core idea: RMAN supports transparent keystore-based encryption, password-based encryption, and dual-mode encryption."
+    }
   },
   {
     "id": 156,
@@ -8733,7 +9896,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "installing Grid Infrastructure",
+        "Oracle Inventory group",
+        "done",
+        "owner"
+      ],
+      "anchor": "It is recommended but not mandatory."
+    }
   },
   {
     "id": 157,
@@ -8791,7 +9963,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "container database can",
+        "non container database",
+        "non"
+      ],
+      "anchor": "Core idea: RMAN can target a PDB directly, while a virtual private catalog (VPC) limits a catalog user's metadata view."
+    }
   },
   {
     "id": 158,
@@ -8849,7 +10029,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Schema Only accounts",
+        "Oracle Enterprise Edition",
+        "issued directly"
+      ],
+      "anchor": "Core idea: 19c schema-only accounts separate ownership of objects from password-based logon."
+    }
   },
   {
     "id": 159,
@@ -8907,7 +10095,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "The data file",
+        "SPFILE",
+        "The control file"
+      ],
+      "anchor": "Core idea: RMAN KEEP creates an archival backup exempt from the configured retention policy until the specified time."
+    }
   },
   {
     "id": 160,
@@ -8966,7 +10162,16 @@
     ],
     "review_status": "ambiguous",
     "review_note": "Original choose-two count excludes documented automatic alert-history purging. B/C use Enterprise Manager stateless-alert lifecycle semantics; E follows Database 19c automatic alert-history purge. Exact UI and retention depend on monitoring product/configuration.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Stateless alerts can",
+        "Stateful alerts are",
+        "purged",
+        "cleared"
+      ],
+      "anchor": "B, C and E are defensible when the question includes Enterprise Manager alert management as well as the database server alert-history lifecycle."
+    }
   },
   {
     "id": 161,
@@ -9023,7 +10228,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "ARCHIVELOG",
+        "done incrementally"
+      ],
+      "anchor": "Core idea: An open RMAN backup is inconsistent while it is being read, so Oracle must have redo available to make the restored files consistent."
+    }
   },
   {
     "id": 162,
@@ -9092,7 +10304,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "A backup piece",
+        "different backup pieces",
+        "Blocks from multiple",
+        "piece"
+      ],
+      "anchor": "Core idea: A backup set is RMAN's logical container for backed-up blocks; it consists of one or more backup pieces."
+    }
   },
   {
     "id": 163,
@@ -9148,7 +10369,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "B is documented. The retained intended second answer E names root as a PDB; the official 19c reference documents BACKUP DATABASE ROOT. C also requires exact application-root connection restrictions. Do not treat BE as an official verified key.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "BACKUP DATABASE command",
+        "CDB$ROOT"
+      ],
+      "anchor": "Core idea: RMAN backup scope depends on the target container."
+    }
   },
   {
     "id": 164,
@@ -9216,7 +10444,13 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "cloning a remote pluggable"
+      ],
+      "anchor": "B, E and F are the documented silent-mode capabilities."
+    }
   },
   {
     "id": 165,
@@ -9267,7 +10501,15 @@
     ],
     "review_status": "ambiguous",
     "review_note": "E only describes the failure of the listed PDB FLASHBACK methods with shared undo/non-clean restore point. General PDB PITR using the stated backup and required redo is not ruled out; therefore the literal broad recovery request has no fully accurate offered answer.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "clean restore point",
+        "done",
+        "due"
+      ],
+      "anchor": "E is the intended answer only if “this” means the FLASHBACK PLUGGABLE DATABASE methods offered in A through D."
+    }
   },
   {
     "id": 166,
@@ -9315,7 +10557,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Recovery Advisor can",
+        "proactively",
+        "check"
+      ],
+      "anchor": "Core idea: Data Recovery Advisor (DRA) inspects failure information and can proactively check for problems."
+    }
   },
   {
     "id": 167,
@@ -9367,7 +10617,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "Oracle Grid Infrastructure",
+        "upgrade Oracle Database"
+      ],
+      "anchor": "Core idea: A gold image is a prepared Oracle software home that can be deployed across hosts."
+    }
   },
   {
     "id": 168,
@@ -9423,7 +10680,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "CONFIGURE",
+        "written to media"
+      ],
+      "anchor": "Core idea: RMAN duplexing creates identical copies of a backup set."
+    }
   },
   {
     "id": 169,
@@ -9474,7 +10738,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "SQL",
+        "statements"
+      ],
+      "anchor": "Core idea: SQL statements are the direct source of database work: they drive CPU, logical and physical I/O, memory use, and concurrency."
+    }
   },
   {
     "id": 170,
@@ -9536,7 +10807,16 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "A transportable data",
+        "PDB",
+        "import",
+        "leave"
+      ],
+      "anchor": "Resource Manager can also enforce limits on PDB activity, including Data Pump concurrency."
+    }
   },
   {
     "id": 171,
@@ -9594,7 +10874,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "OFA",
+        "Oracle Net Services",
+        "Oracle Installer"
+      ],
+      "anchor": "Core idea: Oracle uses environment variables for software paths, network configuration, and temporary installer files."
+    }
   },
   {
     "id": 172,
@@ -9650,7 +10938,14 @@
     ],
     "review_status": "ambiguous",
     "review_note": "Corrected AE to BE for documented 19c automatic root-script workflow: configure execution/sudo path in response file; root/sudo credential is prompted rather than saved there. Exact unattended credential behavior varies by installer/update and must not be inferred from generic DB-account password fields.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "The installer",
+        "sudo program"
+      ],
+      "anchor": "B and E describe the documented 19c automatic privileged-script workflow."
+    }
   },
   {
     "id": 173,
@@ -9708,7 +11003,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "FOREVER",
+        "RMAN",
+        "database's data files"
+      ],
+      "anchor": "Option analysis: A is correct: KEEP FOREVER requires a recovery catalog so RMAN can retain the archival backup metadata beyond control-file record retention."
+    }
   },
   {
     "id": 174,
@@ -9766,7 +11069,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "ADRCI",
+        "Automatic Diagnostic Repository",
+        "Data Recovery Advisor"
+      ],
+      "anchor": "Core idea: The Automatic Diagnostic Repository (ADR) stores diagnostic files and metadata for Oracle products."
+    }
   },
   {
     "id": 175,
@@ -9830,7 +11141,13 @@
     ],
     "review_status": "verified",
     "review_note": "Corrected BEF/count3 to EF/count2. B names the CDB root, but Oracle requires the database link in the application root for a proxy in an application container.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "HR_ROOT"
+      ],
+      "anchor": "The application container needs a local proxy PDB and the corresponding remote application-root replica."
+    }
   },
   {
     "id": 176,
@@ -9878,7 +11195,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "optimizes one SQL",
+        "Poorly performing SQL"
+      ],
+      "anchor": "Core idea: SQL tuning is a workload problem."
+    }
   },
   {
     "id": 177,
@@ -9930,7 +11254,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "used for applications",
+        "Oracle Grid Infrastructure"
+      ],
+      "anchor": "Core idea: Rapid Home Provisioning centrally deploys and manages Oracle software homes and supported application or middleware software."
+    }
   },
   {
     "id": 178,
@@ -9991,7 +11322,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "archived log deletion",
+        "backup retention policy"
+      ],
+      "anchor": "Core idea: The fast recovery area (FRA) has a size and location, but space reclamation depends on whether files are still required."
+    }
   },
   {
     "id": 179,
@@ -10039,7 +11377,14 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "OUI",
+        "create container databases"
+      ],
+      "anchor": "Core idea: DBCA is Oracle's graphical and command-line assistant for database creation and selected lifecycle operations."
+    }
   },
   {
     "id": 180,
@@ -10097,7 +11442,15 @@
     ],
     "review_status": "verified",
     "review_note": "",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "mounting disk groups",
+        "managing Allocation Units",
+        "Oracle ASM files"
+      ],
+      "anchor": "Core idea: ASM manages storage at the disk-group and ASM-file level."
+    }
   },
   {
     "id": 181,
@@ -10155,6 +11508,12 @@
     ],
     "review_status": "ambiguous",
     "review_note": "Seven if “can be assigned” counts modifiable default assignments and excludes immutable standard PDB$SEED. Eight if counting existing per-container default TEMP contexts including PDB$SEED. Original wording admits both interpretations; do not claim the seed has no temporary tablespace.",
-    "review_date": "2026-11-10"
+    "review_date": "2026-11-10",
+    "mnemonic": {
+      "keywords": [
+        "seven"
+      ],
+      "anchor": "The question is ambiguous because D (eight) counts the existing per-container default-temporary contexts, including the standard seed."
+    }
   }
 ]

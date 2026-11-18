@@ -342,8 +342,12 @@
       const isSelected = selectedAnswers.has(key);
 
       let classes = 'option-label';
+      let optTextHtml = escapeHtml(opt.text);
       if (isMemory) {
         classes += isCorrect ? ' memory-correct' : ' memory-dimmed';
+        if (isCorrect && q.mnemonic && q.mnemonic.keywords) {
+          optTextHtml = highlightMnemonicKeywords(opt.text, q.mnemonic.keywords);
+        }
       } else if (isSelected) {
         classes += ' selected';
       }
@@ -352,7 +356,7 @@
         <div class="${classes}" id="opt-${key}" onclick="OracleApp.toggleOption('${key}')">
           <div class="option-box ${isSingle ? 'radio-box' : ''}"></div>
           <span class="option-prefix">${key}.</span>
-          <span class="option-text">${escapeHtml(opt.text)}</span>
+          <span class="option-text">${optTextHtml}</span>
         </div>
       `;
     });
@@ -494,6 +498,12 @@
 
       if (correctSet.has(key)) {
         el.classList.add('correct-highlight');
+        if (q.mnemonic && q.mnemonic.keywords) {
+          const optTextEl = el.querySelector('.option-text');
+          if (optTextEl) {
+            optTextEl.innerHTML = highlightMnemonicKeywords(opt.text, q.mnemonic.keywords);
+          }
+        }
       } else if (selectedAnswers.has(key)) {
         el.classList.add('wrong-highlight');
       }
@@ -866,7 +876,61 @@
     return html;
   }
 
+  function highlightMnemonicKeywords(text, keywords) {
+    let escaped = escapeHtml(text || '');
+    if (!keywords || !keywords.length) return escaped;
+    const sorted = [...keywords]
+      .filter(k => k && String(k).trim().length > 1)
+      .sort((a, b) => b.length - a.length);
+
+    sorted.forEach(kw => {
+      const trimmed = String(kw).trim();
+      const escapedKw = trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const boundaryPrefix = /^\w/.test(trimmed) ? '\\b' : '';
+      const boundarySuffix = /\w$/.test(trimmed) ? '\\b' : '';
+      const regex = new RegExp(`(${boundaryPrefix}${escapedKw}${boundarySuffix})`, 'gi');
+      escaped = escaped.replace(regex, '<mark class="mnemonic-kw">$1</mark>');
+    });
+    return escaped;
+  }
+
+  function renderMnemonicMarkup(q) {
+    if (!q || !q.mnemonic) return '';
+    const m = q.mnemonic;
+    const keywords = (m.keywords || []).filter(Boolean);
+    const anchor = m.anchor || '';
+
+    if (!keywords.length && !anchor) return '';
+
+    const tagsHtml = keywords.map(kw => `<span class="mnemonic-tag">${escapeHtml(kw)}</span>`).join('');
+    const keywordsRow = tagsHtml
+      ? `<div class="mnemonic-keywords-row">
+           <span class="mnemonic-label">🔑 Key Discriminators:</span>
+           <div class="mnemonic-tags">${tagsHtml}</div>
+         </div>`
+      : '';
+
+    const anchorHtml = anchor
+      ? `<div class="mnemonic-hook">
+           <span class="mnemonic-hook-icon">⚡</span>
+           <div><strong>Memory Hook:</strong> ${escapeHtml(anchor)}</div>
+         </div>`
+      : '';
+
+    return `
+      <div class="mnemonic-card">
+        <div class="mnemonic-header">
+          <div class="mnemonic-title">🧠 Memory Anchor &amp; Clues</div>
+          <span class="mnemonic-badge">Active Recall</span>
+        </div>
+        ${keywordsRow}
+        ${anchorHtml}
+      </div>
+    `;
+  }
+
   function reviewExplanationMarkup(q) {
+    const mnemonicBox = renderMnemonicMarkup(q);
     const note = q.review_note
       ? `<div class="review-note"><strong>Review Note</strong><br>${renderExplanationText(q.review_note)}</div>`
       : '';
@@ -881,6 +945,7 @@
     const docSection = links ? `<div class="oracle-reference"><strong>Oracle 19c Documentation</strong>${links}</div>` : '';
 
     return `
+      ${mnemonicBox}
       <div class="explanation-box">
         <div class="explanation-title">💡 Detailed Explanation & Analysis</div>
         ${note}

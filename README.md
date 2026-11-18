@@ -24,7 +24,7 @@ Web-based exam preparation suite for official **Oracle Database 19c** certificat
   - 📖 **Practice / Study Mode**: Question-by-question evaluation with instant feedback, comprehensive technical explanations, and direct links to official Oracle 19c documentation.
   - ⏱️ **Real Exam Simulator**: Timed simulation (120 minutes, 60 questions for 078 / 68 questions for 083) using the unbiased **Fisher-Yates shuffle algorithm**, score breakdown, and domain percentile analytics.
   - ⚠️ **Weak Questions**: Targeted review mode focused exclusively on failed questions or questions with no streak.
-  - 🧠 **Memory Mode**: Fast active-recall mode with correct options pre-highlighted and incorrect choices dimmed.
+  - 🧠 **Memory Mode**: Fast active-recall mode with correct options pre-highlighted, in-option keyword highlighting, and dedicated **Memory Anchors & Clues** (discriminator keywords + punchy memory hooks) displayed right before detailed explanations. Also available after verifying answers in Study/Weak modes.
 - **Spaced Repetition & Mastery**: Question-level streak tracking with a configurable mastery threshold (1 to 5 consecutive correct answers).
 - **📱 Tablet & Touch Optimization**:
   - **Swipe Gestures**: Swipe left or right anywhere on screen to smoothly navigate between questions.

@@ -652,6 +652,123 @@ pre.code-block {
   background: transparent !important;
 }
 
+/* Mnemonic Memory Resource */
+.mnemonic-card {
+  margin-top: 24px;
+  background: linear-gradient(135deg, rgba(88, 28, 135, 0.25) 0%, rgba(30, 27, 75, 0.4) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-left: 4px solid #a855f7;
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.mnemonic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mnemonic-title {
+  color: #c084fc;
+  font-weight: 700;
+  font-size: 1.02rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mnemonic-badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: rgba(168, 85, 247, 0.2);
+  color: #e9d5ff;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  font-weight: 600;
+}
+
+.mnemonic-keywords-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.mnemonic-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a5b4fc;
+  font-weight: 700;
+}
+
+.mnemonic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mnemonic-tag {
+  background: #1e1b4b;
+  color: #e0e7ff;
+  border: 1px solid #6366f1;
+  padding: 2px 10px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.mnemonic-hook {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  color: #f1f5f9;
+  line-height: 1.55;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.mnemonic-hook-icon {
+  color: #fbbf24;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.mnemonic-hook strong {
+  color: #38bdf8;
+  margin-right: 4px;
+}
+
+/* Keyword Highlighting in Options */
+mark.mnemonic-kw {
+  background: rgba(234, 179, 8, 0.25);
+  color: #fef08a;
+  border-bottom: 2px solid #eab308;
+  padding: 0 3px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.memory-correct mark.mnemonic-kw,
+.correct-highlight mark.mnemonic-kw {
+  background: rgba(250, 204, 21, 0.3);
+  color: #ffffff;
+  border-bottom: 2px solid #facc15;
+  text-shadow: 0 0 1px rgba(0,0,0,0.5);
+}
+
 /* Explanations & Notes */
 .explanation-box {
   margin-top: 24px;

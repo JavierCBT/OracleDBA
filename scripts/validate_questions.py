@@ -94,6 +94,17 @@ def validate_exam(json_path):
         if not q.get('explanation'):
             warnings.append(f"Q#{qid}: Missing explanation")
 
+        # Mnemonic check
+        mnemonic = q.get('mnemonic')
+        if mnemonic:
+            if not isinstance(mnemonic, dict):
+                errors.append(f"Q#{qid}: 'mnemonic' must be an object/dict")
+            else:
+                if not isinstance(mnemonic.get('keywords'), list):
+                    errors.append(f"Q#{qid}: 'mnemonic.keywords' must be a list")
+                if not isinstance(mnemonic.get('anchor'), str):
+                    errors.append(f"Q#{qid}: 'mnemonic.anchor' must be a string")
+
     print(f"Total questions: {len(questions)}")
     print(f"Domains: {domain_counts}")
     print(f"Review statuses: {status_counts}")
