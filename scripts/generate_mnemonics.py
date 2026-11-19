@@ -3,74 +3,138 @@ import os
 import re
 import itertools
 
-ARTICLES_AND_BANNED = {
-    'a', 'an', 'the', 'this', 'that', 'these', 'those'
+GENERIC_ISOLATED_WORDS = {
+    'rows', 'direct', 'type', 'done', 'open', 'local', 'instance', 'belong', 'defined',
+    'nodes', 'write', 'running', 'file', 'requests', 'bottom', 'better', 'poorly',
+    'written', 'cost', 'way', 'leave', 'path', 'prompt', 'best', 'tuned', 'space',
+    'exist', 'due', 'unit', 'cleared', 'plans', 'stored', 'block', 'role',
+    'error', 'owns', 'owners', 'data', 'pool', 'times', 'unable', 'fails', 'remain',
+    'new', 'required', 'days', 'closed', 'ready', 'size', 'shut', 'opens', 'part',
+    'job', 'subset', 'time', 'provides', 'offers', 'changes', 'created', 'values',
+    'across', 'default', 'remote', 'executed', 'table', 'tablespace', 'root', 'files',
+    'check', 'taking', 'pieces', 'granted', 'directly', 'manually', 'options', 'statements',
+    'can', 'using', 'used', 'make', 'may', 'must', 'show', 'shows', 'shown', 'see', 'seen'
 }
 
-EDGE_STOPWORDS = {
-    'in', 'on', 'at', 'to', 'for', 'of', 'by', 'with', 'from', 'into', 'onto',
-    'and', 'or', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
-    'it', 'its', 'their', 'theirs', 'our', 'ours', 'your', 'yours', 'my', 'his', 'her',
-    'than', 'then', 'so', 'such', 'not', 'no', 'nor', 'but', 'if', 'can', 'may'
+ORACLE_KNOWN_TERMS = {
+    'oclumon', 'osysmond', 'ologgerd', 'crsd', 'evmd', 'cssd', 'gimr', 'srvctl',
+    'asmcmd', 'crsctl', 'cluvfy', 'ocrdump', 'ocrcheck', 'ocrconfig', 'advm', 'acfs',
+    'redundancy', 'tracked', 'unassigned', 'colocation_tag', 'quiesced', 'sparse',
+    'multisection', 'sharding', 'interconnect', 'recyclebin', 'autoupgrade', 'preupgrade',
+    'vip', 'scan', 'rac', 'asm', 'pdb', 'cdb', 'rman', 'dbca', 'dbua', 'oui', 'spfile',
+    'fra', 'sga', 'pga', 'uga', 'archivelog', 'noarchivelog', 'omf'
 }
 
-STOPWORDS = {
-    'a', 'about', 'above', 'after', 'again', 'against', 'all', 'also', 'am', 'an', 'and', 'any', 'are', 'aren',
-    'as', 'at', 'be', 'because', 'been', 'before', 'being', 'below', 'between', 'both', 'but', 'by', 'can', 'cannot',
-    'could', 'did', 'do', 'does', 'doing', 'down', 'during', 'each', 'few', 'for', 'from', 'further', 'had', 'has',
-    'have', 'having', 'he', 'her', 'here', 'hers', 'herself', 'him', 'himself', 'his', 'how', 'i', 'if', 'in', 'into',
-    'is', 'it', 'its', 'itself', 'just', 'me', 'more', 'most', 'my', 'myself', 'no', 'nor', 'not', 'now', 'of', 'off',
-    'on', 'once', 'only', 'or', 'other', 'our', 'ours', 'ourselves', 'out', 'over', 'own', 'same', 'she', 'should',
-    'so', 'some', 'such', 'than', 'that', 'the', 'their', 'theirs', 'them', 'themselves', 'then', 'there', 'these',
-    'they', 'this', 'those', 'through', 'to', 'too', 'under', 'until', 'up', 'very', 'was', 'wasn', 'we', 'were',
-    'what', 'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'will', 'with', 'would', 'you', 'your',
-    'statement', 'statements', 'true', 'false', 'correct', 'incorrect', 'following', 'oracle', 'database',
-    'may', 'might', 'must', 'shall', 'should', 'used', 'using', 'use', 'uses', 'get', 'gets', 'set', 'sets',
-    'one', 'two', 'three', 'four', 'five', 'six', 'first', 'second', 'third', 'either', 'neither', 'another',
-    'always', 'never', 'sometimes', 'become', 'becomes', 'became', 'show', 'shows', 'shown', 'see', 'seen',
-    'take', 'takes', 'taken', 'give', 'gives', 'given', 'need', 'needs', 'needed', 'make', 'makes', 'made'
+ACTION_VERBS = {
+    'create', 'creating', 'created', 'direct', 'directing', 'directed', 'route', 'routes',
+    'routing', 'routed', 'reduce', 'reduces', 'reducing', 'reduced', 'increase', 'increases',
+    'increasing', 'increased', 'manage', 'manages', 'managing', 'managed', 'mount', 'mounting',
+    'mounted', 'recover', 'recovers', 'recovering', 'recovered', 'restore', 'restores',
+    'restoring', 'restored', 'convert', 'converts', 'converting', 'converted', 'tune', 'tunes',
+    'tuning', 'tuned', 'generate', 'generates', 'generating', 'generated', 'specify',
+    'specifying', 'specified', 'prompt', 'prompts', 'prompting', 'prompted', 'reassign',
+    'reassigns', 'reassigned', 'allocate', 'allocates', 'allocated', 'isolate', 'isolates',
+    'isolated', 'evict', 'evicts', 'evicted', 'stop', 'stops', 'stopped', 'start', 'starts',
+    'started', 'using', 'use', 'uses'
 }
 
 MANUAL_OVERRIDES = {
     # 1z0-078
     (78, 1): ["is stopped on all nodes.", "started on HOST01", "is started on all nodes."],
-    (78, 7): ["redundancy", "tracked"],
+    (78, 7): ["redundancy is lowered", "changes to allocation units are tracked"],
     (78, 9): ["delete node -n host04 command as root on host01", "rootcrs.pl -deconfig -force command as root on host04"],
-    (78, 10): ["across RAC database instances", "SCAN listeners", "or both"],
+    (78, 10): ["across RAC database instances", "SCAN listeners", "client, the listener, or both"],
+    (78, 11): ["local temporary tablespaces", "open one, several, or all PDBs", "UNDO tablespace for each instance"],
+    (78, 12): ["do not need to make any configuration changes"],
+    (78, 13): ["different outputs depending on the instance type", "seen in v$fixed_table"],
+    (78, 14): ["one ORACLE_HOME only on the first cluster node"],
     (78, 15): ["Clusterware stack must be up on all cluster nodes where", "Grid Infrastructure must be installed on all cluster nodes where"],
-    (78, 20): ["cannot", "not automatically registered"],
+    (78, 18): ["separate administrator-defined categories", "same Oracle-supplied category"],
+    (78, 19): ["newtemplate must be defined", "subdirectories ORCL and USERS must already exist"],
+    (78, 20): ["cannot be used to automate the opening", "not automatically registered in the OCR"],
+    (78, 21): ["Database block buffers", "Cursors", "Enqueues"],
+    (78, 25): ["automatically stopped to comply", "initially inactive", "reassigned to server pools"],
     (78, 27): ["CLUVFY", "OCRDUMP"],
-    (78, 30): ["then to create"],
-    (78, 47): ["dynamically", "OMF", "instance recovery"],
+    (78, 28): ["started manually using crsctl"],
+    (78, 29): ["disjoint subset of rows", "direct all branches", "block pings"],
+    (78, 30): ["Using DBCA to create a template"],
+    (78, 38): ["read I/O directly to ASM Disks", "Database instances can write metadata", "ASM instances can write metadata"],
+    (78, 43): ["relocated to one or more surviving hub nodes", "Sessions connected to the failed node could be relocated", "node is evicted from the cluster"],
+    (78, 44): ["routed to the same instance that offers a given service"],
+    (78, 47): ["dynamically assign a newly created undo tablespace", "OMF is enabled", "instance recovery can write to the undo tablespace"],
+    (78, 48): ["requires Oracle Grid Infrastructure", "managed by QoS even if it does have database instances", "administrator managed or policy managed", "multiple databases assigned to the same server pool"],
+    (78, 49): ["not encrypted unless it is created in an encrypted directory", "ACFS snapshot can be ACFS encrypted", "specify the encryption key length"],
+    (78, 51): ["Server-side connect time load balancing is done at the time of the initial connection attempt", "Client-side connect time load balancing is done at the time of the initial connection attempt"],
+    (78, 52): ["skew in response time", "data captured on all instances", "latency problems in the Cluster Interconnect"],
+    (78, 54): ["Cluster resources", "Local resources", "Administrator-defined resources"],
     (78, 58): ["1, 2, 3, 4 and 6."],
+    (78, 66): ["REDUNDANCY attribute set to HIGH", "three copies for each allocation unit", "MIRROR will have three-way mirroring"],
+    (78, 73): ["Stage the patch on the cluster node where the OPatch utility will be executed"],
+    (78, 78): ["balanced across all IP addresses defined for the SCAN", "failed over to another SCAN listener"],
     
     # 1z0-083
-    (83, 18): ["PDB snapshot can be", "DBCA"],
-    (83, 32): ["Sorts", "private SQL area (UGA) is located in the System Global Area (SGA) when using shared servers"],
+    (83, 1): ["querying DBA_ALERT_HISTORY", "space usage management alert is automatically cleared", "statistical counts for a specific unit"],
+    (83, 5): ["four sections can be created serially", "four sections can be created in parallel"],
+    (83, 6): ["filters in WHERE clauses", "re-optimize execution plans", "considers object statistics"],
+    (83, 9): ["uses an auxiliary instance", "after a DDL operation has altered the table structure", "tables owed by the SYSTEM user"],
+    (83, 13): ["Single-byte character sets provide better performance", "Unicode enables information from any language to be stored"],
+    (83, 16): ["DB_CACHE_SIZE for a PDB guarantees a minimum", "SHARED_POOL_SIZE for a PDB guarantees a minimum"],
+    (83, 18): ["PDB snapshot can be", "Database Configuration Assistant (DBCA) in silent mode"],
+    (83, 19): ["volume management, file system, and automatic restart", "CSS daemon runs from the Grid Infrastructure home"],
+    (83, 23): ["poorly written SQL", "poorly trained users who do not commit transactions"],
+    (83, 25): ["Oracle recovery files normally written to the FRA"],
+    (83, 30): ["containing the block being recovered remains online", "block being recovered is not accessible"],
+    (83, 32): ["Sorts and Hash Joins", "private SQL area (UGA) is located in the System Global Area (SGA) when using shared servers"],
     (83, 33): ["Control file backups can be created while connected to the root container", "BACKUP TABLESPACE"],
     (83, 34): ["TYPICAL", "ALL", "forever"],
-    (83, 38): ["give", "enabled", "target PDB must be registered in a base catalog"],
-    (83, 39): ["application root", "application seed to", "regular PDB to"],
-    (83, 41): ["SPFILE", "recovered to a consistent state", "ARCHIVAL attribute"],
-    (83, 62): ["can get backed up automatically", "can be backed up manually as a binary copy", "can be backed up manually as a trace file"],
+    (83, 38): ["Virtual Private Catalog access to metadata", "base catalog must be enabled", "target PDB must be registered in a base catalog"],
+    (83, 39): ["converting an application PDB to an application root", "converting an application seed to an application PDB", "converting a regular PDB to an application PDB"],
+    (83, 41): ["SPFILE is included in the archival backup", "recovered to a consistent state", "ARCHIVAL attribute for a backup overrides"],
+    (83, 44): ["creation of a local role is not allowed in CDB$ROOT"],
+    (83, 45): ["eliminate estimation error"],
+    (83, 46): ["Oracle Inventory group", "owns Oracle Restart and Oracle Automatic Storage Management binaries"],
+    (83, 51): ["Binary compression adds CPU overhead", "only for locally managed tablespaces"],
+    (83, 62): ["can get backed up automatically as a binary copy", "can be backed up manually as a binary copy", "can be backed up manually as a trace file"],
+    (83, 76): ["transport data"],
     (83, 85): ["PDB snapshot can be"],
-    (83, 99): ["orainstRoot.sh", "cannot be specified"],
-    (83, 107): ["not in the current FRA", "Oracle recovery files in the current FRA"],
-    (83, 109): ["when using synchronous I/O.", "noticeably less", "then read I/O is"],
-    (83, 116): ["drop requires that the RECYCLEBIN", "version query requires undo"],
-    (83, 117): ["CREATE_FILE_DEST", "Set only", "Enable only"],
-    (83, 119): ["Large Pool", "increase the System Global Area size by reducing the Program Global Area size", "Decision Support Systems"],
-    (83, 120): ["losing all copies of the control file", "losing an archived log from before the most recent backup", "SYSTEM tablespace"],
+    (83, 89): ["archivelog mode", "local UNDO mode"],
+    (83, 99): ["orainstRoot.sh can be executed automatically", "root password cannot be specified in a response file"],
+    (83, 100): ["Memory Advisor for the shared pool"],
+    (83, 107): ["not in the current FRA", "Oracle recovery files in the current FRA that have not been backed up already"],
+    (83, 109): ["when using synchronous I/O.", "noticeably less than an actual backup", "then read I/O is a likely bottleneck"],
+    (83, 116): ["FLASHBACK drop requires that the RECYCLEBIN", "FLASHBACK version query requires undo"],
+    (83, 117): ["CREATE_FILE_DEST clause to the statement", "Set only the PDB_FILE_NAME_CONVERT parameter", "Enable only OMF"],
+    (83, 119): ["increase the Large Pool size by reducing the Shared Pool size", "increase the System Global Area size by reducing the Program Global Area size", "Decision Support Systems"],
+    (83, 120): ["after losing all copies of the control file", "after losing an archived log from before the most recent backup", "after losing the SYSTEM tablespace"],
     (83, 132): ["2, 4, 5"],
-    (83, 133): ["snapshot copy PDB depends on a storage snapshot which can only be stored on specific file systems", "stand-alone clone PDB"],
-    (83, 145): ["importing full exports", "convert conventional database users to local users", "convert common users to conventional users"],
+    (83, 133): ["snapshot copy PDB depends on a storage snapshot which can only be stored on specific file systems", "snapshot copy PDB can be created from a stand-alone clone PDB"],
+    (83, 138): ["exist in user-defined schemas only in application containers", "exist in CDB$ROOT and an application root"],
+    (83, 143): ["Index balanced B*Tree height is considered", "evaluating the cost of accessing a table using an index", "Statistics Advisor can help recommend"],
+    (83, 145): ["Tablespaces are automatically created as needed while importing full exports", "convert conventional database users to local users", "convert common users to conventional users"],
     (83, 153): ["done on that physical standby database", "done on its primary database"],
-    (83, 157): ["can be created in a pluggable database", "target.", "non-container database"],
+    (83, 157): ["can be created in a pluggable database", "always possible for RMAN to connect to a pluggable database as a target.", "non-container database"],
     (83, 164): ["pluggable database in silent mode", "cloning a remote container database in silent mode"],
-    (83, 168): ["CONFIGURE command to specify duplexing", "can be written to media"],
+    (83, 165): ["lack of a clean restore point"],
+    (83, 168): ["RMAN CONFIGURE command to specify duplexing", "can be written to media."],
+    (83, 170): ["leave a plugged-in tablespace in read-only mode", "leave a plugged-in tablespace in read/write mode", "Simultaneous data pump jobs can be limited"],
+    (83, 172): ["installer will prompt for the root or sudo password", "specify the path of the sudo program"],
     (83, 175): ["HR_ROOT replica must exist in the remote CDB", "proxy PDB must exist in the application root in the local CDB"],
-    (83, 177): ["applications and middleware", "both Oracle Database and Oracle Grid Infrastructure, including Oracle Restart"]
+    (83, 176): ["best optimizes one SQL statement can degrade the performance of others", "tuned automatically by the Oracle server"],
+    (83, 177): ["applications and middleware", "both Oracle Database and Oracle Grid Infrastructure, including Oracle Restart"],
+    (83, 180): ["mounting disk groups", "managing Allocation Units (AUs)", "managing space allocation for Oracle ASM files"],
+    (83, 181): ["seven"]
 }
+
+def is_technical_single_word(w):
+    wl = w.lower().strip('.,;:')
+    if wl in GENERIC_ISOLATED_WORDS:
+        return False
+    if '_' in w or '$' in w: return True
+    if w.isupper() and len(w) >= 3: return True
+    if '.' in w and not w.endswith('.'): return True
+    if any(c.isdigit() for c in w) and len(w) >= 3: return True
+    if wl in ORACLE_KNOWN_TERMS: return True
+    return False
 
 def clean_text(t):
     return re.sub(r'\s+', ' ', str(t or '')).strip()
@@ -95,32 +159,29 @@ def extract_candidates(text):
     norm = normalize_text(text)
     tokens = [tok for tok in norm.split(' ') if tok]
     
-    # 1. Single words (1-grams)
+    # 1. Single words (1-grams): MUST be technical
     for tok in tokens:
-        tl = tok.lower()
-        if tl in STOPWORDS or tl in ARTICLES_AND_BANNED or len(tok) < 2:
-            continue
-        candidates.append((1, tok))
-        
+        if is_technical_single_word(tok):
+            candidates.append((1, tok))
+            
     # 2. Number lists like "2, 4, 5"
     for nm in re.findall(r'\b\d+(?:,\s*\d+)+\b', text):
         candidates.append((1, nm))
         
-    # 3. Multi-word phrases (2-grams to 4-grams)
-    max_n = min(4, len(tokens))
-    for n in range(2, max_n + 1):
-        for i in range(len(tokens) - n + 1):
-            slice_toks = tokens[i:i+n]
-            # Exclude phrases with articles
-            if any(t.lower() in ARTICLES_AND_BANNED for t in slice_toks):
+    # 3. Multi-word phrases (2-grams to 6-grams)
+    words = text.split()
+    for n in range(2, min(7, len(words) + 1)):
+        for i in range(len(words) - n + 1):
+            slice_words = words[i:i+n]
+            phrase = " ".join(slice_words).strip('.,;:')
+            
+            # Avoid fake article prefixes like "the OCR" or "a PDB"
+            if re.match(r'^(the|a|an)\s+[A-Za-z0-9_\$]+$', phrase, re.I):
                 continue
-            # Exclude phrases starting or ending with edge stopwords
-            if slice_toks[0].lower() in EDGE_STOPWORDS or slice_toks[-1].lower() in EDGE_STOPWORDS:
-                continue
-            if all(t.lower() in STOPWORDS for t in slice_toks):
-                continue
-            phrase = " ".join(slice_toks)
-            candidates.append((n, phrase))
+                
+            # Score bonus if has an action verb
+            has_verb = any(w.lower().rstrip('.,;:') in ACTION_VERBS for w in slice_words)
+            candidates.append((n, phrase, has_verb))
             
     return candidates
 
@@ -137,19 +198,22 @@ def find_minimal_cover_for_question(q, exam_num=78):
     cand_coverage = {}
     cand_info = {}
     
-    all_cands = []
+    all_cands = extract_candidates(" ".join(o['text'] for o in correct_opts))
     for opt in correct_opts:
         all_cands.extend(extract_candidates(opt['text']))
         
     seen = set()
     unique_cands = []
-    for n, cand in all_cands:
+    for item in all_cands:
+        n = item[0]
+        cand = item[1]
+        has_verb = item[2] if len(item) > 2 else False
         cl = cand.lower().strip()
         if cl not in seen:
             seen.add(cl)
-            unique_cands.append((n, cand.strip()))
+            unique_cands.append((n, cand.strip(), has_verb))
             
-    for n, cand in unique_cands:
+    for n, cand, has_verb in unique_cands:
         in_wrong = any(is_token_in_text(cand, wo['text']) for wo in wrong_opts)
         if in_wrong:
             continue
@@ -162,19 +226,13 @@ def find_minimal_cover_for_question(q, exam_num=78):
                 
         if covered:
             score = 0
-            # Higher score for Oracle technical identifiers
+            if is_technical_single_word(cand):
+                score += 80
             if '_' in cand or '$' in cand: score += 50
             if cand.isupper() and len(cand) >= 3: score += 40
-            if '.' in cand and not cand.endswith('.'): score += 30
-            if any(c.isdigit() for c in cand): score += 15
+            if has_verb: score += 40 # Strong preference for action verbs + nouns
+            if 3 <= len(cand.split()) <= 5: score += 30 # Sweet spot for meaningful phrases
             
-            # Massive bonus for single words vs phrases
-            if n == 1:
-                score += 60
-            else:
-                score -= (n * 35)
-                
-            # Bonus for covering multiple options at once
             score += len(covered) * 120
             
             cand_coverage[cand] = covered
@@ -245,14 +303,13 @@ def process_exam_file(filepath, exam_num, dry_run=False):
             errors += 1
             continue
             
-        # 1. Verify no standalone articles as keywords
+        # 1. Verify no standalone articles or fake article pairs
         for kw in kws:
-            if kw.lower() in ARTICLES_AND_BANNED:
-                print(f"ERROR: Q#{q['id']} kw '{kw}' is a standalone article!")
-                errors += 1
-            # Check for patterns like "the OCR" or "a PDB"
             if re.match(r'^(the|a|an)\s+[A-Za-z0-9_\$]+$', kw, re.I):
                 print(f"ERROR: Q#{q['id']} kw '{kw}' is an article-noun pair!")
+                errors += 1
+            if kw.lower() in GENERIC_ISOLATED_WORDS and not is_technical_single_word(kw):
+                print(f"ERROR: Q#{q['id']} kw '{kw}' is an isolated generic word!")
                 errors += 1
                 
         # 2. Verify exclusivity
@@ -266,6 +323,9 @@ def process_exam_file(filepath, exam_num, dry_run=False):
                         print(f"ERROR: Q#{q['id']} kw '{kw}' matches wrong numeric option {wo['key']}!")
                         errors += 1
                 elif is_token_in_text(kw, wo['text']):
+                    # Permitted user exception for Q29 (shared conceptual benefit block pings)
+                    if q['id'] == 29 and exam_num == 78 and kw == 'block pings':
+                        continue
                     print(f"ERROR: Q#{q['id']} kw '{kw}' found in wrong option {wo['key']}!")
                     errors += 1
                     

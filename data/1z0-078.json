@@ -175,7 +175,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Runtime"
+        "for automatic and"
       ],
       "anchor": "Oracle specifically describes SGA growth during runtime and automatic runtime resource adjustment beginning with 19.3."
     }
@@ -234,9 +234,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "AFD",
-        "run",
-        "out-of-place"
+        "ACFS, AFD, OLFS",
+        "run the root.sh",
+        "out-of-place patching of"
       ],
       "anchor": "Zero-downtime Grid Infrastructure patching updates eligible GI software while supported 19c-or-later RAC or RAC One Node database instances continue operating."
     }
@@ -292,7 +292,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "VIPs"
+        "the VIPs for"
       ],
       "anchor": "This supports rapid notification of connection failures; it does not transfer existing database sessions or make the old instance continue executing."
     }
@@ -352,8 +352,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "policies",
-        "QoS"
+        "pool can have",
+        "when Quality of"
       ],
       "anchor": "A policy set stores alternative configurations, and one policy is active at a time."
     }
@@ -406,8 +406,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "redundancy",
-        "tracked"
+        "redundancy is lowered",
+        "changes to allocation units are tracked"
       ],
       "anchor": ", provided the failure is temporary, FG1 remains an offline member, and the files have a surviving copy in FG2."
     }
@@ -465,7 +465,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "redo must"
+        "of redo must"
       ],
       "anchor": "A RAC instance writes its own redo thread; the number of cluster nodes does not itself create a usable thread for every possible instance."
     }
@@ -582,7 +582,7 @@
       "keywords": [
         "across RAC database instances",
         "SCAN listeners",
-        "or both"
+        "client, the listener, or both"
       ],
       "anchor": "These decisions operate at different stages, so they can both be used for one connection attempt."
     }
@@ -646,9 +646,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "open",
-        "local",
-        "instance"
+        "local temporary tablespaces",
+        "open one, several, or all PDBs",
+        "UNDO tablespace for each instance"
       ],
       "anchor": "RAC and multitenant address different dimensions: instances provide compute and shared database access, while containers provide database isolation."
     }
@@ -705,7 +705,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "changes"
+        "do not need to make any configuration changes"
       ],
       "anchor": "Oracle lists Secure Cluster Communication as a 19c feature that is invoked automatically for a new Grid Infrastructure deployment or an upgrade to 19c."
     }
@@ -771,7 +771,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "type"
+        "different outputs depending on the instance type",
+        "seen in v$fixed_table"
       ],
       "anchor": "Dynamic performance views are fixed-instance views, and their availability does not mean they expose the same information from every instance type."
     }
@@ -828,7 +829,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "one ORACLE_HOME"
+        "one ORACLE_HOME only on the first cluster node"
       ],
       "anchor": "A is the intended local-home answer, but the abbreviated command is insufficient to prove the complete node scope."
     }
@@ -950,8 +951,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "default",
-        "VIP can be created"
+        "can be created",
+        "created on the default"
       ],
       "anchor": "An application VIP gives clients a stable network endpoint for a Clusterware-managed application."
     }
@@ -1077,7 +1078,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "belong"
+        "separate administrator-defined categories",
+        "same Oracle-supplied category"
       ],
       "anchor": "Categories are expressions evaluated against server attributes; they are not a manually exclusive membership list."
     }
@@ -1131,7 +1133,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "defined"
+        "newtemplate must be defined",
+        "subdirectories ORCL and USERS must already exist"
       ],
       "anchor": "The filename uses the ASM alias-with-template form: the disk group is DATA, the selected template is newtemplate, and the desired alias is ORCL/USERS/mytab.dbf."
     }
@@ -1193,8 +1196,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "cannot",
-        "not automatically registered"
+        "cannot be used to automate the opening",
+        "not automatically registered in the OCR"
       ],
       "anchor": "the automatic default PDB service cannot be used as the Clusterware service resource that drives the desired PDB open-state management."
     }
@@ -1258,7 +1261,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "block",
+        "Database block buffers",
         "Cursors",
         "Enqueues"
       ],
@@ -1326,7 +1329,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "nodes Oracle"
+        "will then start"
       ],
       "anchor": "CTSS chooses observer or active behavior according to whether it detects a vendor time-synchronization service."
     }
@@ -1395,8 +1398,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "19c",
-        "shuts"
+        "on HOST03 can",
+        "on HOST02 and"
       ],
       "anchor": "The intended corrected key is C, D and E, assuming the documented prerequisites for relocation are met."
     }
@@ -1518,9 +1521,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "nodes",
-        "stopped",
-        "inactive"
+        "automatically stopped to comply",
+        "initially inactive",
+        "reassigned to server pools"
       ],
       "anchor": "Creating a policy stores a potential cluster configuration."
     }
@@ -1569,7 +1572,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "resource_name=debugging_level"
+        "res \"resource_name=debugging_level\" command"
       ],
       "anchor": "The unambiguous documented resource recipe in the 19c CRSCTL reference is `crsctl set log res \"resource_name=debugging_level\"`."
     }
@@ -1697,7 +1700,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "crsctl"
+        "started manually using crsctl"
       ],
       "anchor": "for administrator-defined application resources."
     }
@@ -1755,8 +1758,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "rows",
-        "direct"
+        "disjoint subset of rows",
+        "direct all branches",
+        "block pings"
       ],
       "anchor": "Options B and E are best supported."
     }
@@ -1804,7 +1808,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "then to create"
+        "Using DBCA to create a template"
       ],
       "anchor": "Option D describes the complete DBCA template workflow offered by these choices."
     }
@@ -1868,9 +1872,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDB_FILE_NAME_CONVERT",
-        "READ",
-        "CREATE"
+        "ONLY",
+        "PDB_FILE_NAME_CONVERT"
       ],
       "anchor": "It clones a local PDB and supplies neither FILE_NAME_CONVERT nor CREATE_FILE_DEST, so source state and an implicit destination naming mechanism matter."
     }
@@ -1925,7 +1928,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "12.1"
+        "to 12.1 or"
       ],
       "anchor": "Creating a snapshot from an existing ACFS snapshot requires COMPATIBLE.ADVM of at least 12.1."
     }
@@ -1989,7 +1992,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "hub"
+        "hub nodes"
       ],
       "anchor": "A, E and F are the intended answers for the historical hub-and-leaf architecture."
     }
@@ -2059,8 +2062,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "cluster",
-        "out-of-place"
+        "cluster verification utility",
+        "be done out-of-place"
       ],
       "anchor": "Grid Infrastructure release-upgrade preparation combines readiness checks, supported OS fixups and installation into a separate Grid home."
     }
@@ -2175,7 +2178,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "12.1 COMPATIBLE.RDBMS to 11.2"
+        "12.1, COMPATIBLE.RDBMS to 11.2"
       ],
       "anchor": "D is the intended legacy answer, but no option specifies the minimum for the snapshot-based ACFS replication documented in 19c."
     }
@@ -2238,8 +2241,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "DBCA",
-        "multitenant database"
+        "managed for a",
+        "DBCA"
       ],
       "anchor": "DBCA still creates the default database service and can create/select server pools during database creation."
     }
@@ -2303,8 +2306,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "write",
-        "Disks"
+        "read I/O directly to ASM Disks",
+        "Database instances can write metadata",
+        "ASM instances can write metadata"
       ],
       "anchor": "B supplies a third answer only if metadata includes database metadata stored inside database files, such as file/segment headers."
     }
@@ -2356,7 +2360,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "available after"
+        "when it becomes"
       ],
       "anchor": "Option A describes movement away from a preferred instance, not failback."
     }
@@ -2469,7 +2473,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Disks"
+        "to a disk"
       ],
       "anchor": "ASM distributes file extents across disks, so devices with comparable capacity, latency and throughput avoid a subset of storage dominating response time."
     }
@@ -2592,8 +2596,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "nodes",
-        "evicted"
+        "relocated to one or more surviving hub nodes",
+        "Sessions connected to the failed node could be relocated",
+        "node is evicted from the cluster"
       ],
       "anchor": "Options B, D and E describe the expected HA response, with qualifications about restartable resources and capable clients."
     }
@@ -2645,7 +2650,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "offers"
+        "routed to the same instance that offers a given service"
       ],
       "anchor": "COLOCATION_TAG provides best-effort association between a tag and an instance offering the requested service."
     }
@@ -2725,9 +2730,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "installation",
         "RAC",
-        "ACFS"
+        "UNIX",
+        "can be"
       ],
       "anchor": "There are four true statements in 19c: A, B, E and F."
     }
@@ -2786,7 +2791,7 @@
     "mnemonic": {
       "keywords": [
         "ASM_DISKGROUPS",
-        "1024"
+        "of ASM_POWER_LIMIT is"
       ],
       "anchor": ", with a compatibility qualification for A."
     }
@@ -2845,9 +2850,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "dynamically",
-        "OMF",
-        "instance recovery"
+        "dynamically assign a newly created undo tablespace",
+        "OMF is enabled",
+        "instance recovery can write to the undo tablespace"
       ],
       "anchor": "Undo generation belongs to an instance, while shared-storage access permits another instance to recover a failed instance's transactions."
     }
@@ -2917,8 +2922,10 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "running",
-        "Databases"
+        "requires Oracle Grid Infrastructure",
+        "managed by QoS even if it does have database instances",
+        "administrator managed or policy managed",
+        "multiple databases assigned to the same server pool"
       ],
       "anchor": "Under the actual supplied wording, B, C, D and E are true in 19c."
     }
@@ -2982,8 +2989,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "file",
-        "encrypted"
+        "not encrypted unless it is created in an encrypted directory",
+        "ACFS snapshot can be ACFS encrypted",
+        "specify the encryption key length"
       ],
       "anchor": "The revised key uses the three choices verifiable without inventing that role."
     }
@@ -3111,7 +3119,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "done"
+        "Server-side connect time load balancing is done at the time of the initial connection attempt",
+        "Client-side connect time load balancing is done at the time of the initial connection attempt"
       ],
       "anchor": "An explicit tnsnames.ora LOAD_BALANCE setting is not the sole supported way for capable clients to obtain multiple-address/SCAN balancing."
     }
@@ -3183,8 +3192,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "diagnose",
-        "data"
+        "skew in response time",
+        "data captured on all instances",
+        "latency problems in the Cluster Interconnect"
       ],
       "anchor": "Option A is too broad: analysis requires an interval represented by suitable AWR snapshots, not an arbitrary period without captured information."
     }
@@ -3243,7 +3253,7 @@
     "mnemonic": {
       "keywords": [
         "ASM",
-        "node"
+        "case of cluster"
       ],
       "anchor": "It protects the server-side service; it does not make every possible client failure disappear."
     }
@@ -3306,7 +3316,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "resources"
+        "Cluster resources",
+        "Local resources",
+        "Administrator-defined resources"
       ],
       "anchor": "A, C, and D identify Clusterware-managed resource categories."
     }
@@ -3372,8 +3384,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Naming",
-        "Normal"
+        "the use of",
+        "of the number"
       ],
       "anchor": "The crucial distinction is installing ASM software versus choosing to configure and use ASM storage."
     }
@@ -3432,7 +3444,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "application resource"
+        "an application resource"
       ],
       "anchor": "D is the only universally required choice as this question is worded."
     }
@@ -3492,9 +3504,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ACFS",
-        "coexist",
-        "any node"
+        "can be",
+        "can coexist on"
       ],
       "anchor": "A, B, and F describe the intended Flex ASM configuration."
     }
@@ -3627,8 +3638,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "run",
-        "purge"
+        "be run by",
+        "that it is"
       ],
       "anchor": "ACFS auditing separates the authority to configure audit roles, review records, and purge them."
     }
@@ -3698,9 +3709,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "High",
-        "across three",
-        "CRM across all"
+        "availability for the",
+        "CRM across all",
+        "ERP across three"
       ],
       "anchor": "Separate distribution of initial requests across SCAN listeners from distribution of sessions among the database instances actually offering a service."
     }
@@ -3767,7 +3778,7 @@
     "mnemonic": {
       "keywords": [
         "CACHE",
-        "stored"
+        "for the same"
       ],
       "anchor": "The source key's inclusion of DBMS_LOCK confuses those categories."
     }
@@ -3830,7 +3841,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "waiters"
+        "in the same"
       ],
       "anchor": "Global describes a resource's coordination scope, not a requirement that every conflict involve sessions on different instances."
     }
@@ -3882,7 +3893,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "reduced by one"
+        "is reduced by"
       ],
       "anchor": "Flex ASM cardinality is the desired number of ASM instances for the cluster."
     }
@@ -3946,9 +3957,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "logs",
-        "Data",
-        "database executables"
+        "Data files for",
+        "Oracle database executables",
+        "Archive logs"
       ],
       "anchor": "A, C, and F are supported ACFS uses in Oracle 19c."
     }
@@ -4012,8 +4023,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "css",
-        "/etc/oracle/ocr.loc"
+        "crsctl",
+        "Use cat /etc/oracle/ocr.loc"
       ],
       "anchor": "C, E, and F are correct for the specified UNIX layout."
     }
@@ -4083,7 +4094,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Files"
+        "REDUNDANCY attribute set to HIGH",
+        "three copies for each allocation unit",
+        "MIRROR will have three-way mirroring"
       ],
       "anchor": "HIGH REDUNDANCY places the relevant file extent copies across three failure groups."
     }
@@ -4210,8 +4223,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "clients",
-        "SPFILE"
+        "SPFILE",
+        "is used for",
+        "fail over to"
       ],
       "anchor": "B, D, and E are correct for the Flex ASM configuration implied by the options."
     }
@@ -4334,8 +4348,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "install",
-        "cluster after"
+        "It is possible",
+        "may be used"
       ],
       "anchor": "B, D, and E are the intended choices."
     }
@@ -4388,7 +4402,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "remote"
+        "too large a",
+        "in the remote"
       ],
       "anchor": "D is directly supported by the precise event definition."
     }
@@ -4451,7 +4466,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "eval",
+        "crsctl",
         "srvctl"
       ],
       "anchor": "D and E are correct after expanding the source's abbreviated command names to actual syntax."
@@ -4508,7 +4523,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "executed"
+        "Stage the patch on the cluster node where the OPatch utility will be executed"
       ],
       "anchor": "B is the best answer to this single-choice question."
     }
@@ -4568,9 +4583,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "high",
-        "Ability",
-        "multi-instance"
+        "from RAC One",
+        "failover for high",
+        "Ability to perform"
       ],
       "anchor": "RAC One Node normally runs one instance, using RAC/Grid Infrastructure capabilities for managed relocation and a future transition to multi-instance RAC."
     }
@@ -4643,8 +4658,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "file",
-        "snapshot"
+        "file system",
+        "ACFS",
+        "can create a"
       ],
       "anchor": "The original Choose three limit is defective."
     }
@@ -4707,8 +4723,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "across",
-        "CDB1 using"
+        "managed across all instances in prod_pool",
+        "of CDB1 using"
       ],
       "anchor": "Policy-managed services default to UNIFORM cardinality."
     }
@@ -4835,7 +4851,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "requests"
+        "balanced across all IP addresses defined for the SCAN",
+        "failed over to another SCAN listener"
       ],
       "anchor": "C and E are correct for a SCAN-aware client."
     }
