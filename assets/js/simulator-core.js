@@ -957,7 +957,10 @@
 
   function renderQuestionBody(text) {
     if (!text) return '';
-    const formatted = text.replace(/([.!?:])\s+(?=(?:Which|What|How|When|Where|Why|For which|Choose)\b[^?]*\?(?:\s*\(Choose[^)]*\))?\s*$)/i, '$1\n\n');
+    let formatted = text
+      .replace(/([^\n])\n(\s*1\.\s+)/g, '$1\n\n$2')
+      .replace(/\n(\d+\.\s+[^\n]+)\n(?!\s*(?:\d+\.|`))([^\n])/g, '\n$1\n\n$2')
+      .replace(/([.!?:])\s+(?=(?:Which|What|How|When|Where|Why|To what|In which|For which|From which|At what|Under what|Choose)\b[^?]*\?(?:\s*\(Choose[^)]*\))?\s*$)/i, '$1\n\n');
     const parts = formatted.split(/```(?:text|sql)?/g);
     let result = '';
     for (let i = 0; i < parts.length; i++) {

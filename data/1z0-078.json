@@ -4,7 +4,7 @@
     "domain": "grid",
     "type": "multiple",
     "select_count": 3,
-    "text": "Examine this sequence of commands:\n\n```text\ncrsctl disable crs\ncrsctl stop cluster -all\ncrsctl start cluster -all\n```\n\nThe cluster consists of nodes HOST01, HOST02, HOST03 and HOST04, and the clusterware is running on all four nodes. Which three statements are true about the result of the root user running these commands on HOST01? (Choose three.)",
+    "text": "Examine this sequence of commands:\n\n```text\ncrsctl disable crs\ncrsctl stop cluster -all\ncrsctl start cluster -all\n```\n\nThe cluster consists of nodes HOST01, HOST02, HOST03 and HOST04, and the clusterware is running on all four nodes.\n\nWhich three statements are true about the result of the root user running these commands on HOST01? (Choose three.)",
     "options": [
       {
         "letter": "A",
@@ -54,7 +54,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "HOST01"
+        "is stopped on all nodes.",
+        "started on HOST01",
+        "is started on all nodes."
       ],
       "anchor": "Read the commands in order, and distinguish a boot-time setting from an immediate start or stop operation."
     }
@@ -116,9 +118,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "CHM",
         "oclumon",
-        "utility",
         "osysmond"
       ],
       "anchor": "Cluster Health Monitor collects operating-system measurements; it is not a replacement location for all Clusterware diagnostic log files."
@@ -175,9 +175,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "RAC Resource Runtime",
-        "Runtime",
-        "automatic"
+        "Runtime"
       ],
       "anchor": "Oracle specifically describes SGA growth during runtime and automatic runtime resource adjustment beginning with 19.3."
     }
@@ -187,7 +185,7 @@
     "domain": "rac",
     "type": "multiple",
     "select_count": 3,
-    "text": "Zero Downtime Patching uses Fleet Patching and Provisioning to patch Oracle Grid Infrastructure without bringing down Oracle RAC database instances. Which three statements are true about Zero-Downtime Oracle Grid Infrastructure Patching? (Choose three.)",
+    "text": "Zero Downtime Patching uses Fleet Patching and Provisioning to patch Oracle Grid Infrastructure without bringing down Oracle RAC database instances.\n\nWhich three statements are true about Zero-Downtime Oracle Grid Infrastructure Patching? (Choose three.)",
     "options": [
       {
         "letter": "A",
@@ -236,9 +234,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Patching requires out",
-        "ACFS",
-        "Downtime Patching can"
+        "AFD",
+        "run",
+        "out-of-place"
       ],
       "anchor": "Zero-downtime Grid Infrastructure patching updates eligible GI software while supported 19c-or-later RAC or RAC One Node database instances continue operating."
     }
@@ -294,8 +292,6 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "patches the VIPs",
-        "patches",
         "VIPs"
       ],
       "anchor": "This supports rapid notification of connection failures; it does not transfer existing database sessions or make the old instance continue executing."
@@ -356,9 +352,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Service QoS Management",
-        "different attributes defined",
-        "user defined policy"
+        "policies",
+        "QoS"
       ],
       "anchor": "A policy set stores alternative configurations, and one policy is active at a time."
     }
@@ -368,7 +363,7 @@
     "domain": "grid",
     "type": "multiple",
     "select_count": 2,
-    "text": "Disk group DGRP1 has these attributes:\n1. Normal redundancy\n2. Two failure groups FG1 and FG2 with two disks each\n3. Compatibility settings set to 19.0 The FG1 failure group goes offline due to hardware failure. Which two statements are true? (Choose two.)",
+    "text": "Disk group DGRP1 has these attributes:\n\n1. Normal redundancy\n2. Two failure groups FG1 and FG2 with two disks each\n3. Compatibility settings set to 19.0\n\nThe FG1 failure group goes offline due to hardware failure.\n\nWhich two statements are true? (Choose two.)",
     "options": [
       {
         "letter": "A",
@@ -411,8 +406,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "FG1 failgroup",
-        "mirrored but changes"
+        "the FG1",
+        "changes"
       ],
       "anchor": ", provided the failure is temporary, FG1 remains an offline member, and the files have a surviving copy in FG2."
     }
@@ -422,7 +417,7 @@
     "domain": "rac",
     "type": "multiple",
     "select_count": 2,
-    "text": "You administer a RAC database that currently runs on a four-node cluster but which has three instances. Which two statements are always true about redo logs for this RAC database? (Choose two.)",
+    "text": "You administer a RAC database that currently runs on a four-node cluster but which has three instances.\n\nWhich two statements are always true about redo logs for this RAC database? (Choose two.)",
     "options": [
       {
         "letter": "A",
@@ -470,8 +465,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "redo must",
-        "redo must contain"
+        "redo must"
       ],
       "anchor": "A RAC instance writes its own redo thread; the number of cluster nodes does not itself create a usable thread for every possible instance."
     }
@@ -530,8 +524,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "delete node n",
-        "Run the rootcrs"
+        "delete node -n host04 command as root on host01",
+        "rootcrs.pl -deconfig -force command as root on host04"
       ],
       "anchor": "C and E describe the intended separation of local deconfiguration and cluster membership deletion."
     }
@@ -586,9 +580,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "RAC",
-        "SCAN",
-        "one connection request"
+        "across",
+        "client the"
       ],
       "anchor": "These decisions operate at different stages, so they can both be used for one connection attempt."
     }
@@ -652,9 +645,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDBs can",
-        "CDB instances",
-        "instance is required"
+        "instance",
+        "local"
       ],
       "anchor": "RAC and multitenant address different dimensions: instances provide compute and shared database access, while containers provide database isolation."
     }
@@ -664,7 +656,7 @@
     "domain": "rac",
     "type": "single",
     "select_count": 1,
-    "text": "Secure Cluster Communication protects the cluster interconnect from common security threats when used together with Single Network Support. Secure Cluster Communication includes message digest mechanisms, protection against fuzzing, and uses Transport Layer Security (TLS) to provide privacy and data integrity between the cluster members. Which statement is true about securing cluster interconnect communication?",
+    "text": "Secure Cluster Communication protects the cluster interconnect from common security threats when used together with Single Network Support. Secure Cluster Communication includes message digest mechanisms, protection against fuzzing, and uses Transport Layer Security (TLS) to provide privacy and data integrity between the cluster members.\n\nWhich statement is true about securing cluster interconnect communication?",
     "options": [
       {
         "letter": "A",
@@ -711,9 +703,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Infrastructure 19c and",
-        "need",
-        "make"
+        "19c and"
       ],
       "anchor": "Oracle lists Secure Cluster Communication as a 19c feature that is invoked automatically for a new Grid Infrastructure deployment or an upgrade to 19c."
     }
@@ -779,8 +769,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "RDBMS instances",
-        "v$fixed_table"
+        "type"
       ],
       "anchor": "Dynamic performance views are fixed-instance views, and their availability does not mean they expose the same information from every instance type."
     }
@@ -837,8 +826,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "one ORACLE_HOME",
-        "node"
+        "one ORACLE_HOME"
       ],
       "anchor": "A is the intended local-home answer, but the abbreviated command is insufficient to prove the complete node scope."
     }
@@ -901,7 +889,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "will be installed"
+        "Clusterware stack must be up on all cluster nodes where",
+        "Grid Infrastructure must be installed on all cluster nodes where"
       ],
       "anchor": "A RAC database software installation depends on a working Grid Infrastructure layer on the nodes selected for that database home."
     }
@@ -959,8 +948,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "default network",
-        "application VIP can"
+        "default",
+        "VIP can"
       ],
       "anchor": "An application VIP gives clients a stable network endpoint for a Clusterware-managed application."
     }
@@ -970,7 +959,7 @@
     "domain": "rac",
     "type": "multiple",
     "select_count": 3,
-    "text": "Your four-node cluster runs Oracle 19c Clusterware and supports a mix of RAC databases from Oracle 10g Release 2 to Oracle 19c. All databases have one or more services defined. The Oracle 10g Release 2 database clients connect to the database instances using the public VIP. The Oracle 11g Release 2, 12c Release 1, and 19c clients connect to the database instances using the Single Client Access Name (SCAN). You must change the public VIPs. Which three actions must be performed to change the VIPs on host01, the first node in the cluster? (Choose three.)",
+    "text": "Your four-node cluster runs Oracle 19c Clusterware and supports a mix of RAC databases from Oracle 10g Release 2 to Oracle 19c. All databases have one or more services defined. The Oracle 10g Release 2 database clients connect to the database instances using the public VIP. The Oracle 11g Release 2, 12c Release 1, and 19c clients connect to the database instances using the Single Client Access Name (SCAN). You must change the public VIPs.\n\nWhich three actions must be performed to change the VIPs on host01, the first node in the cluster? (Choose three.)",
     "options": [
       {
         "letter": "A",
@@ -1019,9 +1008,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Use srvctl start",
-        "Use srvctl modify",
-        "Use srvctl stop"
+        "srvctl"
       ],
       "anchor": "The intended sequence is E, D, A: stop the old VIP, update its configured address, and start it with the new address."
     }
@@ -1088,8 +1075,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Different nodes",
-        "Oracle supplied category"
+        "belong"
       ],
       "anchor": "Categories are expressions evaluated against server attributes; they are not a manually exclusive membership list."
     }
@@ -1143,8 +1129,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "DATA disk group",
-        "USERS"
+        "defined"
       ],
       "anchor": "The filename uses the ASM alias-with-template form: the disk group is DATA, the selected template is newtemplate, and the desired alias is ORCL/USERS/mytab.dbf."
     }
@@ -1207,7 +1192,7 @@
     "mnemonic": {
       "keywords": [
         "PDB",
-        "OCR"
+        "not automatically"
       ],
       "anchor": "the automatic default PDB service cannot be used as the Clusterware service resource that drives the desired PDB open-state management."
     }
@@ -1271,9 +1256,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Database block buffers",
-        "Enqueues",
-        "Cursors"
+        "block",
+        "Cursors",
+        "Enqueues"
       ],
       "anchor": "RAC must preserve correctness when instances have separate memory structures but access one database."
     }
@@ -1339,10 +1324,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "CTSSD",
-        "NTP",
-        "nodes",
-        "Deactivate"
+        "nodes Oracle"
       ],
       "anchor": "CTSS chooses observer or active behavior according to whether it detects a vendor time-synchronization service."
     }
@@ -1411,9 +1393,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "HOST02 and shuts",
-        "HOST03 can",
-        "HOST01"
+        "19c",
+        "HOST02 and"
       ],
       "anchor": "The intended corrected key is C, D and E, assuming the documented prerequisites for relocation are met."
     }
@@ -1471,8 +1452,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "available CDB1 instance",
-        "one available CDB1"
+        "in prod_pool"
       ],
       "anchor": "A policy-managed service is constrained by its configured server pool, and its cardinality determines how many eligible instances provide it."
     }
@@ -1536,9 +1516,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "activated resources",
-        "first created",
-        "activated nodes may"
+        "nodes",
+        "stopped",
+        "inactive"
       ],
       "anchor": "Creating a policy stores a potential cluster configuration."
     }
@@ -1587,10 +1567,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "debugging_level",
-        "crsctl",
-        "trace",
-        "log"
+        "resource_name=debugging_level"
       ],
       "anchor": "The unambiguous documented resource recipe in the 19c CRSCTL reference is `crsctl set log res \"resource_name=debugging_level\"`."
     }
@@ -1654,10 +1631,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "CLUVFY",
-        "OCRDUMP",
-        "integrity",
-        "dump"
+        "the OCR"
       ],
       "anchor": "C, D and E are the defensible answers when integrity means checking registry contents, with a qualification for C."
     }
@@ -1720,8 +1694,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "A policy managed",
-        "An administrator managed"
+        "crsctl"
       ],
       "anchor": "for administrator-defined application resources."
     }
@@ -1779,8 +1752,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "requests to Oracle",
-        "provides XA affinity"
+        "improve"
       ],
       "anchor": "Options B and E are best supported."
     }
@@ -1828,9 +1800,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "single instance database",
-        "single",
-        "instance"
+        "then to create"
       ],
       "anchor": "Option D describes the complete DBCA template workflow offered by these choices."
     }
@@ -1894,9 +1864,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
+        "PDB_FILE_NAME_CONVERT",
         "READ",
-        "PLUGGABLE",
-        "PDB_FILE_NAME_CONVERT"
+        "CREATE"
       ],
       "anchor": "It clones a local PDB and supplies neither FILE_NAME_CONVERT nor CREATE_FILE_DEST, so source state and an implicit destination naming mechanism matter."
     }
@@ -1951,9 +1921,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ADVM must",
-        "disk",
-        "group"
+        "12.1"
       ],
       "anchor": "Creating a snapshot from an existing ACFS snapshot requires COMPATIBLE.ADVM of at least 12.1."
     }
@@ -2017,9 +1985,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Each hub node",
-        "OCR",
-        "Hub nodes require"
+        "hub"
       ],
       "anchor": "A, E and F are the intended answers for the historical hub-and-leaf architecture."
     }
@@ -2089,10 +2055,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "The cluster verification",
-        "Upgrade validation may",
-        "done out",
-        "cluster"
+        "cluster",
+        "out-of-place"
       ],
       "anchor": "Grid Infrastructure release-upgrade preparation combines readiness checks, supported OS fixups and installation into a separate Grid home."
     }
@@ -2150,10 +2114,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "OCR",
-        "voting",
-        "files",
-        "use"
+        "OCR"
       ],
       "anchor": "Option C cannot be inferred merely from omitting a database-data disk group; Clusterware storage and the actual ASM configuration still matter."
     }
@@ -2163,7 +2124,7 @@
     "domain": "asm",
     "type": "single",
     "select_count": 1,
-    "text": "A cluster running 19c Grid Infrastructure supports both Oracle 11g to 19c RAC databases using ASM. The COMPATIBLE.ASM, COMPATIBLE.RDBMS, and COMPATIBLE.ADVM parameters are currently set to 11.2 for all diskgroups. You must support these capabilities in all diskgroups:\n1. ACFS Replication\n2. ACFS Encryption To what minimum values must the compatible attributes be set?",
+    "text": "A cluster running 19c Grid Infrastructure supports both Oracle 11g to 19c RAC databases using ASM. The COMPATIBLE.ASM, COMPATIBLE.RDBMS, and COMPATIBLE.ADVM parameters are currently set to 11.2 for all diskgroups. You must support these capabilities in all diskgroups:\n\n1. ACFS Replication\n2. ACFS Encryption\n\nTo what minimum values must the compatible attributes be set?",
     "options": [
       {
         "letter": "A",
@@ -2210,9 +2171,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "COMPATIBLE",
-        "ASM",
-        "RDBMS"
+        "12.1 COMPATIBLE.RDBMS to 11.2"
       ],
       "anchor": "D is the intended legacy answer, but no option specifies the minimum for the snapshot-based ACFS replication documented in 19c."
     }
@@ -2275,9 +2234,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "policy managed",
-        "DBCA",
-        "administrator managed"
+        "managed for",
+        "DBCA"
       ],
       "anchor": "DBCA still creates the default database service and can create/select server pools during database creation."
     }
@@ -2341,9 +2299,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ASM diskgroups",
-        "O directly",
-        "ASM instances"
+        "to ASM"
       ],
       "anchor": "B supplies a third answer only if metadata includes database metadata stored inside database files, such as file/segment headers."
     }
@@ -2395,8 +2351,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "becomes available",
-        "becomes"
+        "available after"
       ],
       "anchor": "Option A describes movement away from a preferred instance, not failback."
     }
@@ -2406,7 +2361,7 @@
     "domain": "asm",
     "type": "multiple",
     "select_count": 2,
-    "text": "Examine these descriptions of ASM instance shutdown behavior: 1) The ASM instance shuts down immediately without an orderly dismount of disk groups. 2) Active SQL statements are allowed to complete before an orderly dismount of all disk groups occurs and then the ASM instance shuts down without waiting for connected sessions to disconnect. If any ASM clients are connected to the instance, then the shutdown returns an error. 3) Active SQL statements are allowed to complete before an orderly dismount of all of disk groups occurs and then the ASM instance shuts down after waiting for connected sessions to disconnect. If any ASM clients are connected to the instance, then the shutdown returns an error. Which two lists are correct matches for these descriptions? (Choose two.)",
+    "text": "Examine these descriptions of ASM instance shutdown behavior:\n\n1. The ASM instance shuts down immediately without an orderly dismount of disk groups.\n2. Active SQL statements are allowed to complete before an orderly dismount of all disk groups occurs and then the ASM instance shuts down without waiting for connected sessions to disconnect. If any ASM clients are connected to the instance, then the shutdown returns an error.\n3. Active SQL statements are allowed to complete before an orderly dismount of all of disk groups occurs and then the ASM instance shuts down after waiting for connected sessions to disconnect. If any ASM clients are connected to the instance, then the shutdown returns an error.\n\nWhich two lists are correct matches for these descriptions? (Choose two.)",
     "options": [
       {
         "letter": "A",
@@ -2450,8 +2405,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "TRANSACTIONAL",
-        "NORMAL"
+        "2 = IMMEDIATE",
+        "2 = TRANSACTIONAL"
       ],
       "anchor": "Options C and E give the correct mappings."
     }
@@ -2509,10 +2464,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ASM Disks belonging",
-        "Disks",
-        "belonging",
-        "group"
+        "Disks"
       ],
       "anchor": "ASM distributes file extents across disks, so devices with comparable capacity, latency and throughput avoid a subset of storage dominating response time."
     }
@@ -2576,8 +2528,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ACFS auditing information",
-        "ACFS replication configuration"
+        "standby file"
       ],
       "anchor": "B and E are verified for the ACFS replication model documented in 19c."
     }
@@ -2636,9 +2587,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "surviving hub nodes",
-        "Sessions connected",
-        "node is evicted"
+        "nodes",
+        "evicted"
       ],
       "anchor": "Options B, D and E describe the expected HA response, with qualifications about restartable resources and capable clients."
     }
@@ -2690,8 +2640,6 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "When possible clients",
-        "possible",
         "offers"
       ],
       "anchor": "COLOCATION_TAG provides best-effort association between a tag and an instance offering the requested service."
@@ -2772,9 +2720,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SSH",
-        "UNIX",
-        "RAC",
+        "installation",
         "ACFS"
       ],
       "anchor": "There are four true statements in 19c: A, B, E and F."
@@ -2833,8 +2779,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "The maximum value",
-        "ASM_DISKGROUPS"
+        "ASM_DISKGROUPS",
+        "ASM_POWER_LIMIT is 1024"
       ],
       "anchor": ", with a compatibility qualification for A."
     }
@@ -2893,9 +2839,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "You can dynamically",
-        "OMF",
-        "An instance"
+        "created",
+        "an instance"
       ],
       "anchor": "Undo generation belongs to an instance, while shared-storage access permits another instance to recover a failed instance's transactions."
     }
@@ -2965,10 +2910,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "requires Oracle Grid",
-        "QoS even",
-        "Databases managed",
-        "It supports multiple"
+        "running",
+        "Databases"
       ],
       "anchor": "Under the actual supplied wording, B, C, D and E are true in 19c."
     }
@@ -3032,9 +2975,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "A copy",
         "ACFS",
-        "encryption key length"
+        "file"
       ],
       "anchor": "The revised key uses the three choices verifiable without inventing that role."
     }
@@ -3103,9 +3045,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Shadow GRD resources",
-        "ASM",
-        "each instance"
+        "GRD resources",
+        "shared pool of each"
       ],
       "anchor": "B, C and G are the intended answers, but the detailed master/shadow memory wording is implementation oriented."
     }
@@ -3163,8 +3104,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Server side connect",
-        "Client side connect"
+        "done"
       ],
       "anchor": "An explicit tnsnames.ora LOAD_BALANCE setting is not the sole supported way for capable clients to obtain multiple-address/SCAN balancing."
     }
@@ -3236,9 +3176,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "It can diagnose",
-        "analyze performance using",
-        "Cluster Interconnect"
+        "diagnose",
+        "data"
       ],
       "anchor": "Option A is too broad: analysis requires an interval represented by suitable AWR snapshots, not an arbitrary period without captured information."
     }
@@ -3297,7 +3236,7 @@
     "mnemonic": {
       "keywords": [
         "ASM",
-        "cluster node failure"
+        "node"
       ],
       "anchor": "It protects the server-side service; it does not make every possible client failure disappear."
     }
@@ -3360,9 +3299,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Cluster resources",
-        "Local resources",
-        "Administrator defined resources"
+        "resources"
       ],
       "anchor": "A, C, and D identify Clusterware-managed resource categories."
     }
@@ -3428,8 +3365,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Grid Naming Service",
-        "Normal Redundancy ASM"
+        "Naming",
+        "Normal"
       ],
       "anchor": "The crucial distinction is installing ASM software versus choosing to configure and use ASM storage."
     }
@@ -3548,9 +3485,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ACFS",
         "any node",
-        "ASM instance and"
+        "coexist"
       ],
       "anchor": "A, B, and F describe the intended Flex ASM configuration."
     }
@@ -3560,7 +3496,7 @@
     "domain": "rac",
     "type": "single",
     "select_count": 1,
-    "text": "You must deploy several Oracle 19c databases on an Oracle Grid Infrastructure Managed Cluster, and are required to have the ability to perform these actions without down time:\n1. Apply a Grid Infrastructure interim patch.\n2. Apply a Grid Infrastructure Patch Set Update (PSU).\n3. Apply a database on-line patch.\n4. Apply a Grid Infrastructure patchset.\n5. Apply a database patchset.\n6. Upgrade Grid Infrastructure from one release to another.\n7. Upgrade databases from one release to another. Your plan is to perform these tasks:\n1. Install and configure Oracle Grid Infrastructure on a local file system.\n2. Install Oracle Database software on an ACFS file system.\n3. Create several RAC One Node databases. Which of the seven requirements are met by your plan?",
+    "text": "You must deploy several Oracle 19c databases on an Oracle Grid Infrastructure Managed Cluster, and are required to have the ability to perform these actions without down time:\n\n1. Apply a Grid Infrastructure interim patch.\n2. Apply a Grid Infrastructure Patch Set Update (PSU).\n3. Apply a database on-line patch.\n4. Apply a Grid Infrastructure patchset.\n5. Apply a database patchset.\n6. Upgrade Grid Infrastructure from one release to another.\n7. Upgrade databases from one release to another.\n\nYour plan is to perform these tasks:\n\n1. Install and configure Oracle Grid Infrastructure on a local file system.\n2. Install Oracle Database software on an ACFS file system.\n3. Create several RAC One Node databases.\n\nWhich of the seven requirements are met by your plan?",
     "options": [
       {
         "letter": "A",
@@ -3619,7 +3555,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "1 2 3"
+        "1 2 3 4 and"
       ],
       "anchor": "E is the defensible intended choice: requirements 1, 2, 3, 4, and 6, provided the specific patch or upgrade path permits rolling/online application."
     }
@@ -3683,9 +3619,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "acfsutil audit read",
-        "acfsutil audit init",
-        "acfsutil audit purge"
+        "run",
+        "purge"
       ],
       "anchor": "ACFS auditing separates the authority to configure audit roles, review records, and purge them."
     }
@@ -3695,7 +3630,7 @@
     "domain": "rac",
     "type": "multiple",
     "select_count": 4,
-    "text": "You support a RAC database with these characteristics:\n1. There are six instances.\n2. Server Pool prod has a maximum of four servers.\n3. CRM is a policy managed, uniform service using Server Pool prod.\n4. ERP is a policy managed, singleton service using Server Pool prod.\n5. Grid infrastructure is installed and running in its default configuration. Which four benefits are provided by this configuration in Oracle 19c? (Choose four.)",
+    "text": "You support a RAC database with these characteristics:\n\n1. There are six instances.\n2. Server Pool prod has a maximum of four servers.\n3. CRM is a policy managed, uniform service using Server Pool prod.\n4. ERP is a policy managed, singleton service using Server Pool prod.\n5. Grid infrastructure is installed and running in its default configuration.\n\nWhich four benefits are provided by this configuration in Oracle 19c? (Choose four.)",
     "options": [
       {
         "letter": "A",
@@ -3755,10 +3690,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "High availability",
-        "SCAN",
-        "CRM across all",
-        "High"
+        "High",
+        "across three",
+        "CRM across all"
       ],
       "anchor": "Separate distribution of initial requests across SCAN listeners from distribution of sessions among the database instances actually offering a service."
     }
@@ -3824,7 +3758,6 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "stored procedure",
         "CACHE"
       ],
       "anchor": "The source key's inclusion of DBMS_LOCK confuses those categories."
@@ -3888,10 +3821,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Global Enqueues may",
-        "may",
-        "converters",
-        "owners"
+        "waiters"
       ],
       "anchor": "Global describes a resource's coordination scope, not a requirement that every conflict involve sessions on different instances."
     }
@@ -3943,7 +3873,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ASM instance is"
+        "is shut"
       ],
       "anchor": "Flex ASM cardinality is the desired number of ASM instances for the cluster."
     }
@@ -4007,9 +3937,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Archive logs",
-        "Data files",
-        "Oracle database executables"
+        "Data",
+        "logs"
       ],
       "anchor": "A, C, and F are supported ACFS uses in Oracle 19c."
     }
@@ -4073,10 +4002,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ASM",
-        "Use crsctl query",
-        "crsctl",
-        "query"
+        "css",
+        "/etc/oracle/ocr.loc"
       ],
       "anchor": "C, E, and F are correct for the specified UNIX layout."
     }
@@ -4146,9 +4073,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "REDUNDANCY",
-        "Files created",
-        "MIRROR"
+        "Files"
       ],
       "anchor": "HIGH REDUNDANCY places the relevant file extent copies across three failure groups."
     }
@@ -4211,9 +4136,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SCAN",
-        "Single",
-        "Client"
+        "SCAN"
       ],
       "anchor": "B is the only supported choice among these options."
     }
@@ -4277,9 +4200,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SPFILE",
-        "A designated network",
-        "ASM clients"
+        "clients",
+        "SPFILE"
       ],
       "anchor": "B, D, and E are correct for the Flex ASM configuration implied by the options."
     }
@@ -4337,8 +4259,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SCAN",
-        "GNS"
+        "GNS",
+        "SCAN"
       ],
       "anchor": "SRVCTL manages Oracle-managed Clusterware resources, including SCAN and GNS configurations."
     }
@@ -4402,9 +4324,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "install RAC database",
-        "CLUVFY",
-        "install multiple RAC"
+        "install"
       ],
       "anchor": "B, D, and E are the intended choices."
     }
@@ -4457,8 +4377,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "remote CPUs",
-        "remote cache"
+        "remote"
       ],
       "anchor": "D is directly supported by the precise event definition."
     }
@@ -4521,8 +4440,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "crsctl eval fail",
-        "srvctl predict filesystem"
+        ".."
       ],
       "anchor": "D and E are correct after expanding the source's abbreviated command names to actual syntax."
     }
@@ -4578,7 +4496,6 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "OPatch utility will",
         "executed"
       ],
       "anchor": "B is the best answer to this single-choice question."
@@ -4639,9 +4556,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Ability to perform",
-        "Automatic failover",
-        "multi instance RAC"
+        "Ability",
+        "multi-instance"
       ],
       "anchor": "RAC One Node normally runs one instance, using RAC/Grid Infrastructure capabilities for managed relocation and a future transition to multi-instance RAC."
     }
@@ -4714,10 +4630,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ACFS",
-        "They are contained",
-        "They are always",
-        "You can create"
+        "file",
+        "snapshot"
       ],
       "anchor": "The original Choose three limit is defective."
     }
@@ -4780,8 +4694,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "prod_pool",
-        "CDB1 using service"
+        "in prod_pool",
+        "of CDB1"
       ],
       "anchor": "Policy-managed services default to UNIFORM cardinality."
     }
@@ -4791,7 +4705,7 @@
     "domain": "asm",
     "type": "single",
     "select_count": 1,
-    "text": "You plan to use DBCA to convert a single-instance Oracle 19c database on a local filesystem on a stand-alone server to RAC by using ASM. You installed Grid Infrastructure 19c on a four-node cluster.\n\nExamine this list of possible conversion steps:\n1. Create a template and image files from the single-instance database by using DBCA.\n2. Perform an RMAN backup of the single-instance database.\n3. Validate the cluster using CLUVFY.\n4. Copy the template and image files to a cluster node.\n5. Restore the RMAN backup to the recovery area disk group on the cluster.\n6. Perform an Oracle Database 19c RAC software installation.\n7. Create a RAC database with DBCA using the RMAN backup.\n8. Create a RAC database with DBCA using the template. Which option correctly lists the correct sequence of the minimum steps required to perform the conversion?",
+    "text": "You plan to use DBCA to convert a single-instance Oracle 19c database on a local filesystem on a stand-alone server to RAC by using ASM. You installed Grid Infrastructure 19c on a four-node cluster.\n\nExamine this list of possible conversion steps:\n\n1. Create a template and image files from the single-instance database by using DBCA.\n2. Perform an RMAN backup of the single-instance database.\n3. Validate the cluster using CLUVFY.\n4. Copy the template and image files to a cluster node.\n5. Restore the RMAN backup to the recovery area disk group on the cluster.\n6. Perform an Oracle Database 19c RAC software installation.\n7. Create a RAC database with DBCA using the RMAN backup.\n8. Create a RAC database with DBCA using the template.\n\nWhich option correctly lists the correct sequence of the minimum steps required to perform the conversion?",
     "options": [
       {
         "letter": "A",
@@ -4842,7 +4756,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "1 3 4"
+        "1, 3, 4, 6, 8"
       ],
       "anchor": "Grid Infrastructure installation does not install the separate RAC Database home needed to perform step 8."
     }
@@ -4908,10 +4822,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Client connection requests",
-        "requests",
-        "automatically",
-        "failed"
+        "requests"
       ],
       "anchor": "C and E are correct for a SCAN-aware client."
     }

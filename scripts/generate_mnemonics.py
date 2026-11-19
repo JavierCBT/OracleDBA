@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import itertools
 
 STOPWORDS = {
     'a', 'about', 'above', 'after', 'again', 'against', 'all', 'also', 'am', 'an', 'and', 'any', 'are', 'aren',
@@ -11,91 +12,169 @@ STOPWORDS = {
     'on', 'once', 'only', 'or', 'other', 'our', 'ours', 'ourselves', 'out', 'over', 'own', 'same', 'she', 'should',
     'so', 'some', 'such', 'than', 'that', 'the', 'their', 'theirs', 'them', 'themselves', 'then', 'there', 'these',
     'they', 'this', 'those', 'through', 'to', 'too', 'under', 'until', 'up', 'very', 'was', 'wasn', 'we', 'were',
-    'what', 'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'will', 'with', 'would', 'you', 'your'
+    'what', 'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'will', 'with', 'would', 'you', 'your',
+    'statement', 'statements', 'true', 'false', 'correct', 'incorrect', 'following', 'oracle', 'database',
+    'may', 'might', 'must', 'shall', 'should', 'used', 'using', 'use', 'uses', 'get', 'gets', 'set', 'sets',
+    'one', 'two', 'three', 'four', 'five', 'six', 'first', 'second', 'third', 'either', 'neither', 'another',
+    'always', 'never', 'sometimes', 'become', 'becomes', 'became', 'show', 'shows', 'shown', 'see', 'seen',
+    'take', 'takes', 'taken', 'give', 'gives', 'given', 'need', 'needs', 'needed', 'make', 'makes', 'made'
 }
 
 def clean_text(t):
     return re.sub(r'\s+', ' ', str(t or '')).strip()
 
-def find_best_discriminator_for_option(opt_text, wrong_combined_text):
-    clean_opt = clean_text(opt_text)
+def normalize_for_match(text):
+    t = re.sub(r'[,;:?!\'\"()\[\]]|\.(?=\s|$)', ' ', text or '')
+    return re.sub(r'\s+', ' ', t).strip()
+
+def is_token_in_text(token, text):
+    # Check whole token / phrase match (case-insensitive)
+    norm_text = normalize_for_match(text)
+    norm_token = normalize_for_match(token)
+    pattern = r'(?<![A-Za-z0-9_\$\.])' + re.escape(norm_token) + r'(?![A-Za-z0-9_\$\.])'
+    return bool(re.search(pattern, norm_text, re.IGNORECASE))
+
+def extract_candidates_for_option(opt_text):
+    candidates = []
     
-    # 1. Oracle-specific identifiers: ALL_CAPS with underscores/$, commands, views, params
-    terms = re.findall(r'\b[A-Za-z0-9_\$]{3,}\b', clean_opt)
-    oracle_terms = []
-    for tok in terms:
+    # 1. Comma numbers like "2, 4, 5" or "1, 3, 4, 6, 8"
+    num_matches = re.findall(r'\b\d+(?:,\s*\d+)+\b', opt_text)
+    for nm in num_matches:
+        candidates.append((1, nm))
+
+    # 2. Words preserving Oracle characters
+    norm = normalize_for_match(opt_text)
+    tokens = [tok for tok in norm.split(' ') if tok]
+    
+    # 1-grams
+    for tok in tokens:
         tl = tok.lower()
-        if tl in STOPWORDS or len(tok) < 3:
-            continue
-        if f" {tl} " not in wrong_combined_text:
-            if '_' in tok or '$' in tok or (tok.isupper() and len(tok) >= 3):
-                oracle_terms.append(tok)
-    if oracle_terms:
-        oracle_terms.sort(key=lambda t: (('_' in t or '$' in t), len(t)), reverse=True)
-        return oracle_terms[0]
-        
-    # 2. Meaningful 2-word or 3-word phrase with non-stopwords
-    words = re.findall(r'\b[A-Za-z0-9_\$-\']+\b', clean_opt)
-    best_phrases = []
-    for length in [2, 3]:
-        for i in range(len(words) - length + 1):
-            phrase = " ".join(words[i:i+length])
-            pl = phrase.lower()
-            if f" {pl} " not in wrong_combined_text:
-                non_stops = [w for w in words[i:i+length] if w.lower() not in STOPWORDS]
-                if len(non_stops) >= 1:
-                    score = len(non_stops) * 2 + (5 if any(w[0].isupper() for w in words[i:i+length]) else 0)
-                    best_phrases.append((score, phrase))
-    if best_phrases:
-        best_phrases.sort(key=lambda p: p[0], reverse=True)
-        return best_phrases[0][1]
-
-    # 3. Single distinctive word
-    for w in words:
-        wl = w.lower()
-        if wl not in STOPWORDS and len(w) >= 4 and f" {wl} " not in wrong_combined_text:
-            return w
+        if tl not in STOPWORDS and len(tok) >= 2:
+            candidates.append((1, tok))
             
-    return None
+    # 2-grams to 6-grams from normalized text
+    max_n = min(6, len(tokens))
+    for n in range(2, max_n + 1):
+        for i in range(len(tokens) - n + 1):
+            slice_toks = tokens[i:i+n]
+            if all(w.lower() in STOPWORDS for w in slice_toks):
+                continue
+            phrase = " ".join(slice_toks)
+            candidates.append((n, phrase))
+            
+    # 3. Raw substrings with internal punctuation (e.g. "ASM to 12.1, COMPATIBLE.RDBMS to 11.2")
+    raw_words = opt_text.split()
+    for n in range(3, min(8, len(raw_words) + 1)):
+        for i in range(len(raw_words) - n + 1):
+            phrase = " ".join(raw_words[i:i+n]).rstrip('.,;:')
+            if phrase and phrase not in [c[1] for c in candidates]:
+                candidates.append((n, phrase))
 
-def extract_keywords_for_question(q):
+    # 4. Check if option has distinctive period end like "on all nodes."
+    clean_strip = opt_text.strip()
+    if clean_strip.endswith('.'):
+        for n in range(2, min(5, len(tokens) + 1)):
+            end_phrase = " ".join(tokens[-n:]) + "."
+            candidates.append((n, end_phrase))
+            
+    return candidates
+
+# Specific manual overrides for known highly-distractor questions where automatic n-grams need precise tailoring
+MANUAL_OVERRIDES = {
+    # 1z0-078
+    (78, 1): ["is stopped on all nodes.", "started on HOST01", "is started on all nodes."],
+    (78, 9): ["delete node -n host04 command as root on host01", "rootcrs.pl -deconfig -force command as root on host04"],
+    (78, 15): ["Clusterware stack must be up on all cluster nodes where", "Grid Infrastructure must be installed on all cluster nodes where"],
+    # 1z0-083
+    (83, 32): ["Sorts", "UGA) is located in the System Global Area (SGA) when using shared servers"],
+    (83, 33): ["Control file backups can be created while connected to the root container", "BACKUP TABLESPACE"],
+    (83, 107): ["not in the current FRA", "Oracle recovery files in the current FRA"],
+    (83, 132): ["2, 4, 5"],
+    (83, 133): ["snapshot copy PDB depends on a storage snapshot which can only be stored on specific file systems", "stand-alone clone PDB"],
+    (83, 157): ["can be created in a pluggable database", "target.", "non-container database"],
+    (83, 164): ["pluggable database in silent mode", "cloning a remote container database in silent mode"]
+}
+
+def find_minimal_cover_for_question(q, exam_num=78):
+    qid = q['id']
+    if (exam_num, qid) in MANUAL_OVERRIDES:
+        return MANUAL_OVERRIDES[(exam_num, qid)]
+        
     correct_keys = set(q.get('correct', []))
     correct_opts = [o for o in q.get('options', []) if (o.get('key') in correct_keys or o.get('letter') in correct_keys)]
     wrong_opts = [o for o in q.get('options', []) if not (o.get('key') in correct_keys or o.get('letter') in correct_keys)]
     
-    wrong_combined_text = " " + " ".join([clean_text(o['text']).lower() for o in wrong_opts]) + " "
+    wrong_texts = [o['text'] for o in wrong_opts]
     
-    keywords = []
+    cand_coverage = {}
+    cand_info = {}
+    
+    all_cands = []
     for opt in correct_opts:
-        disc = find_best_discriminator_for_option(opt['text'], wrong_combined_text)
-        if disc and disc not in keywords and not any(disc.lower() == k.lower() for k in keywords):
-            keywords.append(disc)
+        all_cands.extend(extract_candidates_for_option(opt['text']))
+        
+    seen_lower = set()
+    unique_cands = []
+    for n, cand in all_cands:
+        cl = cand.lower().strip()
+        if cl not in seen_lower:
+            seen_lower.add(cl)
+            unique_cands.append((n, cand.strip()))
             
-    if len(keywords) < len(correct_opts) or len(keywords) < 2:
+    for n, cand in unique_cands:
+        # Exclusivity check: MUST NOT appear in any wrong option
+        cand_in_wrong = False
+        for wt in wrong_texts:
+            if cand.endswith('.'):
+                if cand.lower() in wt.lower():
+                    cand_in_wrong = True
+                    break
+            else:
+                if is_token_in_text(cand, wt) or (cand.lower() in wt.lower() and len(cand) > 15):
+                    cand_in_wrong = True
+                    break
+        if cand_in_wrong:
+            continue
+            
+        covered = set()
         for opt in correct_opts:
-            clean_opt = clean_text(opt['text'])
-            terms = re.findall(r'\b[A-Za-z0-9_\$]{3,}\b', clean_opt)
-            for tok in terms:
-                tl = tok.lower()
-                if tl not in STOPWORDS and f" {tl} " not in wrong_combined_text and tok not in keywords:
-                    keywords.append(tok)
-                    if len(keywords) >= 3:
-                        break
-                        
-    # Fallback if somehow still empty (e.g. Q15 of 078 or single-choice identical structures)
-    if not keywords:
-        for ct in [clean_text(o['text']) for o in correct_opts]:
-            words = ct.split()
-            for length in [4, 3, 2]:
-                for i in range(len(words) - length + 1):
-                    ph = " ".join(words[i:i+length])
-                    if f" {ph.lower()} " not in wrong_combined_text:
-                        keywords.append(ph)
-                        break
-                if keywords: break
-            if keywords: break
+            okey = opt.get('letter') or opt.get('key')
+            if cand.endswith('.'):
+                if cand.lower() in opt['text'].lower():
+                    covered.add(okey)
+            else:
+                if is_token_in_text(cand, opt['text']) or cand.lower() in opt['text'].lower():
+                    covered.add(okey)
+                
+        if covered:
+            score = 0
+            if '_' in cand or '$' in cand: score += 30
+            if cand.isupper() and len(cand) >= 3: score += 25
+            if any(c.isdigit() for c in cand): score += 15
+            if '.' in cand and not cand.endswith('.'): score += 10
+            # Prefer shorter n-grams
+            score -= (n * 12)
+            # Big bonus for covering multiple correct options
+            score += len(covered) * 70
+            score -= int(len(cand) * 0.2)
             
-    return keywords[:4]
+            cand_coverage[cand] = covered
+            cand_info[cand] = (n, -score, len(cand), cand)
+            
+    all_needed_keys = set(o.get('letter') or o.get('key') for o in correct_opts)
+    all_valid_cands = sorted(cand_coverage.keys(), key=lambda c: (cand_info[c][1], cand_info[c][0], cand_info[c][2]))
+    
+    best_solution = None
+    for r in range(1, len(all_needed_keys) + 1):
+        for combo in itertools.combinations(all_valid_cands, r):
+            union_covered = set().union(*(cand_coverage[c] for c in combo))
+            if all_needed_keys.issubset(union_covered):
+                best_solution = list(combo)
+                break
+        if best_solution:
+            break
+            
+    return best_solution or []
 
 def extract_anchor_for_question(q):
     exp = q.get('explanation', '')
@@ -134,14 +213,40 @@ def extract_anchor_for_question(q):
             
     return "Review the core Oracle documentation principles for this topic."
 
-def process_exam_file(filepath, dry_run=False):
-    print(f"\nProcessing {filepath}...")
+def process_exam_file(filepath, exam_num, dry_run=False):
+    print(f"\nProcessing {filepath} (Exam {exam_num})...")
     with open(filepath, 'r', encoding='utf-8') as f:
         questions = json.load(f)
         
     updated = 0
+    errors = 0
     for q in questions:
-        kws = extract_keywords_for_question(q)
+        kws = find_minimal_cover_for_question(q, exam_num)
+        if not kws:
+            print(f"ERROR: Q#{q['id']} could not find minimal exclusive cover!")
+            errors += 1
+            continue
+            
+        # Verify exclusivity of every keyword!
+        correct_keys = set(q.get('correct', []))
+        wrong_opts = [o for o in q.get('options', []) if not (o.get('key') in correct_keys or o.get('letter') in correct_keys)]
+        for kw in kws:
+            kw_clean = kw.rstrip('.')
+            for wo in wrong_opts:
+                wo_clean = wo['text'].strip()
+                # For pure numeric sequence options (e.g. "2, 4, 5"), check exact match
+                if re.match(r'^[\d,\s]+$', wo_clean):
+                    if kw.strip() == wo_clean:
+                        print(f"WARNING: Q#{q['id']} kw '{kw}' matches wrong numeric option {wo['key']}!")
+                        errors += 1
+                elif kw.endswith('.'):
+                    if kw.lower() in wo['text'].lower():
+                        print(f"WARNING: Q#{q['id']} kw '{kw}' found in wrong option {wo['key']}!")
+                        errors += 1
+                elif is_token_in_text(kw_clean, wo['text']):
+                    print(f"WARNING: Q#{q['id']} kw '{kw}' found in wrong option {wo['key']}!")
+                    errors += 1
+                    
         anchor = extract_anchor_for_question(q)
         q['mnemonic'] = {
             'keywords': kws,
@@ -149,18 +254,19 @@ def process_exam_file(filepath, dry_run=False):
         }
         updated += 1
         
-    print(f"Enriched {updated}/{len(questions)} questions with mnemonic data.")
+    print(f"Enriched {updated}/{len(questions)} questions with exclusive minimal mnemonics (Errors: {errors}).")
     
-    if not dry_run:
+    if not dry_run and errors == 0:
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(questions, f, indent=2, ensure_ascii=False)
             f.write('\n')
         print(f"Successfully saved {filepath}")
-    else:
+    elif dry_run:
         print("[Dry Run] Did not write to disk.")
+    else:
+        print("Encountered errors, aborting save.")
 
 if __name__ == '__main__':
     data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-    for exam in ['1z0-078.json', '1z0-083.json']:
-        fp = os.path.join(data_dir, exam)
-        process_exam_file(fp, dry_run=False)
+    process_exam_file(os.path.join(data_dir, '1z0-078.json'), 78, dry_run=False)
+    process_exam_file(os.path.join(data_dir, '1z0-083.json'), 83, dry_run=False)
