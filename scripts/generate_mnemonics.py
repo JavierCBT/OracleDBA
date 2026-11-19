@@ -3,26 +3,42 @@ import os
 import re
 import itertools
 
-GENERIC_ISOLATED_WORDS = {
-    'rows', 'direct', 'type', 'done', 'open', 'local', 'instance', 'belong', 'defined',
-    'nodes', 'write', 'running', 'file', 'requests', 'bottom', 'better', 'poorly',
-    'written', 'cost', 'way', 'leave', 'path', 'prompt', 'best', 'tuned', 'space',
-    'exist', 'due', 'unit', 'cleared', 'plans', 'stored', 'block', 'role',
-    'error', 'owns', 'owners', 'data', 'pool', 'times', 'unable', 'fails', 'remain',
-    'new', 'required', 'days', 'closed', 'ready', 'size', 'shut', 'opens', 'part',
-    'job', 'subset', 'time', 'provides', 'offers', 'changes', 'created', 'values',
-    'across', 'default', 'remote', 'executed', 'table', 'tablespace', 'root', 'files',
-    'check', 'taking', 'pieces', 'granted', 'directly', 'manually', 'options', 'statements',
-    'can', 'using', 'used', 'make', 'may', 'must', 'show', 'shows', 'shown', 'see', 'seen'
+COMMON_ORACLE_GENERIC_WORDS = {
+    # Adverbs, quantifiers, prepositions, conjunctions
+    'only', 'all', 'both', 'either', 'neither', 'always', 'never', 'also', 'just', 'even',
+    'each', 'every', 'some', 'any', 'many', 'more', 'most', 'less', 'few', 'none', 'not', 'no', 'nor',
+    'can', 'may', 'must', 'shall', 'should', 'will', 'would', 'could', 'might',
+    'be', 'been', 'being', 'is', 'are', 'was', 'were', 'have', 'has', 'had', 'do', 'does', 'did', 'done',
+    'a', 'an', 'the', 'this', 'that', 'these', 'those', 'in', 'on', 'at', 'to', 'for', 'of', 'by', 'with',
+    'from', 'into', 'onto', 'than', 'then', 'so', 'such', 'if', 'but', 'or', 'and',
+    
+    # Generic SQL / DB terms that should not be isolated 1-word mnemonics
+    'sql', 'database', 'drop', 'set', 'image', 'bin', 'keep', 'mount', 'current', 'upgrade',
+    'system', 'table', 'tables', 'tablespace', 'tablespaces', 'file', 'files', 'data',
+    'block', 'blocks', 'row', 'rows', 'column', 'columns', 'user', 'users', 'role', 'roles',
+    'grant', 'grants', 'cache', 'unix', 'pluggable', 'container', 'root', 'seed', 'instance',
+    'instances', 'node', 'nodes', 'cluster', 'clusters', 'service', 'services', 'disk', 'disks',
+    'group', 'groups', 'pool', 'pools', 'memory', 'session', 'sessions', 'process', 'processes',
+    'log', 'logs', 'redo', 'undo', 'error', 'errors', 'status', 'state', 'mode', 'type', 'name',
+    'time', 'date', 'size', 'value', 'values', 'clause', 'clauses', 'option', 'options',
+    'command', 'commands', 'statement', 'statements', 'view', 'views', 'schema', 'schemas',
+    'backup', 'backups', 'restore', 'restores', 'recovery', 'recover', 'flashback', 'advisor',
+    'create', 'creating', 'created', 'delete', 'deleting', 'deleted', 'alter', 'altering', 'altered',
+    'select', 'insert', 'update', 'truncate', 'commit', 'rollback', 'savepoint',
+    'open', 'closed', 'online', 'offline', 'active', 'inactive', 'true', 'false', 'correct', 'incorrect',
+    'failed', 'fails', 'successful', 'success', 'required', 'requires', 'optional', 'manually', 'automatically'
 }
 
-ORACLE_KNOWN_TERMS = {
+ALLOWED_TECHNICAL_SINGLE_WORDS = {
+    # Specific utilities / daemons / tools
     'oclumon', 'osysmond', 'ologgerd', 'crsd', 'evmd', 'cssd', 'gimr', 'srvctl',
     'asmcmd', 'crsctl', 'cluvfy', 'ocrdump', 'ocrcheck', 'ocrconfig', 'advm', 'acfs',
-    'redundancy', 'tracked', 'unassigned', 'colocation_tag', 'quiesced', 'sparse',
-    'multisection', 'sharding', 'interconnect', 'recyclebin', 'autoupgrade', 'preupgrade',
-    'vip', 'scan', 'rac', 'asm', 'pdb', 'cdb', 'rman', 'dbca', 'dbua', 'oui', 'spfile',
-    'fra', 'sga', 'pga', 'uga', 'archivelog', 'noarchivelog', 'omf'
+    'dbca', 'dbua', 'oui', 'roohctl', 'appvipcfg', 'orapwd', 'adrci',
+    
+    # OS Groups / Privileges / Special technology terms
+    'osasm', 'osdba', 'scan', 'gns', 'spfile', 'fra', 'sga', 'pga', 'uga',
+    'archivelog', 'noarchivelog', 'omf', 'recyclebin', 'autoupgrade', 'preupgrade',
+    'multisection', 'sharding', 'colocation_tag', 'quiesced'
 }
 
 ACTION_VERBS = {
@@ -49,6 +65,7 @@ MANUAL_OVERRIDES = {
     (78, 13): ["different outputs depending on the instance type", "seen in v$fixed_table"],
     (78, 14): ["one ORACLE_HOME only on the first cluster node"],
     (78, 15): ["Clusterware stack must be up on all cluster nodes where", "Grid Infrastructure must be installed on all cluster nodes where"],
+    (78, 16): ["appvipcfg utility", "created with the crsctl utility"],
     (78, 18): ["separate administrator-defined categories", "same Oracle-supplied category"],
     (78, 19): ["newtemplate must be defined", "subdirectories ORCL and USERS must already exist"],
     (78, 20): ["cannot be used to automate the opening", "not automatically registered in the OCR"],
@@ -58,35 +75,53 @@ MANUAL_OVERRIDES = {
     (78, 28): ["started manually using crsctl"],
     (78, 29): ["disjoint subset of rows", "direct all branches", "block pings"],
     (78, 30): ["Using DBCA to create a template"],
+    (78, 31): ["READ ONLY mode", "CREATE PLUGGABLE DATABASE system privilege", "PDB_FILE_NAME_CONVERT"],
     (78, 38): ["read I/O directly to ASM Disks", "Database instances can write metadata", "ASM instances can write metadata"],
     (78, 43): ["relocated to one or more surviving hub nodes", "Sessions connected to the failed node could be relocated", "node is evicted from the cluster"],
     (78, 44): ["routed to the same instance that offers a given service"],
+    (78, 45): ["SSH user equivalence", "Fix-up scripts generated during the installation", "RAC installations require Oracle Enterprise Edition", "installed into an ACFS file system"],
+    (78, 46): ["ASM_POWER_LIMIT is 1024", "ASM_DISKGROUPS parameter is optional"],
     (78, 47): ["dynamically assign a newly created undo tablespace", "OMF is enabled", "instance recovery can write to the undo tablespace"],
     (78, 48): ["requires Oracle Grid Infrastructure", "managed by QoS even if it does have database instances", "administrator managed or policy managed", "multiple databases assigned to the same server pool"],
-    (78, 49): ["not encrypted unless it is created in an encrypted directory", "ACFS snapshot can be ACFS encrypted", "specify the encryption key length"],
+    (78, 49): ["not encrypted unless it is created in an encrypted directory", "ACFS snapshot can be ACFS encrypted", "acfsutil encr on"],
     (78, 51): ["Server-side connect time load balancing is done at the time of the initial connection attempt", "Client-side connect time load balancing is done at the time of the initial connection attempt"],
     (78, 52): ["skew in response time", "data captured on all instances", "latency problems in the Cluster Interconnect"],
+    (78, 53): ["characteristics of the underlying ASM disks", "case of cluster node failure"],
     (78, 54): ["Cluster resources", "Local resources", "Administrator-defined resources"],
+    (78, 55): ["Grid Naming Service is optional", "three voting files regardless of the number of failgroups"],
+    (78, 57): ["ASM Cluster File System (ACFS) can be deployed on any nodes", "client of an ASM instance running on any node", "ASM instance and database instances can coexist"],
     (78, 58): ["1, 2, 3, 4 and 6."],
+    (78, 59): ["acfsutil audit read", "acfsutil audit init", "acfsutil audit purge"],
+    (78, 60): ["High availability for the CRM service", "High availability for the ERP service", "ERP across three Single Client Access Name (SCAN) listeners", "CRM across all database instances running on servers in the prod pool"],
+    (78, 61): ["multiple library caches for the same stored procedure", "sequence created with the CACHE and ORDER clauses"],
+    (78, 62): ["converters and waiters in the same instance", "owners and waiters in the same instance"],
     (78, 66): ["REDUNDANCY attribute set to HIGH", "three copies for each allocation unit", "MIRROR will have three-way mirroring"],
+    (78, 70): ["install RAC database software on a one-node cluster", "CLUVFY) may be used to check the cluster after installing", "multiple RAC Database 12c software homes"],
+    (78, 71): ["CPUs have too large a run queue", "block is busy in the remote cache"],
     (78, 73): ["Stage the patch on the cluster node where the OPatch utility will be executed"],
     (78, 78): ["balanced across all IP addresses defined for the SCAN", "failed over to another SCAN listener"],
     
     # 1z0-083
     (83, 1): ["querying DBA_ALERT_HISTORY", "space usage management alert is automatically cleared", "statistical counts for a specific unit"],
+    (83, 4): ["privilege must be granted to the user performing the flashback", "Row Movement must be enabled"],
     (83, 5): ["four sections can be created serially", "four sections can be created in parallel"],
     (83, 6): ["filters in WHERE clauses", "re-optimize execution plans", "considers object statistics"],
     (83, 9): ["uses an auxiliary instance", "after a DDL operation has altered the table structure", "tables owed by the SYSTEM user"],
+    (83, 12): ["PDB2 is not in UPGRADE state"],
     (83, 13): ["Single-byte character sets provide better performance", "Unicode enables information from any language to be stored"],
+    (83, 14): ["backup sets or image copies", "can be consistent", "can be inconsistent"],
     (83, 16): ["DB_CACHE_SIZE for a PDB guarantees a minimum", "SHARED_POOL_SIZE for a PDB guarantees a minimum"],
-    (83, 18): ["PDB snapshot can be", "Database Configuration Assistant (DBCA) in silent mode"],
+    (83, 18): ["PDB snapshot can be a sparse copy", "DBCA) in silent mode", "PDB snapshot can be a full copy"],
     (83, 19): ["volume management, file system, and automatic restart", "CSS daemon runs from the Grid Infrastructure home"],
     (83, 23): ["poorly written SQL", "poorly trained users who do not commit transactions"],
     (83, 25): ["Oracle recovery files normally written to the FRA"],
+    (83, 26): ["SPFILE can be recovered from memory", "orapwd utility", "lost index tablespace can be re-created without performing any recovery"],
+    (83, 29): ["messages in the error stack are not errors", "channel ID where the failure occurred", "'Additional information' and a number"],
     (83, 30): ["containing the block being recovered remains online", "block being recovered is not accessible"],
+    (83, 31): ["upgraded in a specific sequence", "target and source database are on the same platform"],
     (83, 32): ["Sorts and Hash Joins", "private SQL area (UGA) is located in the System Global Area (SGA) when using shared servers"],
     (83, 33): ["Control file backups can be created while connected to the root container", "BACKUP TABLESPACE"],
-    (83, 34): ["TYPICAL", "ALL", "forever"],
+    (83, 34): ["STATISTICS_LEVEL is set to TYPICAL", "STATISTICS_LEVEL is set to ALL", "retained forever"],
     (83, 38): ["Virtual Private Catalog access to metadata", "base catalog must be enabled", "target PDB must be registered in a base catalog"],
     (83, 39): ["converting an application PDB to an application root", "converting an application seed to an application PDB", "converting a regular PDB to an application PDB"],
     (83, 41): ["SPFILE is included in the archival backup", "recovered to a consistent state", "ARCHIVAL attribute for a backup overrides"],
@@ -94,30 +129,66 @@ MANUAL_OVERRIDES = {
     (83, 45): ["eliminate estimation error"],
     (83, 46): ["Oracle Inventory group", "owns Oracle Restart and Oracle Automatic Storage Management binaries"],
     (83, 51): ["Binary compression adds CPU overhead", "only for locally managed tablespaces"],
+    (83, 54): ["ADDM can run in a nonroot container", "AWR snapshots can be created in CDB$ROOT", "AWR reports can be generated while connected to any container", "AWR snapshots can be created in a PDB"],
+    (83, 57): ["pull backup sets from the target database instance", "connection to an auxiliary instance is always required", "subset of the target database can be duplicated", "push copies to the auxiliary database instance"],
+    (83, 59): ["FLASHBACK DATABASE"],
     (83, 62): ["can get backed up automatically as a binary copy", "can be backed up manually as a binary copy", "can be backed up manually as a trace file"],
+    (83, 65): ["SQL statements to re-create the control file"],
+    (83, 67): ["Oracle Virtual Private Database (VPD)", "grant access for an already registered database to a new virtual catalog owner"],
     (83, 76): ["transport data"],
-    (83, 85): ["PDB snapshot can be"],
+    (83, 77): ["groups OSASM and OSDBA be assigned as secondary groups", "creates one disk group during installation", "includes both Oracle Restart and Oracle Automatic Storage Management"],
+    (83, 80): ["image that can be distributed across multiple servers", "software-only Oracle Database installation and then running the roohctl -enable script"],
+    (83, 81): ["CROSSCHECK BACKUP OF ARCHIVELOG ALL", "LIST EXPIRED"],
+    (83, 82): ["Oracle Application Express configuration should be updated", "recovery catalog must be upgraded manually", "TNSNAMES.ORA entries must be updated"],
+    (83, 83): ["each time the SPFILE is backed up manually", "whenever an RMAN backup is successfully recorded in the catalog", "whenever a new tablespace is created", "SPFILE) is automatically backed up each time the control file is backed up"],
+    (83, 85): ["PDB snapshot can be a sparse copy", "PDB snapshot can be a full copy"],
     (83, 89): ["archivelog mode", "local UNDO mode"],
+    (83, 93): ["only a common user with the required privilege can create an undo tablespace in CDB&ROOT", "automatically configured to use the default undo tablespace in CDB$ROOT", "each existing PDB has to be reopened for the new undo mode to take effect"],
+    (83, 94): ["asynchronous disk I/O", "level of RMAN multiplexing"],
     (83, 99): ["orainstRoot.sh can be executed automatically", "root password cannot be specified in a response file"],
     (83, 100): ["Memory Advisor for the shared pool"],
     (83, 107): ["not in the current FRA", "Oracle recovery files in the current FRA that have not been backed up already"],
     (83, 109): ["when using synchronous I/O.", "noticeably less than an actual backup", "then read I/O is a likely bottleneck"],
+    (83, 112): ["FLASHBACK DROP can undrop an index", "FLASHBACK DATABASE command, it is sometimes rolled forward using redo logs"],
+    (83, 113): ["old version of the application installed after cloning completes", "up-to-date version of the application installed after cloning completes", "not required in an application container"],
     (83, 116): ["FLASHBACK drop requires that the RECYCLEBIN", "FLASHBACK version query requires undo"],
     (83, 117): ["CREATE_FILE_DEST clause to the statement", "Set only the PDB_FILE_NAME_CONVERT parameter", "Enable only OMF"],
     (83, 119): ["increase the Large Pool size by reducing the Shared Pool size", "increase the System Global Area size by reducing the Program Global Area size", "Decision Support Systems"],
     (83, 120): ["after losing all copies of the control file", "after losing an archived log from before the most recent backup", "after losing the SYSTEM tablespace"],
+    (83, 124): ["deploy Oracle Database homes", "deploy Grid Infrastructure homes, including Oracle Restart", "Oracle Grid Infrastructure service"],
+    (83, 128): ["empties the RECYCLE BIN", "prerequisite checks to verify if the Oracle database is ready for upgrade", "increases tablespace size, if required, to meet upgrade requirements"],
+    (83, 130): ["oracle will be an owner of the Oracle Inventory", "oinstall, can be used for all Oracle software installations"],
     (83, 132): ["2, 4, 5"],
     (83, 133): ["snapshot copy PDB depends on a storage snapshot which can only be stored on specific file systems", "snapshot copy PDB can be created from a stand-alone clone PDB"],
+    (83, 137): ["restored from backup files copied using O/S utilities", "added to the RMAN catalog as IMAGE COPIES", "NOARCHIVELOG mode using O/S utilities requires that the database instance be shut down"],
     (83, 138): ["exist in user-defined schemas only in application containers", "exist in CDB$ROOT and an application root"],
+    (83, 139): ["PDB1 and PDB2 are in MOUNT state", "CDB$ROOT is in MOUNT state"],
+    (83, 140): ["separate Oracle Grid Infrastructure home on the same server", "existing Oracle base can be used"],
+    (83, 141): ["CURRENT online redo log group"],
     (83, 143): ["Index balanced B*Tree height is considered", "evaluating the cost of accessing a table using an index", "Statistics Advisor can help recommend"],
     (83, 145): ["Tablespaces are automatically created as needed while importing full exports", "convert conventional database users to local users", "convert common users to conventional users"],
+    (83, 146): ["using SQL Developer", "using Oracle Data Pump", "CREATE TABLE AS SELECT SQL statement"],
+    (83, 147): ["checkpoint process (CKPT)", "opens the database. SMON then rolls back any dead transactions"],
+    (83, 148): ["ORCL database, the Oracle ASM instances, the +DATA and +FRA disk groups, and the LISTENER are started"],
+    (83, 149): ["runs automatically after each AWR snapshot", "DBA can run it manually"],
     (83, 153): ["done on that physical standby database", "done on its primary database"],
+    (83, 155): ["stored in a database keystore", "SET ENCRYPTION command overrides encryption settings specified by the CONFIGURE ENCRYPTION command"],
+    (83, 156): ["done before installing Grid Infrastructure for a Standalone Server", "Oracle Preinstallation RPM can be used", "done after installing Grid Infrastructure for a Standalone Server"],
     (83, 157): ["can be created in a pluggable database", "always possible for RMAN to connect to a pluggable database as a target.", "non-container database"],
+    (83, 158): ["Schema Only accounts can be granted administrator privileges", "Privilege Analysis is included in Oracle Enterprise Edition and no longer requires Database Vault", "audit only events that are issued directly by an audited user"],
+    (83, 159): ["self-contained archive backup are not considered obsolete for two years", "SPFILE is included in the self-contained archival backup", "control file is included in the self-contained archival backup"],
+    (83, 160): ["Stateless alerts can be purged manually", "Stateless alerts can be cleared manually", "Stateful alerts are purged automatically"],
+    (83, 161): ["database is in ARCHIVELOG mode", "Backups can be done incrementally"],
+    (83, 162): ["backup piece can belong to only one backup set", "different backup pieces in the same backup set", "multiple data files can be contained in one backup piece", "multiple data files can be contained in one backup set"],
+    (83, 163): ["BACKUP DATABASE command will create a pluggable database", "BACKUP PLUGGABLE DATABASE command can be used to back up CDB$ROOT"],
     (83, 164): ["pluggable database in silent mode", "cloning a remote container database in silent mode"],
     (83, 165): ["lack of a clean restore point"],
+    (83, 167): ["used for both Oracle Database and Oracle Grid Infrastructure installation", "install and upgrade Oracle Database for single-instance and cluster configurations"],
     (83, 168): ["RMAN CONFIGURE command to specify duplexing", "can be written to media."],
+    (83, 169): ["SQL statements"],
     (83, 170): ["leave a plugged-in tablespace in read-only mode", "leave a plugged-in tablespace in read/write mode", "Simultaneous data pump jobs can be limited"],
     (83, 172): ["installer will prompt for the root or sudo password", "specify the path of the sudo program"],
+    (83, 173): ["KEEP FOREVER clause with the BACKUP command", "RMAN stored scripts", "REPORT SCHEMA command to list a database's data files and tablespaces at times in the past"],
     (83, 175): ["HR_ROOT replica must exist in the remote CDB", "proxy PDB must exist in the application root in the local CDB"],
     (83, 176): ["best optimizes one SQL statement can degrade the performance of others", "tuned automatically by the Oracle server"],
     (83, 177): ["applications and middleware", "both Oracle Database and Oracle Grid Infrastructure, including Oracle Restart"],
@@ -126,14 +197,13 @@ MANUAL_OVERRIDES = {
 }
 
 def is_technical_single_word(w):
-    wl = w.lower().strip('.,;:')
-    if wl in GENERIC_ISOLATED_WORDS:
+    wl = w.lower().strip('.,;:()[]"\'')
+    if wl in COMMON_ORACLE_GENERIC_WORDS:
         return False
     if '_' in w or '$' in w: return True
-    if w.isupper() and len(w) >= 3: return True
     if '.' in w and not w.endswith('.'): return True
     if any(c.isdigit() for c in w) and len(w) >= 3: return True
-    if wl in ORACLE_KNOWN_TERMS: return True
+    if wl in ALLOWED_TECHNICAL_SINGLE_WORDS: return True
     return False
 
 def clean_text(t):
@@ -303,12 +373,12 @@ def process_exam_file(filepath, exam_num, dry_run=False):
             errors += 1
             continue
             
-        # 1. Verify no standalone articles or fake article pairs
+        # 1. Verify no standalone articles or fake article pairs or isolated generic words
         for kw in kws:
             if re.match(r'^(the|a|an)\s+[A-Za-z0-9_\$]+$', kw, re.I):
                 print(f"ERROR: Q#{q['id']} kw '{kw}' is an article-noun pair!")
                 errors += 1
-            if kw.lower() in GENERIC_ISOLATED_WORDS and not is_technical_single_word(kw):
+            if kw.lower() in COMMON_ORACLE_GENERIC_WORDS and not is_technical_single_word(kw):
                 print(f"ERROR: Q#{q['id']} kw '{kw}' is an isolated generic word!")
                 errors += 1
                 

@@ -237,8 +237,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "to the user",
-        "on the table"
+        "privilege must be granted to the user performing the flashback",
+        "Row Movement must be enabled"
       ],
       "anchor": "B and D are prerequisites for the undo-based `FLASHBACK TABLE ..."
     }
@@ -712,7 +712,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "UPGRADE"
+        "PDB2 is not in UPGRADE state"
       ],
       "anchor": "F is the intended outcome: PDB2 has not been opened in UPGRADE mode before being selected by the parallel upgrade command."
     }
@@ -836,7 +836,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "sets or image",
+        "backup sets or image copies",
         "can be consistent",
         "can be inconsistent"
       ],
@@ -1038,7 +1038,7 @@
     "mnemonic": {
       "keywords": [
         "CREATE DISKGROUP SQL",
-        "ASM"
+        "creating an Oracle Automatic"
       ],
       "anchor": "Option B and Option F are the documented answers."
     }
@@ -1111,8 +1111,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDB snapshot can be",
-        "Database Configuration Assistant (DBCA) in silent mode"
+        "PDB snapshot can be a sparse copy",
+        "DBCA) in silent mode",
+        "PDB snapshot can be a full copy"
       ],
       "anchor": "A, D and E are the intended statements, but D's phrase \"no configuration required\" needs a narrow reading."
     }
@@ -1607,9 +1608,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SPFILE",
-        "A lost index",
-        "can be manually"
+        "SPFILE can be recovered from memory",
+        "orapwd utility",
+        "lost index tablespace can be re-created without performing any recovery"
       ],
       "anchor": "A, D and F are correct under the usual assumptions for an index-only tablespace."
     }
@@ -1790,9 +1791,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "in the error",
-        "ID where the",
-        "information' and a"
+        "messages in the error stack are not errors",
+        "channel ID where the failure occurred",
+        "'Additional information' and a number"
       ],
       "anchor": "A, C and F are the intended diagnostic statements, with C understood for channel-associated execution failures."
     }
@@ -1921,8 +1922,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "have to be",
-        "are on the"
+        "upgraded in a specific sequence",
+        "target and source database are on the same platform"
       ],
       "anchor": "DBUA supports prioritizing PDB upgrades."
     }
@@ -2096,9 +2097,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "TYPICAL",
-        "ALL",
-        "forever"
+        "STATISTICS_LEVEL is set to TYPICAL",
+        "STATISTICS_LEVEL is set to ALL",
+        "retained forever"
       ],
       "anchor": "Option A and Option B are correct for ordinary automatic snapshot collection: `STATISTICS_LEVEL=TYPICAL` or `ALL` enables the statistics needed by AWR."
     }
@@ -3040,8 +3041,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SQL*PLUS",
-        "ARCHIVELOG"
+        "ARCHIVELOG",
+        "flashed back using"
       ],
       "anchor": "SQL*Plus can execute the SQL `FLASHBACK DATABASE` statement."
     }
@@ -3368,8 +3369,10 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "can be",
-        "ADDM"
+        "ADDM can run in a nonroot container",
+        "AWR snapshots can be created in CDB$ROOT",
+        "AWR reports can be generated while connected to any container",
+        "AWR snapshots can be created in a PDB"
       ],
       "anchor": "for Oracle 19c: ADDM supports analysis in a PDB/nonroot container, subject to the appropriate diagnostic prerequisites and data collection."
     }
@@ -3493,8 +3496,8 @@
     "mnemonic": {
       "keywords": [
         "CDB$ROOT",
-        "PMON",
-        "LGWR"
+        "the log writer",
+        "the Process Monitor"
       ],
       "anchor": "for the common Oracle-supplied dictionary metadata housed in `CDB$ROOT`."
     }
@@ -3571,8 +3574,10 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "can be",
-        "to an auxiliary"
+        "pull backup sets from the target database instance",
+        "connection to an auxiliary instance is always required",
+        "subset of the target database can be duplicated",
+        "push copies to the auxiliary database instance"
       ],
       "anchor": "active duplication using backup sets is pull-based."
     }
@@ -3698,7 +3703,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "DATABASE"
+        "FLASHBACK DATABASE"
       ],
       "anchor": "Option E is the appropriate flashback feature among the choices."
     }
@@ -4072,7 +4077,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SQL"
+        "SQL statements to re-create the control file"
       ],
       "anchor": "BACKUP CONTROLFILE TO TRACE writes a text trace containing SQL statements that can recreate the control file."
     }
@@ -4196,7 +4201,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "RMAN"
+        "Oracle Virtual Private Database (VPD)",
+        "grant access for an already registered database to a new virtual catalog owner"
       ],
       "anchor": "An RMAN Virtual Private Catalog (VPC) is a restricted view of the base recovery catalog."
     }
@@ -4552,7 +4558,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "AMM"
+        "are managed by"
       ],
       "anchor": "B and C misstate the SGA/PGA management modes; AMM, rather than manually managed SGA or PGA, controls the overall allocation."
     }
@@ -4665,8 +4671,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "AWR",
-        "ADDM"
+        "100% of DB",
+        "after each AWR"
       ],
       "anchor": "ADDM analyzes AWR snapshots automatically, normally comparing the latest two snapshot intervals."
     }
@@ -4785,9 +4791,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "O/S",
-        "It creates one",
-        "It includes both"
+        "groups OSASM and OSDBA be assigned as secondary groups",
+        "creates one disk group during installation",
+        "includes both Oracle Restart and Oracle Automatic Storage Management"
       ],
       "anchor": "Oracle Grid Infrastructure for a standalone server includes Oracle Restart and Oracle ASM (F)."
     }
@@ -4970,8 +4976,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "that can be",
-        "by performing a"
+        "image that can be distributed across multiple servers",
+        "software-only Oracle Database installation and then running the roohctl -enable script"
       ],
       "anchor": "E is the supported enablement path: install database software in software-only mode, then use roohctl -enable."
     }
@@ -5034,8 +5040,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "OF ARCHIVELOG ALL",
-        "EXPIRED"
+        "CROSSCHECK BACKUP OF ARCHIVELOG ALL",
+        "LIST EXPIRED"
       ],
       "anchor": "CROSSCHECK compares RMAN repository records with actual backup pieces."
     }
@@ -5103,8 +5109,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "RMAN",
-        "be updated"
+        "Oracle Application Express configuration should be updated",
+        "recovery catalog must be upgraded manually",
+        "TNSNAMES.ORA entries must be updated"
       ],
       "anchor": "The stem mixes DBUA and manual-upgrade contexts, so that third choice needs a qualification."
     }
@@ -5176,9 +5183,10 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SPFILE",
-        "RMAN",
-        "tablespace is created"
+        "each time the SPFILE is backed up manually",
+        "whenever an RMAN backup is successfully recorded in the catalog",
+        "whenever a new tablespace is created",
+        "SPFILE) is automatically backed up each time the control file is backed up"
       ],
       "anchor": "With CONTROLFILE AUTOBACKUP enabled, A, B, E and F are true under the stated feature's normal prerequisites."
     }
@@ -5343,7 +5351,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDB snapshot can be"
+        "PDB snapshot can be a sparse copy",
+        "PDB snapshot can be a full copy"
       ],
       "anchor": "A PDB snapshot may be sparse when storage supports it or full otherwise, making B and E the keyed choices."
     }
@@ -5713,7 +5722,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "DDL",
+        "can recover a",
         "always uses an",
         "recover tables owned by the SYSTEM"
       ],
@@ -5834,8 +5843,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDB",
-        "CDB&ROOT"
+        "only a common user with the required privilege can create an undo tablespace in CDB&ROOT",
+        "automatically configured to use the default undo tablespace in CDB$ROOT",
+        "each existing PDB has to be reopened for the new undo mode to take effect"
       ],
       "anchor": "A,B,F are true in the intended shared-undo interpretation, so the count is corrected to three."
     }
@@ -5889,8 +5899,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "RMAN",
-        "asynchronous disk I/O"
+        "asynchronous disk I/O",
+        "level of RMAN multiplexing"
       ],
       "anchor": "The bottleneck is disk reading during compressed level 0 streaming to tape."
     }
@@ -6565,8 +6575,8 @@
     "original_text": "For which two requirements can you use the USER_TABLESPACE clause with the CREATE PLUGGABLE DATABASE command? (Choose two.)",
     "mnemonic": {
       "keywords": [
-        "SYSTEM",
-        "specify the list of user"
+        "specify the list of user",
+        "SYSTEM, SYSAUX"
       ],
       "anchor": "B describes excluding user tablespaces so that only core tablespaces remain."
     }
@@ -7002,8 +7012,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "DROP",
-        "DATABASE"
+        "FLASHBACK DROP can undrop an index",
+        "FLASHBACK DATABASE command, it is sometimes rolled forward using redo logs"
       ],
       "anchor": "FLASHBACK DROP uses the recycle bin to restore a dropped table and can restore its dependent indexes along with it, so D is true."
     }
@@ -7072,8 +7082,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDB created by",
-        "It is not"
+        "old version of the application installed after cloning completes",
+        "up-to-date version of the application installed after cloning completes",
+        "not required in an application container"
       ],
       "anchor": "An application seed is optional, so G is true; an application container can exist without one."
     }
@@ -7773,8 +7784,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "It can be",
-        "Grid Infrastructure"
+        "deploy Oracle Database homes",
+        "deploy Grid Infrastructure homes, including Oracle Restart",
+        "Oracle Grid Infrastructure service"
       ],
       "anchor": "Core idea: Rapid Home Provisioning (RHP) centrally provisions and manages Oracle software images."
     }
@@ -8027,9 +8039,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "BIN",
-        "It increases tablespace",
-        "to verify if"
+        "empties the RECYCLE BIN",
+        "prerequisite checks to verify if the Oracle database is ready for upgrade",
+        "increases tablespace size, if required, to meet upgrade requirements"
       ],
       "anchor": "Core idea: DBUA automates a guided database upgrade, including prerequisite checks and some cleanup or space preparation."
     }
@@ -8142,8 +8154,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "will be an",
-        "can be used"
+        "oracle will be an owner of the Oracle Inventory",
+        "oinstall, can be used for all Oracle software installations"
       ],
       "anchor": "Core idea: Oracle software ownership is an OS installation choice."
     }
@@ -8584,9 +8596,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "IMAGE",
-        "can be restored",
-        "be shut down"
+        "restored from backup files copied using O/S utilities",
+        "added to the RMAN catalog as IMAGE COPIES",
+        "NOARCHIVELOG mode using O/S utilities requires that the database instance be shut down"
       ],
       "anchor": "Core idea: A user-managed backup copies database files with operating-system tools."
     }
@@ -8716,7 +8728,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "MOUNT"
+        "PDB1 and PDB2 are in MOUNT state",
+        "CDB$ROOT is in MOUNT state"
       ],
       "anchor": "Oracle starts the instance and mounts the CDB, opening its control files but not opening the database data files and online redo logs for normal operation."
     }
@@ -8782,8 +8795,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "home on the",
-        "base can be"
+        "separate Oracle Grid Infrastructure home on the same server",
+        "existing Oracle base can be used"
       ],
       "anchor": "B and C are the two generally correct statements offered."
     }
@@ -8846,7 +8859,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "CURRENT"
+        "CURRENT online redo log group"
       ],
       "anchor": "C is the intended redo-loss scenario, provided the lost current redo contains changes needed for recovery and no alternate copy is available."
     }
@@ -9181,8 +9194,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SQL",
-        "using Oracle Data"
+        "using SQL Developer",
+        "using Oracle Data Pump",
+        "CREATE TABLE AS SELECT SQL statement"
       ],
       "anchor": "Core idea: Heap-table data migration moves rows into a new or reorganized table structure."
     }
@@ -9241,8 +9255,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "CKPT",
-        "the database. SMON"
+        "checkpoint process (CKPT)",
+        "opens the database. SMON then rolls back any dead transactions"
       ],
       "anchor": "Core idea: Instance recovery starts from a checkpoint and applies redo records needed to bring data files forward after an instance failure."
     }
@@ -9295,7 +9309,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "LISTENER"
+        "ORCL database, the Oracle ASM instances, the +DATA and +FRA disk groups, and the LISTENER are started"
       ],
       "anchor": "Core idea: Oracle Restart tracks resources and their dependencies."
     }
@@ -9353,8 +9367,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "AWR",
-        "DBA"
+        "runs automatically after each AWR snapshot",
+        "DBA can run it manually"
       ],
       "anchor": "Core idea: ADDM analyzes database performance using AWR snapshots and reports findings with likely causes and recommended actions."
     }
@@ -9747,8 +9761,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SET",
-        "stored in a"
+        "stored in a database keystore",
+        "SET ENCRYPTION command overrides encryption settings specified by the CONFIGURE ENCRYPTION command"
       ],
       "anchor": "Core idea: RMAN supports transparent keystore-based encryption, password-based encryption, and dual-mode encryption."
     }
@@ -9817,7 +9831,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "can be"
+        "done before installing Grid Infrastructure for a Standalone Server",
+        "Oracle Preinstallation RPM can be used",
+        "done after installing Grid Infrastructure for a Standalone Server"
       ],
       "anchor": "It is recommended but not mandatory."
     }
@@ -9947,9 +9963,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "and no longer",
-        "can be granted",
-        "directly by an"
+        "Schema Only accounts can be granted administrator privileges",
+        "Privilege Analysis is included in Oracle Enterprise Edition and no longer requires Database Vault",
+        "audit only events that are issued directly by an audited user"
       ],
       "anchor": "Core idea: 19c schema-only accounts separate ownership of objects from password-based logon."
     }
@@ -10013,7 +10029,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "in the self-contained"
+        "self-contained archive backup are not considered obsolete for two years",
+        "SPFILE is included in the self-contained archival backup",
+        "control file is included in the self-contained archival backup"
       ],
       "anchor": "Core idea: RMAN KEEP creates an archival backup exempt from the configured retention policy until the specified time."
     }
@@ -10078,8 +10096,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "alerts can be",
-        "from the alert"
+        "Stateless alerts can be purged manually",
+        "Stateless alerts can be cleared manually",
+        "Stateful alerts are purged automatically"
       ],
       "anchor": "B, C and E are defensible when the question includes Enterprise Manager alert management as well as the database server alert-history lifecycle."
     }
@@ -10142,8 +10161,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ARCHIVELOG",
-        "can be done"
+        "database is in ARCHIVELOG mode",
+        "Backups can be done incrementally"
       ],
       "anchor": "Core idea: An open RMAN backup is inconsistent while it is being read, so Oracle must have redo available to make the restored files consistent."
     }
@@ -10218,9 +10237,10 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "files can be",
-        "one backup set",
-        "in the same"
+        "backup piece can belong to only one backup set",
+        "different backup pieces in the same backup set",
+        "multiple data files can be contained in one backup piece",
+        "multiple data files can be contained in one backup set"
       ],
       "anchor": "Core idea: A backup set is RMAN's logical container for backed-up blocks; it consists of one or more backup pieces."
     }
@@ -10282,7 +10302,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PLUGGABLE"
+        "BACKUP DATABASE command will create a pluggable database",
+        "BACKUP PLUGGABLE DATABASE command can be used to back up CDB$ROOT"
       ],
       "anchor": "Core idea: RMAN backup scope depends on the target container."
     }
@@ -10526,7 +10547,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "It can be"
+        "used for both Oracle Database and Oracle Grid Infrastructure installation",
+        "install and upgrade Oracle Database for single-instance and cluster configurations"
       ],
       "anchor": "Core idea: A gold image is a prepared Oracle software home that can be deployed across hosts."
     }
@@ -10646,7 +10668,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SQL"
+        "SQL statements"
       ],
       "anchor": "Core idea: SQL statements are the direct source of database work: they drive CPU, logical and physical I/O, memory use, and concurrency."
     }
@@ -10908,9 +10930,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "KEEP",
-        "RMAN",
-        "at times in"
+        "KEEP FOREVER clause with the BACKUP command",
+        "RMAN stored scripts",
+        "REPORT SCHEMA command to list a database's data files and tablespaces at times in the past"
       ],
       "anchor": "Option analysis: A is correct: KEEP FOREVER requires a recovery catalog so RMAN can retain the archival backup metadata beyond control-file record retention."
     }

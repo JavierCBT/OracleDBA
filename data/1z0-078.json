@@ -234,7 +234,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ACFS, AFD, OLFS",
+        "ACFS",
         "run the root.sh",
         "out-of-place patching of"
       ],
@@ -951,8 +951,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "can be created",
-        "created on the default"
+        "appvipcfg utility",
+        "created with the crsctl utility"
       ],
       "anchor": "An application VIP gives clients a stable network endpoint for a Clusterware-managed application."
     }
@@ -1872,7 +1872,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ONLY",
+        "READ ONLY mode",
+        "CREATE PLUGGABLE DATABASE system privilege",
         "PDB_FILE_NAME_CONVERT"
       ],
       "anchor": "It clones a local PDB and supplies neither FILE_NAME_CONVERT nor CREATE_FILE_DEST, so source state and an implicit destination naming mechanism matter."
@@ -2121,7 +2122,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "OCR"
+        "and OCR"
       ],
       "anchor": "Option C cannot be inferred merely from omitting a database-data disk group; Clusterware storage and the actual ASM configuration still matter."
     }
@@ -2730,9 +2731,10 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "RAC",
-        "UNIX",
-        "can be"
+        "SSH user equivalence",
+        "Fix-up scripts generated during the installation",
+        "RAC installations require Oracle Enterprise Edition",
+        "installed into an ACFS file system"
       ],
       "anchor": "There are four true statements in 19c: A, B, E and F."
     }
@@ -2790,8 +2792,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ASM_DISKGROUPS",
-        "of ASM_POWER_LIMIT is"
+        "ASM_POWER_LIMIT is 1024",
+        "ASM_DISKGROUPS parameter is optional"
       ],
       "anchor": ", with a compatibility qualification for A."
     }
@@ -2991,7 +2993,7 @@
       "keywords": [
         "not encrypted unless it is created in an encrypted directory",
         "ACFS snapshot can be ACFS encrypted",
-        "specify the encryption key length"
+        "acfsutil encr on"
       ],
       "anchor": "The revised key uses the three choices verifiable without inventing that role."
     }
@@ -3252,8 +3254,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ASM",
-        "case of cluster"
+        "characteristics of the underlying ASM disks",
+        "case of cluster node failure"
       ],
       "anchor": "It protects the server-side service; it does not make every possible client failure disappear."
     }
@@ -3384,8 +3386,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "the use of",
-        "of the number"
+        "Grid Naming Service is optional",
+        "three voting files regardless of the number of failgroups"
       ],
       "anchor": "The crucial distinction is installing ASM software versus choosing to configure and use ASM storage."
     }
@@ -3504,8 +3506,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "can be",
-        "can coexist on"
+        "ASM Cluster File System (ACFS) can be deployed on any nodes",
+        "client of an ASM instance running on any node",
+        "ASM instance and database instances can coexist"
       ],
       "anchor": "A, B, and F describe the intended Flex ASM configuration."
     }
@@ -3638,8 +3641,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "be run by",
-        "that it is"
+        "acfsutil audit read",
+        "acfsutil audit init",
+        "acfsutil audit purge"
       ],
       "anchor": "ACFS auditing separates the authority to configure audit roles, review records, and purge them."
     }
@@ -3709,9 +3713,10 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "availability for the",
-        "CRM across all",
-        "ERP across three"
+        "High availability for the CRM service",
+        "High availability for the ERP service",
+        "ERP across three Single Client Access Name (SCAN) listeners",
+        "CRM across all database instances running on servers in the prod pool"
       ],
       "anchor": "Separate distribution of initial requests across SCAN listeners from distribution of sessions among the database instances actually offering a service."
     }
@@ -3777,8 +3782,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "CACHE",
-        "for the same"
+        "multiple library caches for the same stored procedure",
+        "sequence created with the CACHE and ORDER clauses"
       ],
       "anchor": "The source key's inclusion of DBMS_LOCK confuses those categories."
     }
@@ -3841,7 +3846,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "in the same"
+        "converters and waiters in the same instance",
+        "owners and waiters in the same instance"
       ],
       "anchor": "Global describes a resource's coordination scope, not a requirement that every conflict involve sessions on different instances."
     }
@@ -4348,8 +4354,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "It is possible",
-        "may be used"
+        "install RAC database software on a one-node cluster",
+        "CLUVFY) may be used to check the cluster after installing",
+        "multiple RAC Database 12c software homes"
       ],
       "anchor": "B, D, and E are the intended choices."
     }
@@ -4402,8 +4409,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "too large a",
-        "in the remote"
+        "CPUs have too large a run queue",
+        "block is busy in the remote cache"
       ],
       "anchor": "D is directly supported by the precise event definition."
     }
