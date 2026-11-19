@@ -54,10 +54,26 @@ ACTION_VERBS = {
     'started', 'using', 'use', 'uses'
 }
 
+def is_technical_single_word(w):
+    wl = w.lower().strip('.,;:()[]"\'')
+    if wl in COMMON_ORACLE_GENERIC_WORDS:
+        return False
+    if '_' in w or '$' in w: return True
+    if '.' in w and not w.endswith('.'): return True
+    if any(c.isdigit() for c in w) and len(w) >= 3: return True
+    if wl in ALLOWED_TECHNICAL_SINGLE_WORDS: return True
+    return False
+
 MANUAL_OVERRIDES = {
-    # 1z0-078
+    # ==================== 1z0-078 ====================
     (78, 1): ["is stopped on all nodes.", "started on HOST01", "is started on all nodes."],
+    (78, 2): ["oclumon", "osysmond"],
+    (78, 3): ["Oracle RAC Resource Runtime Management"],
+    (78, 4): ["out-of-place patching of Oracle Grid Infrastructure 19c", "system commands including ACFS, AFD, OLFS, and OKA are not updated", "automatically run the root.sh script"],
+    (78, 5): ["VIPs for the node being patched are relocated to another node"],
+    (78, 6): ["cannot directly modify the policy set when Quality of Service (QoS) Management is used", "different attributes defined for different policies in the policy set", "same attributes defined for different policies in the policy set"],
     (78, 7): ["redundancy is lowered", "changes to allocation units are tracked"],
+    (78, 8): ["thread of redo must be created before starting a fourth instance", "thread of redo must contain at least two log groups"],
     (78, 9): ["delete node -n host04 command as root on host01", "rootcrs.pl -deconfig -force command as root on host04"],
     (78, 10): ["across RAC database instances", "SCAN listeners", "client, the listener, or both"],
     (78, 11): ["local temporary tablespaces", "open one, several, or all PDBs", "UNDO tablespace for each instance"],
@@ -70,13 +86,27 @@ MANUAL_OVERRIDES = {
     (78, 19): ["newtemplate must be defined", "subdirectories ORCL and USERS must already exist"],
     (78, 20): ["cannot be used to automate the opening", "not automatically registered in the OCR"],
     (78, 21): ["Database block buffers", "Cursors", "Enqueues"],
+    (78, 22): ["start automatically in observer mode", "Deactivate network time protocol (NTP)"],
+    (78, 23): ["shuts down the ASM instance on HOST03", "reconnected to the ASM instance on HOST02", "reconnected to the ASM instance on HOST01"],
+    (78, 24): ["fail over to any other available CDB1 instance in prod_pool", "available on any one available CDB1 instance in prod_pool at any one time"],
     (78, 25): ["automatically stopped to comply", "initially inactive", "reassigned to server pools"],
+    (78, 26): ["crsctl set trace res", "crsctl set log res"],
     (78, 27): ["CLUVFY", "OCRDUMP"],
     (78, 28): ["started manually using crsctl"],
     (78, 29): ["disjoint subset of rows", "direct all branches", "block pings"],
     (78, 30): ["Using DBCA to create a template"],
     (78, 31): ["READ ONLY mode", "CREATE PLUGGABLE DATABASE system privilege", "PDB_FILE_NAME_CONVERT"],
+    (78, 32): ["compatibility attribute for ADVM must be set to 12.1 or higher"],
+    (78, 33): ["storage shared across all hub nodes", "Hub nodes require direct access to the OCR file", "Hub nodes require direct access to the voting disks"],
+    (78, 34): ["cluvfy.sh can verify that the cluster is ready for an upgrade", "cluvfy.sh can generate fixup scripts", "Oracle Universal Installer which in turn invokes the built-in cluster verification utility", "upgrade must be done out-of-place"],
+    (78, 35): ["require a quorum failgroup", "creation of a disk group for use by the voting disks and OCR file"],
+    (78, 36): ["Set COMPATIBLE.ASM to 12.1, COMPATIBLE.RDBMS to 11.2, and COMPATIBLE.ADVM to 12.1."],
+    (78, 37): ["policy managed for a multitenant database", "creation of a new server pool using DBCA", "administrator managed for a multitenant database"],
     (78, 38): ["read I/O directly to ASM Disks", "Database instances can write metadata", "ASM instances can write metadata"],
+    (78, 39): ["fall back to a preferred instance when it becomes available after it was failed over"],
+    (78, 40): ["2 = TRANSACTIONAL", "2 = IMMEDIATE"],
+    (78, 41): ["same size for optimal performance", "same hardware specifications and storage attributes"],
+    (78, 42): ["ACFS auditing information is replicated", "host both primary and standby file systems"],
     (78, 43): ["relocated to one or more surviving hub nodes", "Sessions connected to the failed node could be relocated", "node is evicted from the cluster"],
     (78, 44): ["routed to the same instance that offers a given service"],
     (78, 45): ["SSH user equivalence", "Fix-up scripts generated during the installation", "RAC installations require Oracle Enterprise Edition", "installed into an ACFS file system"],
@@ -84,24 +114,36 @@ MANUAL_OVERRIDES = {
     (78, 47): ["dynamically assign a newly created undo tablespace", "OMF is enabled", "instance recovery can write to the undo tablespace"],
     (78, 48): ["requires Oracle Grid Infrastructure", "managed by QoS even if it does have database instances", "administrator managed or policy managed", "multiple databases assigned to the same server pool"],
     (78, 49): ["not encrypted unless it is created in an encrypted directory", "ACFS snapshot can be ACFS encrypted", "acfsutil encr on"],
+    (78, 50): ["Shadow GRD resources may exist in more than one database instance", "Clustered ASM has GRD resources distributed among all ASM instances", "stored in the shared pool of each instance"],
     (78, 51): ["Server-side connect time load balancing is done at the time of the initial connection attempt", "Client-side connect time load balancing is done at the time of the initial connection attempt"],
     (78, 52): ["skew in response time", "data captured on all instances", "latency problems in the Cluster Interconnect"],
     (78, 53): ["characteristics of the underlying ASM disks", "case of cluster node failure"],
     (78, 54): ["Cluster resources", "Local resources", "Administrator-defined resources"],
     (78, 55): ["Grid Naming Service is optional", "three voting files regardless of the number of failgroups"],
+    (78, 56): ["an application resource"],
     (78, 57): ["ASM Cluster File System (ACFS) can be deployed on any nodes", "client of an ASM instance running on any node", "ASM instance and database instances can coexist"],
     (78, 58): ["1, 2, 3, 4 and 6."],
     (78, 59): ["acfsutil audit read", "acfsutil audit init", "acfsutil audit purge"],
     (78, 60): ["High availability for the CRM service", "High availability for the ERP service", "ERP across three Single Client Access Name (SCAN) listeners", "CRM across all database instances running on servers in the prod pool"],
     (78, 61): ["multiple library caches for the same stored procedure", "sequence created with the CACHE and ORDER clauses"],
     (78, 62): ["converters and waiters in the same instance", "owners and waiters in the same instance"],
+    (78, 63): ["One ASM instance is shut down and the instance count is reduced by one"],
+    (78, 64): ["Archive logs", "Data files for tablespaces", "Oracle database executables"],
+    (78, 65): ["crsctl query css votedisk", "cat /etc/oracle/ocr.loc"],
     (78, 66): ["REDUNDANCY attribute set to HIGH", "three copies for each allocation unit", "MIRROR will have three-way mirroring"],
+    (78, 67): ["Single Client Access Name (SCAN) virtual IP addresses (VIPs)"],
+    (78, 68): ["password file for ASM are stored by default in an ASM disk group", "designated network is used for communication between ASM instances and their clients", "ASM clients can fail over to other ASM instances"],
+    (78, 69): ["Single Client Access Name (SCAN) VIPs", "Grid Naming Service (GNS) VIP"],
     (78, 70): ["install RAC database software on a one-node cluster", "CLUVFY) may be used to check the cluster after installing", "multiple RAC Database 12c software homes"],
     (78, 71): ["CPUs have too large a run queue", "block is busy in the remote cache"],
+    (78, 72): ["crsctl eval fail resource", "srvctl predict filesystem"],
     (78, 73): ["Stage the patch on the cluster node where the OPatch utility will be executed"],
+    (78, 74): ["Ability to perform rolling patches", "Automatic failover for high availability", "Online conversion from RAC One Node databases to multi-instance RAC databases"],
+    (78, 75): ["snapshot operations for all filesystems are serialized clusterwide", "same volume as their parent file system", "always point-in-time copies of the parent file system", "create a snapshot from an existing snapshot", "only be accessed when the file system is mounted"],
+    (78, 76): ["uniformly managed across all instances in prod_pool", "srvctl stop service prevents logins to any instance of CDB1 using service HR"],
     (78, 78): ["balanced across all IP addresses defined for the SCAN", "failed over to another SCAN listener"],
     
-    # 1z0-083
+    # ==================== 1z0-083 ====================
     (83, 1): ["querying DBA_ALERT_HISTORY", "space usage management alert is automatically cleared", "statistical counts for a specific unit"],
     (83, 4): ["privilege must be granted to the user performing the flashback", "Row Movement must be enabled"],
     (83, 5): ["four sections can be created serially", "four sections can be created in parallel"],
@@ -195,16 +237,6 @@ MANUAL_OVERRIDES = {
     (83, 180): ["mounting disk groups", "managing Allocation Units (AUs)", "managing space allocation for Oracle ASM files"],
     (83, 181): ["seven"]
 }
-
-def is_technical_single_word(w):
-    wl = w.lower().strip('.,;:()[]"\'')
-    if wl in COMMON_ORACLE_GENERIC_WORDS:
-        return False
-    if '_' in w or '$' in w: return True
-    if '.' in w and not w.endswith('.'): return True
-    if any(c.isdigit() for c in w) and len(w) >= 3: return True
-    if wl in ALLOWED_TECHNICAL_SINGLE_WORDS: return True
-    return False
 
 def clean_text(t):
     return re.sub(r'\s+', ' ', str(t or '')).strip()

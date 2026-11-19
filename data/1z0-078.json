@@ -175,7 +175,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "for automatic and"
+        "Oracle RAC Resource Runtime Management"
       ],
       "anchor": "Oracle specifically describes SGA growth during runtime and automatic runtime resource adjustment beginning with 19.3."
     }
@@ -234,9 +234,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "ACFS",
-        "run the root.sh",
-        "out-of-place patching of"
+        "out-of-place patching of Oracle Grid Infrastructure 19c",
+        "system commands including ACFS, AFD, OLFS, and OKA are not updated",
+        "automatically run the root.sh script"
       ],
       "anchor": "Zero-downtime Grid Infrastructure patching updates eligible GI software while supported 19c-or-later RAC or RAC One Node database instances continue operating."
     }
@@ -292,7 +292,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "the VIPs for"
+        "VIPs for the node being patched are relocated to another node"
       ],
       "anchor": "This supports rapid notification of connection failures; it does not transfer existing database sessions or make the old instance continue executing."
     }
@@ -352,8 +352,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "pool can have",
-        "when Quality of"
+        "cannot directly modify the policy set when Quality of Service (QoS) Management is used",
+        "different attributes defined for different policies in the policy set",
+        "same attributes defined for different policies in the policy set"
       ],
       "anchor": "A policy set stores alternative configurations, and one policy is active at a time."
     }
@@ -465,7 +466,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "of redo must"
+        "thread of redo must be created before starting a fourth instance",
+        "thread of redo must contain at least two log groups"
       ],
       "anchor": "A RAC instance writes its own redo thread; the number of cluster nodes does not itself create a usable thread for every possible instance."
     }
@@ -1329,7 +1331,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "will then start"
+        "start automatically in observer mode",
+        "Deactivate network time protocol (NTP)"
       ],
       "anchor": "CTSS chooses observer or active behavior according to whether it detects a vendor time-synchronization service."
     }
@@ -1398,8 +1401,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "on HOST03 can",
-        "on HOST02 and"
+        "shuts down the ASM instance on HOST03",
+        "reconnected to the ASM instance on HOST02",
+        "reconnected to the ASM instance on HOST01"
       ],
       "anchor": "The intended corrected key is C, D and E, assuming the documented prerequisites for relocation are met."
     }
@@ -1457,7 +1461,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "instance in prod_pool"
+        "fail over to any other available CDB1 instance in prod_pool",
+        "available on any one available CDB1 instance in prod_pool at any one time"
       ],
       "anchor": "A policy-managed service is constrained by its configured server pool, and its cardinality determines how many eligible instances provide it."
     }
@@ -1572,7 +1577,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "res \"resource_name=debugging_level\" command"
+        "crsctl set trace res",
+        "crsctl set log res"
       ],
       "anchor": "The unambiguous documented resource recipe in the 19c CRSCTL reference is `crsctl set log res \"resource_name=debugging_level\"`."
     }
@@ -1929,7 +1935,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "to 12.1 or"
+        "compatibility attribute for ADVM must be set to 12.1 or higher"
       ],
       "anchor": "Creating a snapshot from an existing ACFS snapshot requires COMPATIBLE.ADVM of at least 12.1."
     }
@@ -1993,7 +1999,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "hub nodes"
+        "storage shared across all hub nodes",
+        "Hub nodes require direct access to the OCR file",
+        "Hub nodes require direct access to the voting disks"
       ],
       "anchor": "A, E and F are the intended answers for the historical hub-and-leaf architecture."
     }
@@ -2063,8 +2071,10 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "cluster verification utility",
-        "be done out-of-place"
+        "cluvfy.sh can verify that the cluster is ready for an upgrade",
+        "cluvfy.sh can generate fixup scripts",
+        "Oracle Universal Installer which in turn invokes the built-in cluster verification utility",
+        "upgrade must be done out-of-place"
       ],
       "anchor": "Grid Infrastructure release-upgrade preparation combines readiness checks, supported OS fixups and installation into a separate Grid home."
     }
@@ -2122,7 +2132,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "and OCR"
+        "require a quorum failgroup",
+        "creation of a disk group for use by the voting disks and OCR file"
       ],
       "anchor": "Option C cannot be inferred merely from omitting a database-data disk group; Clusterware storage and the actual ASM configuration still matter."
     }
@@ -2179,7 +2190,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "12.1, COMPATIBLE.RDBMS to 11.2"
+        "Set COMPATIBLE.ASM to 12.1, COMPATIBLE.RDBMS to 11.2, and COMPATIBLE.ADVM to 12.1."
       ],
       "anchor": "D is the intended legacy answer, but no option specifies the minimum for the snapshot-based ACFS replication documented in 19c."
     }
@@ -2242,8 +2253,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "managed for a",
-        "DBCA"
+        "policy managed for a multitenant database",
+        "creation of a new server pool using DBCA",
+        "administrator managed for a multitenant database"
       ],
       "anchor": "DBCA still creates the default database service and can create/select server pools during database creation."
     }
@@ -2361,7 +2373,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "when it becomes"
+        "fall back to a preferred instance when it becomes available after it was failed over"
       ],
       "anchor": "Option A describes movement away from a preferred instance, not failback."
     }
@@ -2415,8 +2427,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "2 = IMMEDIATE",
-        "2 = TRANSACTIONAL"
+        "2 = TRANSACTIONAL",
+        "2 = IMMEDIATE"
       ],
       "anchor": "Options C and E give the correct mappings."
     }
@@ -2474,7 +2486,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "to a disk"
+        "same size for optimal performance",
+        "same hardware specifications and storage attributes"
       ],
       "anchor": "ASM distributes file extents across disks, so devices with comparable capacity, latency and throughput avoid a subset of storage dominating response time."
     }
@@ -2538,7 +2551,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "standby file"
+        "ACFS auditing information is replicated",
+        "host both primary and standby file systems"
       ],
       "anchor": "B and E are verified for the ACFS replication model documented in 19c."
     }
@@ -3062,8 +3076,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "GRD resources",
-        "shared pool of each"
+        "Shadow GRD resources may exist in more than one database instance",
+        "Clustered ASM has GRD resources distributed among all ASM instances",
+        "stored in the shared pool of each instance"
       ],
       "anchor": "B, C and G are the intended answers, but the detailed master/shadow memory wording is implementation oriented."
     }
@@ -3899,7 +3914,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "is reduced by"
+        "One ASM instance is shut down and the instance count is reduced by one"
       ],
       "anchor": "Flex ASM cardinality is the desired number of ASM instances for the cluster."
     }
@@ -3963,9 +3978,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Data files for",
-        "Oracle database executables",
-        "Archive logs"
+        "Archive logs",
+        "Data files for tablespaces",
+        "Oracle database executables"
       ],
       "anchor": "A, C, and F are supported ACFS uses in Oracle 19c."
     }
@@ -4029,8 +4044,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "crsctl",
-        "Use cat /etc/oracle/ocr.loc"
+        "crsctl query css votedisk",
+        "cat /etc/oracle/ocr.loc"
       ],
       "anchor": "C, E, and F are correct for the specified UNIX layout."
     }
@@ -4165,7 +4180,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SCAN"
+        "Single Client Access Name (SCAN) virtual IP addresses (VIPs)"
       ],
       "anchor": "B is the only supported choice among these options."
     }
@@ -4229,9 +4244,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SPFILE",
-        "is used for",
-        "fail over to"
+        "password file for ASM are stored by default in an ASM disk group",
+        "designated network is used for communication between ASM instances and their clients",
+        "ASM clients can fail over to other ASM instances"
       ],
       "anchor": "B, D, and E are correct for the Flex ASM configuration implied by the options."
     }
@@ -4289,8 +4304,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "GNS",
-        "SCAN"
+        "Single Client Access Name (SCAN) VIPs",
+        "Grid Naming Service (GNS) VIP"
       ],
       "anchor": "SRVCTL manages Oracle-managed Clusterware resources, including SCAN and GNS configurations."
     }
@@ -4473,8 +4488,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "crsctl",
-        "srvctl"
+        "crsctl eval fail resource",
+        "srvctl predict filesystem"
       ],
       "anchor": "D and E are correct after expanding the source's abbreviated command names to actual syntax."
     }
@@ -4590,9 +4605,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "from RAC One",
-        "failover for high",
-        "Ability to perform"
+        "Ability to perform rolling patches",
+        "Automatic failover for high availability",
+        "Online conversion from RAC One Node databases to multi-instance RAC databases"
       ],
       "anchor": "RAC One Node normally runs one instance, using RAC/Grid Infrastructure capabilities for managed relocation and a future transition to multi-instance RAC."
     }
@@ -4665,9 +4680,11 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "file system",
-        "ACFS",
-        "can create a"
+        "snapshot operations for all filesystems are serialized clusterwide",
+        "same volume as their parent file system",
+        "always point-in-time copies of the parent file system",
+        "create a snapshot from an existing snapshot",
+        "only be accessed when the file system is mounted"
       ],
       "anchor": "The original Choose three limit is defective."
     }
@@ -4730,8 +4747,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "managed across all instances in prod_pool",
-        "of CDB1 using"
+        "uniformly managed across all instances in prod_pool",
+        "srvctl stop service prevents logins to any instance of CDB1 using service HR"
       ],
       "anchor": "Policy-managed services default to UNIFORM cardinality."
     }
