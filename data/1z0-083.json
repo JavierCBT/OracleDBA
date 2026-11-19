@@ -58,7 +58,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "alert",
+        "Cleared",
         "unit"
       ],
       "anchor": "A metric is a measured quantity with a unit and an aggregation interval."
@@ -236,7 +236,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "back"
+        "Row",
+        "user"
       ],
       "anchor": "B and D are prerequisites for the undo-based `FLASHBACK TABLE ..."
     }
@@ -541,7 +542,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "table",
+        "DDL",
+        "owed",
         "instance"
       ],
       "anchor": "D, F and G are correct, with G subject to the tablespace and object restrictions."
@@ -829,7 +831,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "consist"
+        "image",
+        "consistent",
+        "inconsistent"
       ],
       "anchor": "Option A is true because RMAN can represent a whole backup as backup sets or image copies."
     }
@@ -962,7 +966,7 @@
     "mnemonic": {
       "keywords": [
         "DB_CACHE_SIZE",
-        "SHARED_POOL_SIZE for"
+        "Pool"
       ],
       "anchor": "Only A and C are supported by the supplied choices, so the selection count has been corrected to two."
     }
@@ -1102,7 +1106,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "snapshot can",
+        "PDB snapshot can be",
         "DBCA"
       ],
       "anchor": "A, D and E are the intended statements, but D's phrase \"no configuration required\" needs a narrow reading."
@@ -1212,7 +1216,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "install"
+        "18c",
+        "performs"
       ],
       "anchor": "B and C describe the Oracle Database server RPM workflow."
     }
@@ -1330,6 +1335,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
+        "new",
         "home",
         "patch"
       ],
@@ -1458,7 +1464,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "event"
+        "V$SESSION",
+        "V$SERVICE_EVENT"
       ],
       "anchor": "Distinguish cumulative statistics for an existing session or service from the current/most-recent wait event and from historical repositories."
     }
@@ -1777,8 +1784,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
+        "ID",
         "error",
-        "ID"
+        "Additional"
       ],
       "anchor": "A, C and F are the intended diagnostic statements, with C understood for channel-associated execution failures."
     }
@@ -1966,7 +1974,7 @@
     "mnemonic": {
       "keywords": [
         "Sorts",
-        "UGA) is located in the System Global Area (SGA) when using shared servers"
+        "private SQL area (UGA) is located in the System Global Area (SGA) when using shared servers"
       ],
       "anchor": "sorts and hash joins use SQL work areas managed as PGA memory."
     }
@@ -2082,8 +2090,8 @@
     "mnemonic": {
       "keywords": [
         "TYPICAL",
-        "forever",
-        "to ALL."
+        "ALL",
+        "forever"
       ],
       "anchor": "Option A and Option B are correct for ordinary automatic snapshot collection: `STATISTICS_LEVEL=TYPICAL` or `ALL` enables the statistics needed by AWR."
     }
@@ -2202,8 +2210,8 @@
     "mnemonic": {
       "keywords": [
         "PGA",
-        "PDB CPU",
-        "per"
+        "per",
+        "PDB CPU"
       ],
       "anchor": "A PDB resource plan manages workload inside the PDB, including a per-session PGA limit through its consumer-group directives."
     }
@@ -2256,7 +2264,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "upgrade mode. In CDB$ROOT"
+        "upgrade mode In CDB$ROOT"
       ],
       "anchor": "Option A is the documented conversion procedure."
     }
@@ -2320,9 +2328,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDBs",
+        "give",
         "enabled",
-        "a base"
+        "target PDB must be registered in a base catalog"
       ],
       "anchor": "Option A and Option B describe the delegation model."
     }
@@ -2391,7 +2399,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "converting a"
+        "application root",
+        "application seed to",
+        "regular PDB to"
       ],
       "anchor": "The intended key is Option B, Option C and Option E, but the word converting is insufficiently precise to establish a unique three-choice answer."
     }
@@ -2452,7 +2462,8 @@
     "mnemonic": {
       "keywords": [
         "table",
-        "dynamic"
+        "dynamic",
+        "tablespace"
       ],
       "anchor": "Option A, Option D and Option E match Oracle's documented `SYSBACKUP` administrative privilege set."
     }
@@ -2521,8 +2532,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "the archival",
-        "allow"
+        "SPFILE",
+        "recovered to a consistent state",
+        "ARCHIVAL attribute"
       ],
       "anchor": "KEEP` operation includes the SPFILE when the database is using one, together with the other files needed for the self-contained archival recovery goal."
     }
@@ -2587,8 +2599,8 @@
     "mnemonic": {
       "keywords": [
         "PDB1",
-        "does CDB1",
-        "mount"
+        "mount",
+        "common"
       ],
       "anchor": "creation of a PDB also creates its default service with the PDB name."
     }
@@ -2647,7 +2659,7 @@
     "mnemonic": {
       "keywords": [
         "MOUNT",
-        "PDB1_C2_SRV will be created but"
+        "created but not started"
       ],
       "anchor": "the destination PDB is created in mounted state."
     }
@@ -2704,7 +2716,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "allowed in CDB$ROOT"
+        "role"
       ],
       "anchor": "The connection shown is to the CDB default service and therefore to `CDB$ROOT`."
     }
@@ -3091,8 +3103,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "install",
-        "new"
+        "new",
+        "base",
+        "upgrade"
       ],
       "anchor": "Option B, Option D and Option F describe historical database patch sets."
     }
@@ -3618,8 +3631,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "database to CDB$ROOT",
-        "opening"
+        "opening",
+        "database to CDB$ROOT"
       ],
       "anchor": "Option B and Option G are retained for the DBCA remote-clone workflow described here."
     }
@@ -3872,8 +3885,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "It can be",
-        "get backed"
+        "can get backed up automatically",
+        "can be backed up manually as a binary copy",
+        "can be backed up manually as a trace file"
       ],
       "anchor": "A control-file backup preserves database structure and repository metadata needed to locate data files, online redo, and backups."
     }
@@ -4232,7 +4246,7 @@
     "mnemonic": {
       "keywords": [
         "/u01/app/oracle/oradata/pdb1.xml",
-        "PDB1 must"
+        "dropped"
       ],
       "anchor": "The unplug manifest records the source file paths at unplug time."
     }
@@ -4587,8 +4601,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "to CDB$ROOT",
-        "opening"
+        "opening",
+        "database to CDB$ROOT"
       ],
       "anchor": "The Oracle 19c DBCA example supplies the remote CDB connection string and the remote PDB name separately, consistent with this root-level connection."
     }
@@ -4762,7 +4776,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "group",
+        "O/S",
+        "disk",
         "Restart"
       ],
       "anchor": "Oracle Grid Infrastructure for a standalone server includes Oracle Restart and Oracle ASM (F)."
@@ -4821,6 +4836,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
+        "CDB$ROOT",
         "root"
       ],
       "anchor": "B and D are correct: a lockdown profile can be created in an application root or in CDB$ROOT, then applied at an allowed scope."
@@ -5078,8 +5094,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "manual",
-        "updated"
+        "updated",
+        "RMAN"
       ],
       "anchor": "The stem mixes DBUA and manual-upgrade contexts, so that third choice needs a qualification."
     }
@@ -5318,7 +5334,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "snapshot can"
+        "PDB snapshot can be"
       ],
       "anchor": "A PDB snapshot may be sparse when storage supports it or full otherwise, making B and E the keyed choices."
     }
@@ -5433,7 +5449,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "backup"
+        "disk",
+        "Binary"
       ],
       "anchor": "BACKUP AS COPY creates an image copy, not an RMAN backup set."
     }
@@ -5498,7 +5515,7 @@
     "mnemonic": {
       "keywords": [
         "APP1_PDB2",
-        "APP1_ROOT and"
+        "APP1_ROOT and APP1_PDB1"
       ],
       "anchor": "USER1 is an application common user in APP1_ROOT and its application PDBs."
     }
@@ -5687,8 +5704,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "table",
-        "instance"
+        "DDL",
+        "instance",
+        "SYSTEM user"
       ],
       "anchor": "RMAN table recovery uses an auxiliary instance to restore to a point in time and import the recovered table (G)."
     }
@@ -6038,7 +6056,7 @@
     "mnemonic": {
       "keywords": [
         "PDB",
-        "in CDB$ROOT"
+        "only in CDB$ROOT"
       ],
       "anchor": "DBMS_STATS.GATHER_DATABASE_STATS follows current-container scope."
     }
@@ -6097,7 +6115,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDB3 can",
+        "times",
         "unable"
       ],
       "anchor": "PDB3 has no explicit PARALLEL_SERVER_LIMIT and can use all available parallel processes at times (B)."
@@ -6158,7 +6176,7 @@
     "mnemonic": {
       "keywords": [
         "orainstRoot.sh",
-        "The root"
+        "cannot be specified"
       ],
       "anchor": "Installer automation can run orainstRoot.sh using root or sudo credentials (A)."
     }
@@ -6269,7 +6287,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "when DB_FLASHBACK_RETENTION_TARGET",
+        "time",
         "DB_FLASHBACK_RETENTION_TARGET before"
       ],
       "anchor": "A is true: when the target is lowered, logs older than the new target become eligible for removal."
@@ -6332,7 +6350,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "24 can"
+        "24 can be recovered"
       ],
       "anchor": "This is recovery of a PDB SYSTEM data file, not loss of CDB$ROOT's SYSTEM tablespace."
     }
@@ -6399,7 +6417,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "on disk"
+        "written to disk"
       ],
       "anchor": "A duplexed backup set has multiple identical copies of each backup piece, normally created during the backup operation; it is not a general tape-copy feature."
     }
@@ -6793,8 +6811,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "a likely",
-        "synchronous I/O."
+        "when using synchronous I/O.",
+        "noticeably less",
+        "then read I/O is"
       ],
       "anchor": "If validate is much faster than backup, destination writing is a likely bottleneck (C)."
     }
@@ -6858,8 +6877,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "USER1.EMP remain",
-        "USER2.DEPT fails"
+        "fails",
+        "remain"
       ],
       "anchor": "ALTER SESSION SET CONTAINER changes the current container for the session; it does not commit or roll back the existing transaction."
     }
@@ -6912,7 +6931,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "CDB1 PDB$SEED and"
+        "PDB$SEED and PDB1"
       ],
       "anchor": "fixup scripts are produced for CDB1 (the root), PDB$SEED, and PDB1, which are open in the stated configuration."
     }
@@ -6975,7 +6994,7 @@
     "mnemonic": {
       "keywords": [
         "DROP",
-        "FLASHBACK DATABASE"
+        "logs"
       ],
       "anchor": "FLASHBACK DROP uses the recycle bin to restore a dropped table and can restore its dependent indexes along with it, so D is true."
     }
@@ -7103,8 +7122,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "in PDB1",
-        "PDB1 is"
+        "closed",
+        "transactions in PDB1"
       ],
       "anchor": "SHUTDOWN IMMEDIATE issued while the session's current container is PDB1 shuts down that PDB, not the entire CDB."
     }
@@ -7239,7 +7258,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "drop requires that",
+        "drop requires that the RECYCLEBIN",
         "version query requires undo"
       ],
       "anchor": "The defensible intended pair is B and F, with an important timing qualification for B."
@@ -7306,8 +7325,8 @@
     "mnemonic": {
       "keywords": [
         "CREATE_FILE_DEST",
-        "only the PDB_FILE_NAME_CONVERT",
-        "only OMF"
+        "Set only",
+        "Enable only"
       ],
       "anchor": "B, C and E are the intended independent file-placement mechanisms."
     }
@@ -7435,9 +7454,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Pool",
-        "Line",
-        "increase the System"
+        "Large Pool",
+        "increase the System Global Area size by reducing the Program Global Area size",
+        "Decision Support Systems"
       ],
       "anchor": "Automatic Memory Management manages both SGA and PGA through MEMORY_TARGET, allowing memory to shift between them, so B is true."
     }
@@ -7502,9 +7521,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SYSTEM",
-        "file",
-        "from before the"
+        "losing all copies of the control file",
+        "losing an archived log from before the most recent backup",
+        "SYSTEM tablespace"
       ],
       "anchor": "B, D and E describe scenarios in which complete recovery is possible, subject to the normal backup, metadata and redo requirements."
     }
@@ -7564,7 +7583,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "database must be"
+        "MOUNT",
+        "RESETLOGS",
+        "ARCHIVELOG"
       ],
       "anchor": "Core idea: Database point-in-time recovery (DBPITR) restores a database backup and applies redo only up to a chosen target."
     }
@@ -7685,7 +7706,7 @@
     "mnemonic": {
       "keywords": [
         "CDB$ROOT",
-        "RMAN DUPLICATE"
+        "PDBs"
       ],
       "anchor": "Core idea: RMAN PDB duplication creates PDB copies inside a valid destination CDB."
     }
@@ -7816,8 +7837,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "PDB",
-        "C##_APP_USER1"
+        "APP1_ROOT",
+        "C##_APP_USER1",
+        "PDB1"
       ],
       "anchor": "A, C and D are true with the supplied names and COMMON_USER_PREFIX=C##."
     }
@@ -8425,7 +8447,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "partition"
+        "key",
+        "PDBs"
       ],
       "anchor": "C and F are the defensible choices for ordinary queries issued in the application root."
     }
@@ -8483,7 +8506,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "CREATE"
+        "CREATE",
+        "ends"
       ],
       "anchor": "Core idea: Remote PDB cloning uses a database link to copy a PDB from a source CDB into a destination CDB."
     }
@@ -8552,7 +8576,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "data"
+        "IMAGE",
+        "shut",
+        "files"
       ],
       "anchor": "Core idea: A user-managed backup copies database files with operating-system tools."
     }
@@ -9079,8 +9105,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "users",
-        "a PDB."
+        "importing full exports",
+        "convert conventional database users to local users",
+        "convert common users to conventional users"
       ],
       "anchor": "A, B and D describe an ordinary privileged full or schema movement under the relevant import prerequisites."
     }
@@ -9316,7 +9343,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "run"
+        "AWR",
+        "DBA"
       ],
       "anchor": "Core idea: ADDM analyzes database performance using AWR snapshots and reports findings with likely causes and recommended actions."
     }
@@ -9391,8 +9419,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "can be used",
-        "NOREDO"
+        "NOREDO",
+        "duplicated can be used"
       ],
       "anchor": "Core idea: Backup-based RMAN duplication without a TARGET connection uses existing backup pieces accessible to the auxiliary instance."
     }
@@ -9586,7 +9614,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "a physical"
+        "done on that physical standby database",
+        "done on its primary database"
       ],
       "anchor": "Core idea: Automatic block repair can replace a corrupted block by retrieving a good copy from a Data Guard partner."
     }
@@ -9709,8 +9738,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SET ENCRYPTION",
-        "keys"
+        "keys",
+        "settings"
       ],
       "anchor": "Core idea: RMAN supports transparent keystore-based encryption, password-based encryption, and dual-mode encryption."
     }
@@ -9780,7 +9809,7 @@
     "mnemonic": {
       "keywords": [
         "done",
-        "RPM can"
+        "RPM can be used"
       ],
       "anchor": "It is recommended but not mandatory."
     }
@@ -9910,7 +9939,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Privilege",
+        "Vault",
+        "granted",
         "directly"
       ],
       "anchor": "Core idea: 19c schema-only accounts separate ownership of objects from password-based logon."
@@ -9975,7 +10005,7 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "file"
+        "self-contained"
       ],
       "anchor": "Core idea: RMAN KEEP creates an archival backup exempt from the configured retention policy until the specified time."
     }
@@ -10040,7 +10070,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "alert"
+        "alert",
+        "manually"
       ],
       "anchor": "B, C and E are defensible when the question includes Enterprise Manager alert management as well as the database server alert-history lifecycle."
     }
@@ -10104,7 +10135,7 @@
     "mnemonic": {
       "keywords": [
         "ARCHIVELOG",
-        "can be done"
+        "Backups can be done"
       ],
       "anchor": "Core idea: An open RMAN backup is inconsistent while it is being read, so Oracle must have redo available to make the restored files consistent."
     }
@@ -10179,8 +10210,9 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "backup set.",
-        "files"
+        "files",
+        "belong",
+        "pieces"
       ],
       "anchor": "Core idea: A backup set is RMAN's logical container for backed-up blocks; it consists of one or more backup pieces."
     }
@@ -10428,7 +10460,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "Advisor can"
+        "check",
+        "database is closed"
       ],
       "anchor": "Core idea: Data Recovery Advisor (DRA) inspects failure information and can proactively check for problems."
     }
@@ -10486,7 +10519,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "It can be"
+        "Grid",
+        "upgrade"
       ],
       "anchor": "Core idea: A gold image is a prepared Oracle software home that can be deployed across hosts."
     }
@@ -10548,8 +10582,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "RMAN",
-        "can be written to"
+        "CONFIGURE command to specify duplexing",
+        "can be written to media"
       ],
       "anchor": "Core idea: RMAN duplexing creates identical copies of a backup set."
     }
@@ -11005,8 +11039,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "HR_ROOT",
-        "root in the local"
+        "HR_ROOT replica must exist in the remote CDB",
+        "proxy PDB must exist in the application root in the local CDB"
       ],
       "anchor": "The application container needs a local proxy PDB and the corresponding remote application-root replica."
     }
@@ -11060,7 +11094,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "SQL statement"
+        "best",
+        "tuned"
       ],
       "anchor": "Core idea: SQL tuning is a workload problem."
     }
@@ -11118,8 +11153,8 @@
     "review_date": "2026-11-10",
     "mnemonic": {
       "keywords": [
-        "middleware",
-        "and Oracle Grid Infrastructure including"
+        "applications and middleware",
+        "both Oracle Database and Oracle Grid Infrastructure, including Oracle Restart"
       ],
       "anchor": "Core idea: Rapid Home Provisioning centrally deploys and manages Oracle software homes and supported application or middleware software."
     }
