@@ -302,9 +302,10 @@
         <div class="question-card" style="text-align:center; padding:40px;">
           <h3>🎉 No pending questions in this filter!</h3>
           <p style="color:var(--text-muted); margin-top:10px;">You have mastered all questions or no questions matched your search criteria.</p>
-          <button style="margin-top:16px;" onclick="document.getElementById('hide-mastered').checked=false; renderCurrentQuestion();">Show Mastered Questions</button>
+          <button style="margin-top:16px;" onclick="document.getElementById('hide-mastered').checked=false; OracleApp.renderCurrentQuestion();">Show Mastered Questions</button>
         </div>
       `;
+      updateHeaderStats();
       return;
     }
 
@@ -420,11 +421,20 @@
     `;
   }
 
+  function getCurrentQuestion() {
+    if (currentQuestionId !== null) {
+      const match = ALL_QUESTIONS.find(q => q.id === currentQuestionId);
+      if (match) return match;
+    }
+    const filtered = getFilteredQuestions();
+    return filtered[currentIndex] || null;
+  }
+
   function toggleOption(key) {
     if (checkedCurrent || currentMode === 'memory') return;
 
-    const filtered = getFilteredQuestions();
-    const q = filtered[currentIndex];
+    const q = getCurrentQuestion();
+    if (!q) return;
     const maxSelect = q.select_count || 1;
 
     if (maxSelect === 1) {
@@ -457,8 +467,8 @@
 
   function verifyAnswer() {
     if (checkedCurrent || currentMode === 'memory') return;
-    const filtered = getFilteredQuestions();
-    const q = filtered[currentIndex];
+    const q = getCurrentQuestion();
+    if (!q) return;
 
     if (selectedAnswers.size === 0) {
       alert('Please select at least one option.');
@@ -517,15 +527,53 @@
     }
   }
 
+  function findTargetIndexAfterRemoval(filtered, curId, direction) {
+    const bankIndexById = new Map();
+    ALL_QUESTIONS.forEach((q, idx) => bankIndexById.set(q.id, idx));
+
+    const curBankIndex = bankIndexById.get(curId);
+    if (curBankIndex === undefined) {
+      return direction > 0
+        ? Math.min(currentIndex, filtered.length - 1)
+        : Math.max(currentIndex - 1, 0);
+    }
+
+    if (direction > 0) {
+      const nextIdx = filtered.findIndex(q => bankIndexById.get(q.id) > curBankIndex);
+      return nextIdx !== -1 ? nextIdx : 0;
+    }
+
+    for (let i = filtered.length - 1; i >= 0; i--) {
+      if (bankIndexById.get(filtered[i].id) < curBankIndex) {
+        return i;
+      }
+    }
+    return filtered.length - 1;
+  }
+
   function prevQuestion() { moveQuestion(-1); }
   function nextQuestion() { moveQuestion(1); }
 
   function moveQuestion(direction) {
     const filtered = getFilteredQuestions();
-    if (filtered.length <= 1) return;
-    currentIndex += direction;
-    if (currentIndex >= filtered.length) currentIndex = 0;
-    if (currentIndex < 0) currentIndex = filtered.length - 1;
+    if (filtered.length === 0) {
+      if (currentQuestionId !== null) {
+        currentIndex = 0;
+        renderCurrentQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    const curPos = filtered.findIndex(q => q.id === currentQuestionId);
+    if (curPos !== -1) {
+      if (filtered.length <= 1) return;
+      currentIndex = ((curPos + direction) % filtered.length + filtered.length) % filtered.length;
+    } else {
+      // Current question was filtered out (e.g. mastered or cleared from weak list)
+      currentIndex = findTargetIndexAfterRemoval(filtered, currentQuestionId, direction);
+    }
+
     renderCurrentQuestion();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -976,6 +1024,7 @@
   // Public API
   global.OracleApp = {
     init: initExamSimulator,
+    renderCurrentQuestion: renderCurrentQuestion,
     updateHeaderStats: updateHeaderStats,
     setMode: setMode,
     toggleOption: toggleOption,
