@@ -2497,7 +2497,7 @@
     "domain": "asm",
     "type": "multiple",
     "select_count": 2,
-    "text": "Which two statements are true about ASM Cloud File System (ACFS) replication? (Choose two.)",
+    "text": "Which two statements are true about ASM Cluster File System (ACFS) replication? (Choose two.)",
     "options": [
       {
         "letter": "A",
@@ -2951,7 +2951,7 @@
     "domain": "asm",
     "type": "multiple",
     "select_count": 3,
-    "text": "Which three statements are true about ASM Cloud File System (ACFS) encryption? (Choose three.)",
+    "text": "Which three statements are true about ASM Cluster File System (ACFS) encryption? (Choose three.)",
     "options": [
       {
         "letter": "A",
@@ -3602,7 +3602,7 @@
     "domain": "asm",
     "type": "multiple",
     "select_count": 3,
-    "text": "Which three statements are true about ASM Cloud File System (ACFS) auditing? (Choose three.)",
+    "text": "Which three statements are true about ASM Cluster File System (ACFS) auditing? (Choose three.)",
     "options": [
       {
         "letter": "A",

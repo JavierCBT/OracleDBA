@@ -1,4 +1,4 @@
-const CACHE_NAME = 'oracledba-cache-v12';
+const CACHE_NAME = 'oracledba-cache-v13';
 
 const STATIC_ASSETS = [
   './',
