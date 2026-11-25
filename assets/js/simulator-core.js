@@ -26,6 +26,11 @@
   let userStats = {};
   let masteryThreshold = 3;
   let currentMode = 'study'; // 'study', 'exam', 'weak', 'memory'
+  let activeFilters = {
+    domain: null,
+    choice: null,
+    status: null
+  };
   let selectedAnswers = new Set();
   let checkedCurrent = false;
 
@@ -190,6 +195,57 @@
     if (activeEl) activeEl.innerText = filtered.length;
   }
 
+  function getQuestionDomain(q) {
+    return String((q && q.domain) || '').trim().toLowerCase();
+  }
+
+  function getQuestionSelectCount(q) {
+    if (q && (q.type === 'multiple' || (q.select_count && q.select_count > 1))) {
+      return q.select_count || 2;
+    }
+    return 1;
+  }
+
+  function getQuestionStatus(q) {
+    return q && q.review_status === 'ambiguous' ? 'ambiguous' : 'verified';
+  }
+
+  function hasActiveBadgeFilters() {
+    return Boolean(activeFilters.domain || activeFilters.choice !== null || activeFilters.status);
+  }
+
+  function resetBadgeFilters() {
+    activeFilters.domain = null;
+    activeFilters.choice = null;
+    activeFilters.status = null;
+  }
+
+  function matchesBadgeFilters(q) {
+    if (activeFilters.domain && getQuestionDomain(q) !== activeFilters.domain) {
+      return false;
+    }
+    if (activeFilters.choice !== null && getQuestionSelectCount(q) !== activeFilters.choice) {
+      return false;
+    }
+    if (activeFilters.status && getQuestionStatus(q) !== activeFilters.status) {
+      return false;
+    }
+    return true;
+  }
+
+  function matchesSearchQuery(q, query) {
+    if (!query) return true;
+    const numMatch = query.match(/^#?(\d+)$/);
+    if (numMatch) {
+      return q.id === parseInt(numMatch[1], 10);
+    }
+    const textMatch = (q.text || '').toLowerCase().includes(query);
+    const domainMatch = (q.domain || '').toLowerCase().includes(query);
+    const optMatch = (q.options || []).some(o => (o.text || '').toLowerCase().includes(query));
+    const expMatch = (q.explanation || '').toLowerCase().includes(query);
+    return textMatch || domainMatch || optMatch || expMatch;
+  }
+
   function getFilteredQuestions() {
     if (currentMode === 'exam') return examQuestions;
 
@@ -206,18 +262,11 @@
         return false;
       }
 
-      if (query) {
-        const numMatch = query.match(/^#?(\d+)$/);
-        if (numMatch) {
-          return q.id === parseInt(numMatch[1], 10);
-        }
-        const textMatch = (q.text || '').toLowerCase().includes(query);
-        const domainMatch = (q.domain || '').toLowerCase().includes(query);
-        const optMatch = (q.options || []).some(o => (o.text || '').toLowerCase().includes(query));
-        const expMatch = (q.explanation || '').toLowerCase().includes(query);
-        return textMatch || domainMatch || optMatch || expMatch;
+      if (!matchesBadgeFilters(q)) {
+        return false;
       }
-      return true;
+
+      return matchesSearchQuery(q, query);
     });
   }
 
@@ -291,6 +340,168 @@
     timerEl.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   }
 
+  function getBadgeDescriptor(type, value) {
+    if (type === 'domain') {
+      const val = String(value || '').trim().toLowerCase();
+      return { type: 'domain', value: val, label: val.toUpperCase(), cls: 'badge-domain' };
+    }
+    if (type === 'choice') {
+      const count = parseInt(value, 10) || 1;
+      const isSingle = count === 1;
+      return {
+        type: 'choice',
+        value: String(count),
+        label: isSingle ? 'Single Choice' : `Choose ${count}`,
+        cls: isSingle ? 'badge-req single' : 'badge-req'
+      };
+    }
+    const isAmbiguous = value === 'ambiguous';
+    return {
+      type: 'status',
+      value: isAmbiguous ? 'ambiguous' : 'verified',
+      label: isAmbiguous ? '⚠️ Ambiguous' : '✓ Verified',
+      cls: isAmbiguous ? 'badge-ambiguous' : 'badge-verified'
+    };
+  }
+
+  function renderBadgeButton(descriptor, isActive, title) {
+    const titleAttr = title ? ` title="${escapeHtml(title)}"` : '';
+    if (currentMode === 'exam') {
+      return `<span class="badge ${descriptor.cls}"${titleAttr}>${escapeHtml(descriptor.label)}</span>`;
+    }
+    return `<button type="button" class="badge ${descriptor.cls} badge-filter${isActive ? ' active' : ''}" data-filter-type="${descriptor.type}" data-filter-value="${escapeHtml(descriptor.value)}" aria-pressed="${isActive}"${titleAttr} onclick="OracleApp.toggleBadgeFilter(this.dataset.filterType, this.dataset.filterValue)">${escapeHtml(descriptor.label)}${isActive ? '<span class="badge-filter-x" aria-hidden="true">×</span>' : ''}</button>`;
+  }
+
+  function renderQuestionBadges(q) {
+    const domain = getQuestionDomain(q);
+    const selectCount = getQuestionSelectCount(q);
+    const status = getQuestionStatus(q);
+
+    const items = [];
+    if (domain) {
+      items.push({ descriptor: getBadgeDescriptor('domain', domain), isActive: activeFilters.domain === domain, notePrefix: '' });
+    }
+    items.push({ descriptor: getBadgeDescriptor('choice', selectCount), isActive: activeFilters.choice === selectCount, notePrefix: '' });
+    items.push({
+      descriptor: getBadgeDescriptor('status', status),
+      isActive: activeFilters.status === status,
+      notePrefix: q.review_note ? `${q.review_note} — ` : ''
+    });
+
+    const badgesHtml = items.map(({ descriptor, isActive, notePrefix }) => {
+      const title = currentMode === 'exam'
+        ? (notePrefix ? q.review_note : '')
+        : `${notePrefix}${isActive ? `Active filter: ${descriptor.label} (click to clear)` : `Filter by ${descriptor.label}`}`;
+      return renderBadgeButton(descriptor, isActive, title);
+    }).join('');
+
+    return `<span class="badge badge-id">#${q.id}</span>${badgesHtml}`;
+  }
+
+  function renderActiveFiltersBar() {
+    const filtersEl = document.getElementById('study-filters');
+    if (!filtersEl) return;
+
+    let bar = document.getElementById('active-badge-filters');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.id = 'active-badge-filters';
+      bar.className = 'active-filters-bar';
+      filtersEl.appendChild(bar);
+    }
+
+    if (currentMode === 'exam' || !hasActiveBadgeFilters()) {
+      bar.style.display = 'none';
+      bar.innerHTML = '';
+      return;
+    }
+
+    const chips = [
+      activeFilters.domain ? getBadgeDescriptor('domain', activeFilters.domain) : null,
+      activeFilters.choice !== null ? getBadgeDescriptor('choice', activeFilters.choice) : null,
+      activeFilters.status ? getBadgeDescriptor('status', activeFilters.status) : null
+    ].filter(Boolean);
+
+    const chipsHtml = chips.map(c => `
+      <button type="button" class="badge ${c.cls} active-filter-chip" data-filter-type="${c.type}" data-filter-value="${escapeHtml(c.value)}" title="Remove ${escapeHtml(c.label)} filter" onclick="OracleApp.toggleBadgeFilter(this.dataset.filterType, this.dataset.filterValue)">
+        ${escapeHtml(c.label)}<span class="badge-filter-x" aria-hidden="true">×</span>
+      </button>
+    `).join('');
+
+    bar.innerHTML = `
+      <span class="active-filters-label">Active filters:</span>
+      <div class="active-filters-chips">${chipsHtml}</div>
+      <button type="button" class="clear-filters-btn" onclick="OracleApp.clearBadgeFilters()">Clear all</button>
+    `;
+    bar.style.display = 'flex';
+  }
+
+  function applyBadgeFilterUpdate() {
+    const filtered = getFilteredQuestions();
+    if (currentQuestionId !== null) {
+      const matchPos = filtered.findIndex(q => q.id === currentQuestionId);
+      if (matchPos !== -1) {
+        currentIndex = matchPos;
+        const badgesEl = document.querySelector('#quiz-container .q-meta .badges');
+        if (badgesEl) {
+          badgesEl.innerHTML = renderQuestionBadges(filtered[matchPos]);
+        }
+        const counterText = `${currentIndex + 1} of ${filtered.length}`;
+        document.querySelectorAll('.q-counter').forEach(el => {
+          el.textContent = counterText;
+        });
+        renderActiveFiltersBar();
+        updateHeaderStats();
+        return;
+      }
+    }
+
+    currentIndex = 0;
+    renderCurrentQuestion();
+  }
+
+  function toggleBadgeFilter(filterType, rawValue) {
+    if (currentMode === 'exam') return;
+
+    let normalized;
+    if (filterType === 'domain') {
+      normalized = String(rawValue || '').trim().toLowerCase();
+      if (!normalized) return;
+    } else if (filterType === 'choice') {
+      normalized = parseInt(rawValue, 10);
+      if (isNaN(normalized)) return;
+    } else if (filterType === 'status') {
+      normalized = String(rawValue || '').trim().toLowerCase();
+      if (normalized !== 'ambiguous' && normalized !== 'verified') return;
+    } else {
+      return;
+    }
+
+    if (activeFilters[filterType] === normalized) {
+      activeFilters[filterType] = null;
+    } else {
+      activeFilters[filterType] = normalized;
+      const searchInput = document.getElementById('search-input');
+      if (searchInput && /^#?\d+$/.test(searchInput.value.trim())) {
+        searchInput.value = '';
+      }
+    }
+
+    applyBadgeFilterUpdate();
+  }
+
+  function clearBadgeFilters() {
+    resetBadgeFilters();
+    applyBadgeFilterUpdate();
+  }
+
+  function clearAllFilters() {
+    resetBadgeFilters();
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) searchInput.value = '';
+    applyBadgeFilterUpdate();
+  }
+
   function renderCurrentQuestion() {
     const filtered = getFilteredQuestions();
     const container = document.getElementById('quiz-container');
@@ -298,13 +509,30 @@
 
     if (filtered.length === 0) {
       currentQuestionId = null;
+      const hideMasteredEl = document.getElementById('hide-mastered');
+      const hideMasteredChecked = Boolean(hideMasteredEl && hideMasteredEl.checked);
+      const searchInput = document.getElementById('search-input');
+      const hasSearch = Boolean(searchInput && searchInput.value.trim());
+      const hasFilters = hasActiveBadgeFilters() || hasSearch;
+
+      const actions = [];
+      if (hasFilters) {
+        actions.push(`<button type="button" class="primary" onclick="OracleApp.clearAllFilters()">Clear Filters</button>`);
+      }
+      if (hideMasteredChecked) {
+        actions.push(`<button type="button" onclick="document.getElementById('hide-mastered').checked=false; OracleApp.renderCurrentQuestion();">Show Mastered Questions</button>`);
+      }
+
       container.innerHTML = questionNavigationMarkup('0 of 0') + `
         <div class="question-card" style="text-align:center; padding:40px;">
           <h3>🎉 No pending questions in this filter!</h3>
           <p style="color:var(--text-muted); margin-top:10px;">You have mastered all questions or no questions matched your search criteria.</p>
-          <button style="margin-top:16px;" onclick="document.getElementById('hide-mastered').checked=false; OracleApp.renderCurrentQuestion();">Show Mastered Questions</button>
+          <div style="margin-top:16px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+            ${actions.join('')}
+          </div>
         </div>
       `;
+      renderActiveFiltersBar();
       updateHeaderStats();
       return;
     }
@@ -323,16 +551,7 @@
 
     const s = userStats[q.id] || { streak: 0, correct: 0, wrong: 0, mastered: false };
     const counterText = `${currentIndex + 1} of ${filtered.length}`;
-
-    const isSingle = (q.type === 'single' || (q.select_count || 1) === 1);
-    let reqBadge = `<span class="badge badge-req single">Single Choice</span>`;
-    if (q.type === 'multiple' || q.select_count > 1) {
-      reqBadge = `<span class="badge badge-req">Choose ${q.select_count}</span>`;
-    }
-
-    const statusBadge = q.review_status === 'ambiguous'
-      ? `<span class="badge badge-ambiguous" title="${escapeHtml(q.review_note || '')}">⚠️ Ambiguous</span>`
-      : `<span class="badge badge-verified">✓ Verified</span>`;
+    const isSingle = getQuestionSelectCount(q) === 1;
 
     let optionsMarkup = '';
     const isMemory = (currentMode === 'memory');
@@ -374,10 +593,7 @@
       <div class="question-card" id="card-${q.id}">
         <div class="q-meta">
           <div class="badges">
-            <span class="badge badge-id">#${q.id}</span>
-            <span class="badge badge-domain">${(q.domain || '').toUpperCase()}</span>
-            ${reqBadge}
-            ${statusBadge}
+            ${renderQuestionBadges(q)}
           </div>
           <div class="streak-indicator">
             Streak: <strong>${s.streak} / ${masteryThreshold}</strong>
@@ -400,6 +616,7 @@
       ${questionNavigationMarkup(counterText, q.id)}
     `;
 
+    renderActiveFiltersBar();
     updateHeaderStats();
   }
 
@@ -413,7 +630,7 @@
             <input type="number" class="question-jump-input" min="1" max="${ALL_QUESTIONS.length}" step="1" value="${curId}" inputmode="numeric" aria-label="Question number to display" onfocus="this.select()" oninput="OracleApp.syncJumpInputs(this.value)">
             <button type="submit">Go</button>
           </form>
-          <span style="font-size:0.85rem; color:var(--text-muted);">${counterText}</span>
+          <span class="q-counter" style="font-size:0.85rem; color:var(--text-muted);">${counterText}</span>
           <div class="q-jump-feedback" aria-live="polite"></div>
         </div>
         <button type="button" class="nav-next" onclick="OracleApp.nextQuestion()" aria-label="Next question">Next &gt;</button>
@@ -649,23 +866,30 @@
       return;
     }
 
-    // Question exists in bank but is hidden by filter (e.g. hide-mastered or search):
+    // Question exists in bank but is hidden by filter (e.g. hide-mastered, search, or badge filters):
     // Unhide it automatically so the user lands on the requested question!
     let filterAdjusted = false;
+    const targetStats = userStats[qTarget.id];
+
+    if (currentMode === 'weak' && !(targetStats && targetStats.streak === 0 && targetStats.wrong > 0)) {
+      setMode('study');
+      filterAdjusted = true;
+    }
+
     const hideMasteredEl = document.getElementById('hide-mastered');
-    if (hideMasteredEl && hideMasteredEl.checked) {
+    if (hideMasteredEl && hideMasteredEl.checked && targetStats && targetStats.mastered) {
       hideMasteredEl.checked = false;
       filterAdjusted = true;
     }
 
     const searchInput = document.getElementById('search-input');
-    if (searchInput && searchInput.value) {
+    if (searchInput && searchInput.value && !matchesSearchQuery(qTarget, searchInput.value.trim().toLowerCase())) {
       searchInput.value = '';
       filterAdjusted = true;
     }
 
-    if (currentMode === 'weak') {
-      setMode('study');
+    if (hasActiveBadgeFilters() && !matchesBadgeFilters(qTarget)) {
+      resetBadgeFilters();
       filterAdjusted = true;
     }
 
@@ -1034,6 +1258,9 @@
     jumpToQuestion: jumpToQuestion,
     syncJumpInputs: syncJumpInputs,
     onSearch: onSearch,
+    toggleBadgeFilter: toggleBadgeFilter,
+    clearBadgeFilters: clearBadgeFilters,
+    clearAllFilters: clearAllFilters,
     finishExam: finishExam,
     updateThreshold: updateThreshold,
     resetQuestionStreak: resetQuestionStreak,
